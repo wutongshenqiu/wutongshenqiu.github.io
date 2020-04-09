@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="v2ray-configure, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="First Steps, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>v2ray-configure | qiufeng&#39;s blog</title>
+    <title>First Steps | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -340,12 +340,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">v2ray-configure</h1>
+                    <h1 class="description center-align post-title">First Steps</h1>
                 </div>
             </div>
         </div>
@@ -470,8 +470,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/v2ray/">
-                                <span class="chip bg-color">v2ray</span>
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/fastapi/">
+                                <span class="chip bg-color">fastapi</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -482,8 +490,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/tools/" class="post-category">
-                                tools
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -495,7 +503,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-09
                 </div>
                 
 
@@ -504,7 +512,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    303
                 </div>
                 
 
@@ -527,7 +535,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="记录一下怕自己忘记了"><a href="#记录一下怕自己忘记了" class="headerlink" title="记录一下怕自己忘记了"></a>记录一下怕自己忘记了</h4><p><a href="https://www.ecsoe.com/archives/38.html" target="_blank" rel="noopener">v2配置</a><br><a href="https://www.4spaces.org/speed-up-your-vps-with-bbr-plus/" target="_blank" rel="noopener">v2加速</a><br><a href="https://blog.sprov.xyz/2019/03/11/" target="_blank" rel="noopener">cdn加速</a><br><a href="https://clients.hostwinds.com/" target="_blank" rel="noopener">hostwind 服务器</a><br><a href="https://www.namesilo.com/" target="_blank" rel="noopener">namesilo 域名网站</a></p>
+                <h4 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h4><h5 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello World"</span><span class="token punctuation">}</span></code></pre>
+<h5 id="启动-uvicorn-命令"><a href="#启动-uvicorn-命令" class="headerlink" title="启动 uvicorn 命令"></a>启动 uvicorn 命令</h5><pre class=" language-bash"><code class="language-bash">uvicorn main:app --reload</code></pre>
+<ul>
+<li>main：python 的模块，即文件 main.py</li>
+<li>app：指 <code>python app=FastAPI()</code> 中的app</li>
+<li>–reload：代码改变时重启服务器，<strong>只用于开发</strong></li>
+</ul>
+<h4 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h4><ul>
+<li>交互式：位于 <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">http://127.0.0.1:8000/docs</a></li>
+<li>参考文档：位于 <a href="http://127.0.0.1:8000/redoc" target="_blank" rel="noopener">http://127.0.0.1:8000/redoc</a></li>
+</ul>
+<h4 id="OpenAPI"><a href="#OpenAPI" class="headerlink" title="OpenAPI"></a>OpenAPI</h4><ul>
+<li><strong>FastAPI</strong> 使用 <strong>OpenAPI</strong> 标准 (定义API协议的规范) 来生成定义API的 <em>协议</em> (对某些东西的抽象描述，而不是具体的实现)</li>
+<li>可以在 <a href="http://127.0.0.1:8000/openapi.json" target="_blank" rel="noopener">http://127.0.0.1:8000/openapi.json</a> 查看自动生成的 <strong>OpenAPI</strong> 协议，该协议可以用来生成API文档和与前端、移动设备和物联网应用的代码(例如mock server？)</li>
+</ul>
+<h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><ul>
+<li><strong>FastAPI</strong> 直接继承于 <strong>Starlette</strong> </li>
+<li><strong>path</strong>：也称为 <strong>endpoint</strong> 或者 <strong>route</strong> ，指 URL 中从第一个 <code>/</code> 开始的部分</li>
+<li><strong>Operation</strong>：指 HTTP 的方法，如 <code>POST</code>、<code>GET</code>、<code>PUT</code> 等</li>
+<li><strong>FastAPI</strong> 可以将大多数的对象和模型自动转化为 <strong>JSON</strong> ，包括 ORMs</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -571,7 +606,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/v2ray-configure/">https://beasuna.xyz/v2ray-configure/</a>
+                    <a href="https://beasuna.xyz/fastapi-first-steps/">https://beasuna.xyz/fastapi-first-steps/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -609,8 +644,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/v2ray/">
-                                    <span class="chip bg-color">v2ray</span>
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/fastapi/">
+                                    <span class="chip bg-color">fastapi</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -781,7 +824,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-07T19-59-11',
+        id: '2020-04-09T23-14-00',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -805,9 +848,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/fastapi-first-steps/">
                     <div class="card-image">
@@ -832,9 +876,9 @@ async def root():
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -847,6 +891,7 @@ async def root():
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -873,28 +918,22 @@ async def root():
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/socket-jia-mi-tong-xin/">
+                <a href="/v2ray-configure/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="socket加密通信">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="v2ray-configure">
                         
-                        <span class="card-title">socket加密通信</span>
+                        <span class="card-title">v2ray-configure</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程思路：
-客户端和服务器端建立连接
-客户端产生非对称密钥，将公钥传送给服务器端
-服务器端通过公钥将密钥进行加密并传送给客户端
-客户端接收到密钥并进行解密，双方开始通信
+                            记录一下怕自己忘记了v2配置v2加速cdn加速hostwind 服务器namesilo 域名网站
 
-
-背景资料：
-AES原理(图解密码技术第三章)
-RSA原理(图解密码
+        document.querySelectorAll('.github-emoji')
+          .forEach(
                         
                     </div>
                     <div class="publish-info">
@@ -905,8 +944,8 @@ RSA原理(图解密码
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cryptography/" class="post-category">
-                                    cryptography
+                            <a href="/categories/tools/" class="post-category">
+                                    tools
                                 </a>
                             
                             
@@ -916,12 +955,8 @@ RSA原理(图解密码
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/v2ray/">
+                        <span class="chip bg-color">v2ray</span>
                     </a>
                     
                 </div>
@@ -1059,13 +1094,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
     <footer class="page-footer bg-color">

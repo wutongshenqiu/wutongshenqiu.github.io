@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>First Steps</title>
+      <link href="/fastapi-first-steps/"/>
+      <url>/fastapi-first-steps/</url>
+      
+        <content type="html"><![CDATA[<h4 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h4><h5 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPIapp <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span><span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello World"</span><span class="token punctuation">}</span></code></pre><h5 id="启动-uvicorn-命令"><a href="#启动-uvicorn-命令" class="headerlink" title="启动 uvicorn 命令"></a>启动 uvicorn 命令</h5><pre class=" language-bash"><code class="language-bash">uvicorn main:app --reload</code></pre><ul><li>main：python 的模块，即文件 main.py</li><li>app：指 <code>python app=FastAPI()</code> 中的app</li><li>–reload：代码改变时重启服务器，<strong>只用于开发</strong></li></ul><h4 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h4><ul><li>交互式：位于 <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">http://127.0.0.1:8000/docs</a></li><li>参考文档：位于 <a href="http://127.0.0.1:8000/redoc" target="_blank" rel="noopener">http://127.0.0.1:8000/redoc</a></li></ul><h4 id="OpenAPI"><a href="#OpenAPI" class="headerlink" title="OpenAPI"></a>OpenAPI</h4><ul><li><strong>FastAPI</strong> 使用 <strong>OpenAPI</strong> 标准 (定义API协议的规范) 来生成定义API的 <em>协议</em> (对某些东西的抽象描述，而不是具体的实现)</li><li>可以在 <a href="http://127.0.0.1:8000/openapi.json" target="_blank" rel="noopener">http://127.0.0.1:8000/openapi.json</a> 查看自动生成的 <strong>OpenAPI</strong> 协议，该协议可以用来生成API文档和与前端、移动设备和物联网应用的代码(例如mock server？)</li></ul><h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><ul><li><strong>FastAPI</strong> 直接继承于 <strong>Starlette</strong> </li><li><strong>path</strong>：也称为 <strong>endpoint</strong> 或者 <strong>route</strong> ，指 URL 中从第一个 <code>/</code> 开始的部分</li><li><strong>Operation</strong>：指 HTTP 的方法，如 <code>POST</code>、<code>GET</code>、<code>PUT</code> 等</li><li><strong>FastAPI</strong> 可以将大多数的对象和模型自动转化为 <strong>JSON</strong> ，包括 ORMs</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> fastapi </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>v2ray-configure</title>
       <link href="/v2ray-configure/"/>
       <url>/v2ray-configure/</url>
