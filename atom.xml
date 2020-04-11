@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-11T15:21:35.958Z</updated>
+  <updated>2020-04-11T16:00:14.343Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fastapi Query Parameters and String Validations</title>
+    <link href="https://beasuna.xyz/fastapi-query-parameters-and-string-validations/"/>
+    <id>https://beasuna.xyz/fastapi-query-parameters-and-string-validations/</id>
+    <published>2020-04-11T15:59:35.000Z</published>
+    <updated>2020-04-11T16:00:14.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Query-Parameters-and-String-Validations&quot;&gt;&lt;a href=&quot;#Query-Parameters-and-String-Validations&quot; class=&quot;headerlink&quot; title=&quot;Query
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>python 函数参数</title>

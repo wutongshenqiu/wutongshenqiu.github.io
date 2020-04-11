@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python 函数参数, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="fastapi Query Parameters and String Validations, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>python 函数参数 | qiufeng&#39;s blog</title>
+    <title>fastapi Query Parameters and String Validations | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python 函数参数</h1>
+                    <h1 class="description center-align post-title">fastapi Query Parameters and String Validations</h1>
                 </div>
             </div>
         </div>
@@ -492,8 +492,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/fastapi/">
+                                <span class="chip bg-color">fastapi</span>
+                            </a>
+                        
                             <a href="/tags/python/">
                                 <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -526,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    338
+                    934
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -549,26 +557,171 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="可接受任意数量参数的函数"><a href="#可接受任意数量参数的函数" class="headerlink" title="可接受任意数量参数的函数"></a>可接受任意数量参数的函数</h3><p><strong>使用 * 参数，可以让一个函数接受任意数量的位置参数</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
-<p>在上述例子中，<code>args</code> 是一个由除 <code>arg</code> 以外所有位置参数组成的元组</p>
-<p><strong>使用 ** 参数，可以让一个函数接受任意数量的关键字参数</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
-<p>在上述例子中，<code>kwargs</code> 是包含被传入进来的关键字参数字典</p>
-<p><strong>同时使用 * 和 **，能够让函数接受任意数量的位置参数和关键字参数</strong></p>
-<h3 id="只接受关键字参数的函数"><a href="#只接受关键字参数的函数" class="headerlink" title="只接受关键字参数的函数"></a>只接受关键字参数的函数</h3><p><strong>将参数放在 *参数或者单个 *后面</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span>
+                <h3 id="Query-Parameters-and-String-Validations"><a href="#Query-Parameters-and-String-Validations" class="headerlink" title="Query Parameters and String Validations"></a>Query Parameters and String Validations</h3><p><strong>FastAPI</strong> 允许对参数进行验证和声明附加信息</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-<span class="token keyword">def</span> <span class="token function">other_test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
-<p>在上述例子中，<code>key</code> 必须为关键字参数</p>
-<h3 id="仅限位置形参"><a href="#仅限位置形参" class="headerlink" title="仅限位置形参"></a>仅限位置形参</h3><p><strong>使用 <code>/</code> 指明某些函数的形参必须使用仅限位置而非关键字参数的形式</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span></code></pre>
-<p>在上述例子中，<code>a</code>，<code>b</code> 为仅限位置形参，<code>c</code>，<code>d</code> 可以是位置形参也可以是关键字形参，<code>e</code> ，<code>f</code>必须为关键字形参</p>
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> str <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p>参数 <code>q</code> 的类型是 <code>str</code>，默认值为 <code>None</code>，因此是可选的</p>
+<h3 id="Additional-validation"><a href="#Additional-validation" class="headerlink" title="Additional validation"></a>Additional validation</h3><p>下面的例子强制要求即使 <code>q</code> 是可选的，但是只要被提供，长度就不能超过 50 个字符</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span> max_length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>导入 <code>Query</code></li>
+<li>使用 <code>Query</code> 作为函数参数的默认值：<ul>
+<li><code>Query</code> 的第一个参数作为原函数参数的默认值</li>
+<li>可以添加其他关键字参数来验证数据，如 <code>max_length</code> ，<code>min_length</code>，<code>regex</code> 等</li>
+<li><code>Query</code> 显式表明了该参数为<strong>查询参数</strong></li>
+<li>如果 <code>Query</code> 有默认值，那么该参数是可选的</li>
+<li>如果期望声明必须参数，可以使用 <code>...</code> 作为 <code>Query</code>第一个参数</li>
+</ul>
+</li>
+</ol>
+<h3 id="Query-parameter-list-multiple-values"><a href="#Query-parameter-list-multiple-values" class="headerlink" title="Query parameter list / multiple values"></a>Query parameter list / multiple values</h3><p>当使用 <code>Query</code> 显示定义查询参数时，可以声明该参数接受值列表</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> List
+
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    query_items <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> query_items</code></pre>
+<p>在上面的例子中，如果访问</p>
+<p><code>http://localhost:8000/items/?q=foo&amp;q=bar</code></p>
+<p>查询参数 <code>q</code> 的值是一个列表</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"q"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"foo"</span><span class="token punctuation">,</span>
+    <span class="token string">"bar"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注：</strong>当使用 <code>list</code> 类型声明查询查询参数时，必须使用 <code>Query</code>，否则会被解释成 <strong>request body</strong></p>
+<h3 id="Query-parameter-list-multiple-values-with-defaults"><a href="#Query-parameter-list-multiple-values-with-defaults" class="headerlink" title="Query parameter list / multiple values with defaults"></a>Query parameter list / multiple values with defaults</h3><p>同样的，可以为 <code>list</code> 类型定义默认值</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> List
+
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> List<span class="token punctuation">[</span>str<span class="token punctuation">]</span> <span class="token operator">=</span> Query<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"foo"</span><span class="token punctuation">,</span> <span class="token string">"bar"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    query_items <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> query_items</code></pre>
+<p>如果访问</p>
+<p><code>http://localhost:8000/items/</code></p>
+<p>返回值为</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"q"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">"foo"</span><span class="token punctuation">,</span>
+    <span class="token string">"bar"</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
+<p><strong>注：</strong>在上述例子中，如果使用 <code>list</code> 代替 <code>list[str]</code>，那么 <strong>FastAPI</strong> 将不会做类型检查，例如</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> list <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    query_items <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> query_items</code></pre>
+<h3 id="Declare-more-metadata"><a href="#Declare-more-metadata" class="headerlink" title="Declare more metadata"></a>Declare more metadata</h3><p>可以为参数添加更多的信息</p>
+<p>这些信息将会被包含在自动生成的 <strong>OpenAPI</strong> 中，并且可以被用户文档界面和其他工具所使用</p>
+<p><strong>注：</strong>不同的工具可能对 <strong>OpenAPI</strong> 的支持程度不同</p>
+<p>下面是利用 <code>Query</code> 声明额外信息的例子</p>
+<p>添加 <code>title</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"Query string"</span><span class="token punctuation">,</span> min_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p>添加 <code>description</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>
+        None<span class="token punctuation">,</span>
+        title<span class="token operator">=</span><span class="token string">"Query string"</span><span class="token punctuation">,</span>
+        description<span class="token operator">=</span><span class="token string">"Query string for the items to search in the database that have a good match"</span><span class="token punctuation">,</span>
+        min_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<h3 id="Alias-parameters"><a href="#Alias-parameters" class="headerlink" title="Alias parameters"></a>Alias parameters</h3><p>在 <code>Query</code> 中使用 <code>alias</code> 关键字可以为参数声明别名</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span> alias<span class="token operator">=</span><span class="token string">"item-query"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p>在上述例子中 <code>item-query</code> 是 <code>q</code> 的别名，即访问：</p>
+<p><code>http://127.0.0.1:8000/items/?item-query=foobaritems</code></p>
+<p>相当于不使用别名访问</p>
+<p><code>http://127.0.0.1:8000/items/?q=foobaritems</code></p>
+<p><strong>注：</strong>使用别名之后将取代原名称，即声明别名 <code>item-query</code> 之后，只能通过上述第一个 URL 访问</p>
+<h3 id="Deprecating-parameters"><a href="#Deprecating-parameters" class="headerlink" title="Deprecating parameters"></a>Deprecating parameters</h3><p>使用 <code>deprecated</code> 表明该参数将被废弃(仍可以使用，但在文档中会标注)</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>
+        None<span class="token punctuation">,</span>
+        alias<span class="token operator">=</span><span class="token string">"item-query"</span><span class="token punctuation">,</span>
+        title<span class="token operator">=</span><span class="token string">"Query string"</span><span class="token punctuation">,</span>
+        description<span class="token operator">=</span><span class="token string">"Query string for the items to search in the database that have a good match"</span><span class="token punctuation">,</span>
+        min_length<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span>
+        max_length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">,</span>
+        regex<span class="token operator">=</span><span class="token string">"^fixedquery$"</span><span class="token punctuation">,</span>
+        deprecated<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"items"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -612,7 +765,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/python-han-shu-can-shu/">https://beasuna.xyz/python-han-shu-can-shu/</a>
+                    <a href="https://beasuna.xyz/fastapi-query-parameters-and-string-validations/">https://beasuna.xyz/fastapi-query-parameters-and-string-validations/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -650,8 +803,16 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/fastapi/">
+                                    <span class="chip bg-color">fastapi</span>
+                                </a>
+                            
                                 <a href="/tags/python/">
                                     <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -822,7 +983,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-11T23-18-52',
+        id: '2020-04-11T23-59-35',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -846,9 +1007,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/fastapi-query-parameters-and-string-validations/">
                     <div class="card-image">
@@ -872,9 +1034,9 @@ app = FastAPI()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -887,6 +1049,7 @@ app = FastAPI()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -913,22 +1076,23 @@ app = FastAPI()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/fastapi-request-body/">
+                <a href="/python-han-shu-can-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Request Body">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="python 函数参数">
                         
-                        <span class="card-title">Request Body</span>
+                        <span class="card-title">python 函数参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Request Body当需要从客户端(如浏览器)发送数据到 API 时，可以借助 request body 
-request body：从客户端发送到 API 的数据
-response body：从 API 发送到客户端的数据
-API 总
+                            可接受任意数量参数的函数使用 * 参数，可以让一个函数接受任意数量的位置参数
+def test(arg, *args):
+    pass
+在上述例子中，args 是一个由除 arg 以外所有位置参数组成的元组
+使用 ** 参数，可以让一个
                         
                     </div>
                     <div class="publish-info">
@@ -950,16 +1114,8 @@ API 总
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fastapi/">
-                        <span class="chip bg-color">fastapi</span>
-                    </a>
-                    
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
