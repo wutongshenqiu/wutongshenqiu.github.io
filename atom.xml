@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-11T10:06:47.675Z</updated>
+  <updated>2020-04-11T11:29:56.355Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Request Body</title>
+    <link href="https://beasuna.xyz/fastapi-request-body/"/>
+    <id>https://beasuna.xyz/fastapi-request-body/</id>
+    <published>2020-04-11T11:27:11.000Z</published>
+    <updated>2020-04-11T11:29:56.355Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Request-Body&quot;&gt;&lt;a href=&quot;#Request-Body&quot; class=&quot;headerlink&quot; title=&quot;Request Body&quot;&gt;&lt;/a&gt;Request Body&lt;/h3&gt;&lt;p&gt;当需要从客户端(如浏览器)发送数据到 API 时，可以借助
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>Query Parameters</title>
