@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="socket加密通信, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="integer divisibility, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>socket加密通信 | qiufeng&#39;s blog</title>
+    <title>integer divisibility | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">socket加密通信</h1>
+                    <h1 class="description center-align post-title">integer divisibility</h1>
                 </div>
             </div>
         </div>
@@ -492,12 +492,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
-                            </a>
-                        
-                            <a href="/tags/socket/">
-                                <span class="chip bg-color">socket</span>
+                            <a href="/tags/math-infomation-security-course/">
+                                <span class="chip bg-color">math, infomation security, course</span>
                             </a>
                         
                     </div>
@@ -508,8 +504,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/cryptography/" class="post-category">
-                                cryptography
+                            <a href="/categories/math/" class="post-category">
+                                math
                             </a>
                         
                     </div>
@@ -521,7 +517,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-11
                 </div>
                 
 
@@ -530,14 +526,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -553,224 +549,166 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="编程思路："><a href="#编程思路：" class="headerlink" title="编程思路："></a>编程思路：</h3><ol>
-<li>客户端和服务器端建立连接</li>
-<li>客户端产生非对称密钥，将公钥传送给服务器端</li>
-<li>服务器端通过公钥将密钥进行加密并传送给客户端</li>
-<li>客户端接收到密钥并进行解密，双方开始通信</li>
+                <h3 id="整除"><a href="#整除" class="headerlink" title="整除"></a>整除</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得<br>$$<br>a=q \cdot b<br>$$<br>则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，$a$ 称为 $b$ 的倍数</p>
+<h4 id="性质："><a href="#性质：" class="headerlink" title="性质："></a>性质：</h4><ul>
+<li><p>当 $b$ 遍历整数 $a$ 的所有因数时，$-b$ 和 $\frac{a}{b}$ 也遍历 $a$ 的因数</p>
+</li>
+<li><p>若 $a_1, …, a_n \in Z$ 都是 $c \in Z^*$ 的倍数，则他们的整系数线性组合也是 $c$ 的倍数，即 $\forall s_1, …, s_n \in Z$ 都有 $c | a_1s_1+…+a_ns_n$</p>
+</li>
+<li><p>若 $p$ 是素数，且 $p|a_1a_2 \cdots a_n$ ，则 $ \exists i, 1 \le i \le n$，$p|a_i$</p>
+</li>
+</ul>
+<h3 id="素数"><a href="#素数" class="headerlink" title="素数"></a>素数</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p>$n \in Z^* $ 且 $n \neq \pm 1$ 且 $n$ 只有因数 $\pm1、\pm n$ ，则 $n$ 称之为<strong>素数</strong>，通常情况下约定素数为正整数，记作 $p$</p>
+<h4 id="性质：-1"><a href="#性质：-1" class="headerlink" title="性质："></a>性质：</h4><ul>
+<li>合数的大于 $1$ 的最小正因数 $p$ 必然是素数，且 $p \le \sqrt{n}$ </li>
+<li>等差数列 $qn+l$ 在 $(q, l)=1$ 时有无穷多个素数，<a href="https://zhuanlan.zhihu.com/p/57379991" target="_blank" rel="noopener">Dirichlet</a></li>
+</ul>
+<h4 id="Eratosthenes"><a href="#Eratosthenes" class="headerlink" title="Eratosthenes"></a>Eratosthenes</h4><p>依次删除 $\le \sqrt{N}$ 的所有素数的倍数，可求得所有不大于给定正整数 $N$ 的素数</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">eratosthenes</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""use eratosthenes sieve to count all prime number"""</span>
+    <span class="token keyword">if</span> n <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    sifter <span class="token operator">=</span> np<span class="token punctuation">.</span>ones<span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>np<span class="token punctuation">.</span>int8<span class="token punctuation">)</span>
+    sifter<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> int<span class="token punctuation">(</span>np<span class="token punctuation">.</span>ceil<span class="token punctuation">(</span>np<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> sifter<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> n <span class="token operator">//</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                sifter<span class="token punctuation">[</span>i <span class="token operator">*</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+    <span class="token keyword">return</span> sifter<span class="token punctuation">.</span>sum<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+<h3 id="欧几里得除法"><a href="#欧几里得除法" class="headerlink" title="欧几里得除法"></a>欧几里得除法</h3><h4 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h4><p>$a, b \in Z$ ，且 $b &gt; 0$，则 $\forall c \in Z$ 存在唯一的整数 $q, r$ 使得 $a=q \cdot b + r$，$c \le r &lt; c+b$ </p>
+<p>其中 $q$ 称为 $a$ 被 $b$ 除所得的不完全商，$r$ 叫做 $a$ 被 $b$ 除所得的余数</p>
+<ul>
+<li>$c=0$ 时称 $r$ 为最小非负余数</li>
+<li>$c=1$ 时称 $r$ 为最小正余数</li>
+<li>$c=-b+1$ 时称 $r$ 为最大非正余数</li>
+<li>$c=-b$ 时称 $r$ 为最大负余数</li>
+<li>若 $c$ 满足 $-\frac{b}{2} \le r &lt; \frac{b}{2} ,, or ,, -\frac{b}{2} &lt; r \le \frac{b}{2}$ 时称 $r$ 为绝对值最小余数</li>
+</ul>
+<h3 id="整数的表示"><a href="#整数的表示" class="headerlink" title="整数的表示"></a>整数的表示</h3><p>$\forall b \in Z ,, and ,, b &gt; 1$ ，每个正整数 $n$ 在 $b$ 进制下的表示<a href="https://en.wikipedia.org/wiki/Euclidean_algorithm" target="_blank" rel="noopener">存在</a>且唯一，且 $n$ 的 $b$ 进制位数 $k=[\log_bn]+1$</p>
+<h3 id="最大公因数"><a href="#最大公因数" class="headerlink" title="最大公因数"></a>最大公因数</h3><p>$d=(a_1,…,a_n)$ 称为最大公因数，如果：</p>
+<ul>
+<li>$d|a_1, …, d|a_n$</li>
+<li>若 $e|a_1, …, e|a_n$，则 $e|d$</li>
+</ul>
+<h3 id="广义欧几里得除法"><a href="#广义欧几里得除法" class="headerlink" title="广义欧几里得除法"></a><font color="red">广义欧几里得除法</font></h3><img src="/img/math/2.png" alt="喵喵喵" style="zoom: 80%;">
+
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul>
+<li>$n \le 5logb$ ，<em>运用数学归纳法可以证明 $b$ 不小于 $fibonacci$ 的第 $n+1$ 项</em></li>
+</ul>
+<h3 id="Bezout-等式"><a href="#Bezout-等式" class="headerlink" title="Bezout 等式"></a><font color="red">Bezout 等式</font></h3><h4 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h4><p>$a, b \in Z^+$ ，存在整数 $s, t$ 使得 $sa+tb=(a,b)$  </p>
+<h4 id="求整数-s-t-的方法"><a href="#求整数-s-t-的方法" class="headerlink" title="求整数 $s, t$ 的方法"></a>求整数 $s, t$ 的方法</h4><p><span id="1"><strong>方法一</strong></span>：首先根据广义欧几里得除法求出 $(a,b)=r_n$，带回并依次消去 $r_{n-1}, … ,r_1$</p>
+<p>例如：$a=1859, b=1573$ ，求 $s, t$ 使得 $s \cdot a + t \cdot b=(a,b)$</p>
+<p>根据欧几里得除法，我们有：<br>$$<br>\begin{align}&amp; 1859 = 1573 \times 1 + 286 \\ &amp; 1573 = 5 \times 286 + 143 \\ &amp; 286 = 2 \times 143\end{align}<br>$$<br>得到 $(a,b)=143$ ，带回<br>$$<br>\begin{align}143 &amp; = 1573 - 5 \times 286 \\ &amp; = 1573 - 5 \times (1859-1573) \\ &amp; = -5 \times 1859 + 6 \times 1573\end{align}<br>$$<br>于是 $s=-5, t=6$</p>
+<p><strong>方法二</strong>：列表法</p>
+<img src="/img/math/2.png" alt="喵喵喵" style="zoom:80%;">
+
+<p>依然使用<a href="#1">方法一</a>的例子</p>
+<table>
+<thead>
+<tr>
+<th align="center">$j$</th>
+<th align="center">$s_j$</th>
+<th align="center">$t_j$</th>
+<th align="center">$q_{j+1}$</th>
+<th align="center">$r_{j+1}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-3</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1859</td>
+</tr>
+<tr>
+<td align="center">-2</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">1573</td>
+</tr>
+<tr>
+<td align="center">-1</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">286</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">$-s_{-1} \times q_0 + s_{-2} = 1$</td>
+<td align="center">$-t_{-1} \times q_0 + t_{-2} = 1$</td>
+<td align="center">5</td>
+<td align="center">143</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">$-s_{0} \times q_1 + s_{-1} = -5$</td>
+<td align="center">$-t_{0} \times q_1 + t_{-1} = 6$</td>
+<td align="center">2</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p>我们有 $s=s_1=-5, t=t_1=6, (a, b)=r_0=143$</p>
+<p><strong>根据列表法求 s，t和(a,b)</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">extended_euclidean</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""use extended euclidean algorithm to calculate s, t, k, s.t. sa + tb = k = (a, b)"""</span>
+    quotients <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    q<span class="token punctuation">,</span> r1 <span class="token operator">=</span> divmod<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+    r2 <span class="token operator">=</span> b
+    quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
+    <span class="token keyword">while</span> r1 <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+        q<span class="token punctuation">,</span> r <span class="token operator">=</span> divmod<span class="token punctuation">(</span>r2<span class="token punctuation">,</span> r1<span class="token punctuation">)</span>
+        r2 <span class="token operator">=</span> r1
+        r1 <span class="token operator">=</span> r
+        quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
+
+    s<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+    t<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>quotients<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        s<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>s<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        t<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>t<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r2</code></pre>
+<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><ul>
+<li>若 $a, b \in Z$ 且 $a^2 + b^2 \neq 0$，则<ul>
+<li>$\forall m \in Z^+$ ，$(a \cdot m, b \cdot m)=(a, b) \cdot m$</li>
+<li>若 $d \in Z^*$，且 $d|a, d|b$ ，则 $(\frac{a}{d}, \frac{b}{d})=\frac{(a,b)}{|d|}$<ul>
+<li>特别的，若取 $d=(a,b)$，则我们可以构造两个互素的整数 $\frac{a}{d}, \frac{b}{d}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>$a, b, c \in Z, ,, b \ne 0, c \ne 0$ 且 $(a, c)=1$，则有 ：</li>
+</ul>
+<p>$$<br>(ab, c)=(b,c)<br>$$</p>
+<ul>
+<li>$a_i, c \in Z$ 且 $(a_i, c)=1$ 则有：</li>
+</ul>
+<p>$$<br>(\Pi_{i=1}^{n}a_i, c)=1<br>$$</p>
+<ul>
+<li>$a, b \in Z^+$，则 $(2^a-1, 2^b-1)=2^{(a,b)}-1$ </li>
+</ul>
+<p><strong>注</strong>：</p>
+<blockquote>
+<ol>
+<li>Bezout 等式可扩展到 $n$ 维的情况</li>
+<li>求 n 个数的最大公因数相当于递归的求两个数的最大公因数</li>
 </ol>
-<hr>
-<h3 id="背景资料："><a href="#背景资料：" class="headerlink" title="背景资料："></a>背景资料：</h3><ul>
-<li>AES原理(图解密码技术第三章)</li>
-<li>RSA原理(图解密码技术第五章)</li>
-<li><a href="https://www.cnblogs.com/wangcq/p/3520400.html" target="_blank" rel="noopener">Socket通信原理</a></li>
+</blockquote>
+<h3 id="整数分解"><a href="#整数分解" class="headerlink" title="整数分解"></a>整数分解</h3><p>给定正合数 $n &gt; 1$，若 $ \exists a,b$ ，满足：<br>$$<br>n|a^2-b^2 \\ n \nmid a+b \\ n \nmid a-b<br>$$<br>则 $(n, a-b)$，$(n,a+b)$ 都是 $n$ 的真因数</p>
+<h3 id="算术基本定理"><a href="#算术基本定理" class="headerlink" title="算术基本定理"></a><font color="red">算术基本定理</font></h3><p>任意整数 $n&gt;1$ 可以唯一的表示成<br>$$<br>n = p_1^{\alpha_1} \cdots p_n^{\alpha_s}, ,,,, \alpha_i &gt; 0,p_i&lt;p_j(i&lt;j)<br>$$<br><strong>注</strong>：利用算术基本定理，很多结论几乎是显而易见的</p>
+<h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><ul>
+<li>$n$ 的因数个数 $d(n)=\Pi(1+\alpha_i)$</li>
+<li>$n$ 的所有因数的和：</li>
 </ul>
-<hr>
-<h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><p>注释已经非常详细了，这里就不再赘述。</p>
-<hr>
-<h4 id="异常类定义"><a href="#异常类定义" class="headerlink" title="异常类定义"></a>异常类定义</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">AuthenticationError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> Errorinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>errorinfo <span class="token operator">=</span> Errorinfo
-    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>errorinfo</code></pre>
-<hr>
-<h4 id="服务器端代码"><a href="#服务器端代码" class="headerlink" title="服务器端代码"></a>服务器端代码</h4><hr>
-<h5 id="服务器类定义："><a href="#服务器类定义：" class="headerlink" title="服务器类定义："></a>服务器类定义：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> socket
-<span class="token keyword">import</span> rsa
-<span class="token keyword">import</span> pickle
-<span class="token keyword">from</span> cryptography<span class="token punctuation">.</span>fernet <span class="token keyword">import</span> Fernet
-<span class="token keyword">import</span> hashlib
-<span class="token keyword">from</span> errorclass <span class="token keyword">import</span> AuthenticationError
-<span class="token keyword">import</span> time
-
-<span class="token comment" spellcheck="true"># 使用图灵机器人的自动回复功能</span>
-<span class="token keyword">from</span> tlrobot <span class="token keyword">import</span> get_reply
-
-<span class="token keyword">class</span> <span class="token class-name">Server</span><span class="token punctuation">:</span>
-
-    <span class="token comment" spellcheck="true"># 用来标记同时连接的客户端的数量</span>
-    number <span class="token operator">=</span> <span class="token number">0</span>
-
-    <span class="token comment" spellcheck="true"># 默认的最大等待数量为5</span>
-    <span class="token comment" spellcheck="true"># 默认使用本机的ip地址和8080端口</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> backlog<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> addr<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议</span>
-        self<span class="token punctuation">.</span>serverSocket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 绑定监听的ip地址和端口号</span>
-        self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>bind<span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 开始等待</span>
-        self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>listen<span class="token punctuation">(</span>backlog<span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># 该函数需要并行处理</span>
-    <span class="token keyword">def</span> <span class="token function">link_one_client</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 获取客户端对象和客户端地址</span>
-        clientSocket<span class="token punctuation">,</span> addr <span class="token operator">=</span> self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 客户端数量加1</span>
-        Server<span class="token punctuation">.</span>number <span class="token operator">=</span> Server<span class="token punctuation">.</span>number <span class="token operator">+</span> <span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># 标记当前客户端编号</span>
-        now_number <span class="token operator">=</span> Server<span class="token punctuation">.</span>number
-
-        <span class="token comment" spellcheck="true"># 打印</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"和客户端{0}建立连接\n目标主机地址为：{1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now_number<span class="token punctuation">,</span> addr<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 接受客户端传递的公钥</span>
-        <span class="token comment" spellcheck="true"># 这里可以加一个哈希函数检验公钥的正确性！</span>
-        <span class="token comment" spellcheck="true"># 运用pickle进行反序列化</span>
-        publicKeyPK<span class="token punctuation">,</span> pubKeySha256 <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>publicKeyPK<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> pubKeySha256<span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> AuthenticationError<span class="token punctuation">(</span><span class="token string">"密钥被篡改！"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            publicKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>publicKeyPK<span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"已接受公钥"</span><span class="token punctuation">)</span>
-
-
-        <span class="token comment" spellcheck="true"># 下面是用公钥加密对称密钥并传递的过程</span>
-        <span class="token comment" spellcheck="true"># 产生用于对称加密的密钥</span>
-        sym_key <span class="token operator">=</span> Fernet<span class="token punctuation">.</span>generate_key<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 用pickle进行序列化用来进行网络传输</span>
-        <span class="token comment" spellcheck="true"># 对密钥进行hash保证其准确性</span>
-        en_sym_key <span class="token operator">=</span> rsa<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>sym_key<span class="token punctuation">)</span><span class="token punctuation">,</span> publicKey<span class="token punctuation">)</span>
-        en_sym_key_sha256 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>en_sym_key<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在加密传送密钥"</span><span class="token punctuation">)</span>
-        clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">(</span>en_sym_key<span class="token punctuation">,</span>en_sym_key_sha256<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 这里可以添加密钥交换成功的函数</span>
-
-
-        <span class="token comment" spellcheck="true"># 初始化加密对象</span>
-        f <span class="token operator">=</span> Fernet<span class="token punctuation">(</span>sym_key<span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 下面使用对称密钥进行加密对话的过程</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 接收到的加密消息</span>
-            en_recvData <span class="token operator">=</span> clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-            recvData <span class="token operator">=</span> f<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>en_recvData<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"接受到客户端{0}传来的消息：{1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now_number<span class="token punctuation">,</span> recvData<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-            <span class="token comment" spellcheck="true"># 调用图灵机器人</span>
-            sendData <span class="token operator">=</span> get_reply<span class="token punctuation">(</span>recvData<span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 对消息进行加密</span>
-            en_sendData <span class="token operator">=</span> f<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>sendData<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>en_sendData<span class="token punctuation">)</span>
-
-</code></pre>
-<hr>
-<h5 id="服务器端类实例化："><a href="#服务器端类实例化：" class="headerlink" title="服务器端类实例化："></a>服务器端类实例化：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> threading
-
-<span class="token keyword">from</span> serverclass <span class="token keyword">import</span> Server
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用服务端程序！"</span><span class="token punctuation">)</span>
-
-server <span class="token operator">=</span> Server<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 这里使用多线程可以避免服务器阻塞在一个客户端上</span>
-    t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>server<span class="token punctuation">.</span>link_one_client<span class="token punctuation">)</span>
-    t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<hr>
-<h4 id="客户端代码"><a href="#客户端代码" class="headerlink" title="客户端代码"></a>客户端代码</h4><hr>
-<h5 id="客户端类定义："><a href="#客户端类定义：" class="headerlink" title="客户端类定义："></a>客户端类定义：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> socket
-<span class="token keyword">import</span> rsa
-<span class="token keyword">import</span> pickle
-<span class="token keyword">from</span> cryptography<span class="token punctuation">.</span>fernet <span class="token keyword">import</span> Fernet
-<span class="token keyword">import</span> hashlib
-<span class="token keyword">from</span> errorclass <span class="token keyword">import</span> AuthenticationError
-
-<span class="token keyword">class</span> <span class="token class-name">Client</span><span class="token punctuation">:</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 产生非对称密钥</span>
-        self<span class="token punctuation">.</span>asyKey <span class="token operator">=</span> rsa<span class="token punctuation">.</span>newkeys<span class="token punctuation">(</span><span class="token number">2048</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 公钥和私钥</span>
-        self<span class="token punctuation">.</span>publicKey <span class="token operator">=</span> self<span class="token punctuation">.</span>asyKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>privateKey <span class="token operator">=</span> self<span class="token punctuation">.</span>asyKey<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
-
-
-    <span class="token keyword">def</span> <span class="token function">link_server</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> addr<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 创建socket通信对象</span>
-        <span class="token comment" spellcheck="true"># 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议</span>
-        clientSocket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 默认连接服务器地址为本机ip和8080端口</span>
-        clientSocket<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 向服务器传递公钥，和该公钥字符串化后的sha256值</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在向服务器传送公钥"</span><span class="token punctuation">)</span>
-        sendKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>self<span class="token punctuation">.</span>publicKey<span class="token punctuation">)</span>
-        sendKeySha256 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>sendKey<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">(</span>sendKey<span class="token punctuation">,</span> sendKeySha256<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 接受服务器传递的密钥并进行解密</span>
-        symKey<span class="token punctuation">,</span> symKeySha256 <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>symKey<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> symKeySha256<span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> AuthenticationError<span class="token punctuation">(</span><span class="token string">"密钥被篡改！"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>symKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>rsa<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>symKey<span class="token punctuation">,</span> self<span class="token punctuation">.</span>privateKey<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"密钥交换完成"</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 初始化加密对象</span>
-        f <span class="token operator">=</span> Fernet<span class="token punctuation">(</span>self<span class="token punctuation">.</span>symKey<span class="token punctuation">)</span>
-
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-
-            sendData <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"输入你要发送的消息："</span><span class="token punctuation">)</span>
-            en_sendData <span class="token operator">=</span> f<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>sendData<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>en_sendData<span class="token punctuation">)</span>
-
-            en_recvData <span class="token operator">=</span> clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-            recvData <span class="token operator">=</span> f<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>en_recvData<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"接受到服务器传来的消息：{0}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>recvData<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-</code></pre>
-<hr>
-<h5 id="客户端类实例化："><a href="#客户端类实例化：" class="headerlink" title="客户端类实例化："></a>客户端类实例化：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> clientclass <span class="token keyword">import</span> Client
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用客户端程序！"</span><span class="token punctuation">)</span>
-client <span class="token operator">=</span> Client<span class="token punctuation">(</span><span class="token punctuation">)</span>
-client<span class="token punctuation">.</span>link_server<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
-<hr>
-<h4 id="调用图灵机器人的代码"><a href="#调用图灵机器人的代码" class="headerlink" title="调用图灵机器人的代码"></a>调用<a href="https://www.kancloud.cn/turing/www-tuling123-com/718218" target="_blank" rel="noopener">图灵</a>机器人的代码</h4><pre class=" language-python"><code class="language-python">
-<span class="token keyword">import</span> requests
-<span class="token keyword">import</span> json
-
-<span class="token keyword">def</span> <span class="token function">get_reply</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    datas <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'reqType'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        <span class="token string">"perception"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"inputText"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"text"</span><span class="token punctuation">:</span> data
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-            <span class="token string">"selfInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"location"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                    <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"武汉"</span><span class="token punctuation">,</span>
-                    <span class="token string">"province"</span><span class="token punctuation">:</span> <span class="token string">"湖北"</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-        <span class="token string">"userInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true"># 这里填上自己的apiKey</span>
-            <span class="token string">"apiKey"</span><span class="token punctuation">:</span> <span class="token string">"*********************"</span><span class="token punctuation">,</span>
-            <span class="token comment" spellcheck="true"># userid可以随便填写</span>
-            <span class="token string">"userId"</span><span class="token punctuation">:</span> <span class="token string">"443545"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-    datas <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>datas<span class="token punctuation">)</span>
-    url <span class="token operator">=</span> <span class="token string">"http://openapi.tuling123.com/openapi/api/v2"</span>
-    r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>datas<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"results"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"values"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"text"</span><span class="token punctuation">)</span>
-</code></pre>
-<hr>
-<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><ul>
-<li><a href="https://cryptography.io/en/latest/" target="_blank" rel="noopener">cryptography</a></li>
-<li><a href="https://www.jb51.net/article/119048.htm" target="_blank" rel="noopener">rsa</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017787560490144" target="_blank" rel="noopener">廖雪峰老师–网络编程</a></li>
-<li><a href="https://segmentfault.com/a/1190000012968005" target="_blank" rel="noopener">python(3.x) 实现AES 加解密</a></li>
-<li><a href="https://www.cnblogs.com/wangcq/p/3520400.html" target="_blank" rel="noopener">Socket通信原理</a></li>
+<p>$$<br>\Pi(1 + p_i + \cdots p_i^{\alpha_i})=\Pi(\frac{p_i^{\alpha_i+1}-1}{p_i-1})<br>$$</p>
+<ul>
+<li>$a,b$ 是两个正整数，则存在整数 $a’|a, b’|b$ ，使得：</li>
 </ul>
+<p>$$<br>a’ \cdot b’=[a,b] \qquad (a’,b’)=1<br>$$</p>
+<h3 id="素数定理"><a href="#素数定理" class="headerlink" title="素数定理"></a>素数定理</h3><p>设<br>$$<br>\pi(x) = \sum_{p \le x} 1<br>$$<br>则有：<br>$$<br>\frac{\ln 2}{3}\frac{x}{\ln x} &lt; \pi(x) &lt; 6 \ln 2 \frac{x}{\ln x}<br>$$<br>以及<br>$$<br>\lim_{x \rightarrow \infty} \cfrac{\pi(x)}{\cfrac{x}{\ln x}} = 1<br>$$</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -814,7 +752,7 @@ client<span class="token punctuation">.</span>link_server<span class="token punc
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/socket-jia-mi-tong-xin/">https://beasuna.xyz/socket-jia-mi-tong-xin/</a>
+                    <a href="https://beasuna.xyz/math-zheng-shu-de-ke-chu-xing/">https://beasuna.xyz/math-zheng-shu-de-ke-chu-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -852,12 +790,8 @@ client<span class="token punctuation">.</span>link_server<span class="token punc
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
-                                </a>
-                            
-                                <a href="/tags/socket/">
-                                    <span class="chip bg-color">socket</span>
+                                <a href="/tags/math-infomation-security-course/">
+                                    <span class="chip bg-color">math, infomation security, course</span>
                                 </a>
                             
                         </div>
@@ -1028,7 +962,7 @@ client<span class="token punctuation">.</span>link_server<span class="token punc
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-07T19-45-40',
+        id: '2020-04-11T13-32-29',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1052,49 +986,48 @@ client<span class="token punctuation">.</span>link_server<span class="token punc
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/v2ray-configure/">
+                <a href="/math-zheng-shu-de-ke-chu-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="v2ray-configure">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="integer divisibility">
                         
-                        <span class="card-title">v2ray-configure</span>
+                        <span class="card-title">integer divisibility</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            记录一下怕自己忘记了v2配置v2加速cdn加速hostwind 服务器namesilo 域名网站
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(
+                            整除定义$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得$$a=q \cdot b$$则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/tools/" class="post-category">
-                                    tools
+                            <a href="/categories/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/v2ray/">
-                        <span class="chip bg-color">v2ray</span>
+                    <a href="/tags/math-infomation-security-course/">
+                        <span class="chip bg-color">math, infomation security, course</span>
                     </a>
                     
                 </div>
@@ -1105,59 +1038,60 @@ client<span class="token punctuation">.</span>link_server<span class="token punc
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/socket-jia-mi-tong-xin/">
+                <a href="/fastapi-path-parameters/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="socket加密通信">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Path Parameters">
                         
-                        <span class="card-title">socket加密通信</span>
+                        <span class="card-title">Path Parameters</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程思路：
-客户端和服务器端建立连接
-客户端产生非对称密钥，将公钥传送给服务器端
-服务器端通过公钥将密钥进行加密并传送给客户端
-客户端接收到密钥并进行解密，双方开始通信
+                            path 中可以用 python 格式字符串的形式来声明变量，例如
+from fastapi import FastAPI
+
+app = FastAPI()
 
 
-背景资料：
-AES原理(图解密码技术第三章)
-RSA原理(图解密码
+@app.get("/items/{item_id}")
+async def 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cryptography/" class="post-category">
-                                    cryptography
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/fastapi/">
+                        <span class="chip bg-color">fastapi</span>
+                    </a>
                     
                     <a href="/tags/python/">
                         <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1295,6 +1229,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
