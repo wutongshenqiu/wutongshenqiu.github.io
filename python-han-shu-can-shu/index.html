@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="courses, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="python 函数参数, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>courses | qiufeng&#39;s blog</title>
+    <title>python 函数参数 | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">courses</h1>
+                    <h1 class="description center-align post-title">python 函数参数</h1>
                 </div>
             </div>
         </div>
@@ -490,12 +490,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category">
+                                python
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -513,7 +526,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    66
+                    338
                 </div>
                 
 
@@ -536,7 +549,26 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="信息安全数学基础"><a href="#信息安全数学基础" class="headerlink" title="信息安全数学基础"></a>信息安全数学基础</h3><p><a href="/math-zheng-shu-de-ke-chu-xing">整数的可除性</a></p>
+                <h3 id="可接受任意数量参数的函数"><a href="#可接受任意数量参数的函数" class="headerlink" title="可接受任意数量参数的函数"></a>可接受任意数量参数的函数</h3><p><strong>使用 * 参数，可以让一个函数接受任意数量的位置参数</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span></code></pre>
+<p>在上述例子中，<code>args</code> 是一个由除 <code>arg</code> 以外所有位置参数组成的元组</p>
+<p><strong>使用 ** 参数，可以让一个函数接受任意数量的关键字参数</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span></code></pre>
+<p>在上述例子中，<code>kwargs</code> 是包含被传入进来的关键字参数字典</p>
+<p><strong>同时使用 * 和 **，能够让函数接受任意数量的位置参数和关键字参数</strong></p>
+<h3 id="只接受关键字参数的函数"><a href="#只接受关键字参数的函数" class="headerlink" title="只接受关键字参数的函数"></a>只接受关键字参数的函数</h3><p><strong>将参数放在 *参数或者单个 *后面</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">other_test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span></code></pre>
+<p>在上述例子中，<code>key</code> 必须为关键字参数</p>
+<h3 id="仅限位置形参"><a href="#仅限位置形参" class="headerlink" title="仅限位置形参"></a>仅限位置形参</h3><p><strong>使用 <code>/</code> 指明某些函数的形参必须使用仅限位置而非关键字参数的形式</strong></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span></code></pre>
+<p>在上述例子中，<code>a</code>，<code>b</code> 为仅限位置形参，<code>c</code>，<code>d</code> 可以是位置形参也可以是关键字形参，<code>e</code> ，<code>f</code>必须为关键字形参</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -580,7 +612,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/courses/index.html">https://beasuna.xyz/courses/index.html</a>
+                    <a href="https://beasuna.xyz/python-han-shu-can-shu/">https://beasuna.xyz/python-han-shu-can-shu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -617,7 +649,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -786,7 +822,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-11T13-56-08',
+        id: '2020-04-11T23-18-52',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -815,23 +851,23 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/courses/index.html">
+                <a href="/python-han-shu-can-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="courses">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="python 函数参数">
                         
-                        <span class="card-title">courses</span>
+                        <span class="card-title">python 函数参数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            信息安全数学基础整数的可除性
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.datase
+                            可接受任意数量参数的函数使用 * 参数，可以让一个函数接受任意数量的位置参数
+def test(arg, *args):
+    pass
+在上述例子中，args 是一个由除 arg 以外所有位置参数组成的元组
+使用 ** 参数，可以让一个
                         
                     </div>
                     <div class="publish-info">
@@ -840,13 +876,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            qiufeng
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -854,26 +902,25 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/courses/index.html">
+                <a href="/fastapi-request-body/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="courses">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Request Body">
                         
-                        <span class="card-title">courses</span>
+                        <span class="card-title">Request Body</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            信息安全数学基础整数的可除性
-
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.datase
+                            Request Body当需要从客户端(如浏览器)发送数据到 API 时，可以借助 request body 
+request body：从客户端发送到 API 的数据
+response body：从 API 发送到客户端的数据
+API 总
                         
                     </div>
                     <div class="publish-info">
@@ -882,13 +929,32 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            qiufeng
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/fastapi/">
+                        <span class="chip bg-color">fastapi</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-11T11:29:56.355Z</updated>
+  <updated>2020-04-11T15:21:35.958Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 函数参数</title>
+    <link href="https://beasuna.xyz/python-han-shu-can-shu/"/>
+    <id>https://beasuna.xyz/python-han-shu-can-shu/</id>
+    <published>2020-04-11T15:18:52.000Z</published>
+    <updated>2020-04-11T15:21:35.958Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;可接受任意数量参数的函数&quot;&gt;&lt;a href=&quot;#可接受任意数量参数的函数&quot; class=&quot;headerlink&quot; title=&quot;可接受任意数量参数的函数&quot;&gt;&lt;/a&gt;可接受任意数量参数的函数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;使用 *
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Request Body</title>
