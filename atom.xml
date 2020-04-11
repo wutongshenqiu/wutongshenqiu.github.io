@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-11T06:05:18.340Z</updated>
+  <updated>2020-04-11T10:06:47.675Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Query Parameters</title>
+    <link href="https://beasuna.xyz/fastapi-query-parameters/"/>
+    <id>https://beasuna.xyz/fastapi-query-parameters/</id>
+    <published>2020-04-11T10:06:05.000Z</published>
+    <updated>2020-04-11T10:06:47.675Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Query-Parameters&quot;&gt;&lt;a href=&quot;#Query-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Query Parameters&quot;&gt;&lt;/a&gt;Query
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>integer divisibility</title>
