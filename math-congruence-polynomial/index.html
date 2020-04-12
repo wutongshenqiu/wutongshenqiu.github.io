@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="math同余, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="congruence polynomial, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>math同余 | qiufeng&#39;s blog</title>
+    <title>congruence polynomial | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">math同余</h1>
+                    <h1 class="description center-align post-title">congruence polynomial</h1>
                 </div>
             </div>
         </div>
@@ -534,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    977
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    4 分
                 </div>
                 
 
@@ -557,237 +557,30 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>$a, b \in Z, m \in Z^+$，若有 $m | a - b$，则称 $a, b$ 模 $m$ 同余，记作 $a \equiv b \quad (mod \; m)$</p>
-<h4 id="判断"><a href="#判断" class="headerlink" title="判断"></a>判断</h4><ol>
-<li><p>$a \equiv b \quad (mod \; m) \iff \exists q \in Z, a = b + q \cdot m$</p>
-</li>
-<li><p>模同余是一种等价关系，即有<strong>自反性</strong>、<strong>对称性</strong>、和<strong>传递性</strong></p>
-</li>
-<li><p>$a \equiv b \quad (mod \; m) \iff$ $a, b$ 被 $m$ 除的余数相同</p>
-</li>
-<li><p>同余做<strong>加法</strong>和<strong>乘法</strong>之后仍然同余</p>
-</li>
-</ol>
-<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul>
-<li>设 $d \cdot a \equiv d \cdot b \quad (mod \; m)$，若 $(d,m) = 1$，则 $a \equiv b \quad (mod \; m)$</li>
-<li>$m \in Z^+$，设 $a \equiv b \quad (mod \; m)$，$d &gt; 0$，则 $a \cdot d \equiv b \cdot d \quad (mod \; d \cdot m)$</li>
-<li>设 $a \equiv b \quad (mod \; m)$，若 $d | (a, b, m)$，则 $\frac{a}{d} \equiv \frac{b}{d} \quad (mod \; \frac{m}{d})$</li>
-<li>设 $a \equiv b \quad (mod \; m)$，若 $d | m$，则 $a \equiv b \quad (mod \; d)$</li>
-<li>设 $a \equiv b \quad (mod \; m_i)$，则 $a \equiv  b \quad mod([m_1, … m_k])$</li>
-<li>设 $a \equiv b \quad (mod \; m)$，则 $(a, m) = (b, m)$</li>
-</ul>
-<h3 id="剩余类和完全剩余系"><a href="#剩余类和完全剩余系" class="headerlink" title="剩余类和完全剩余系"></a>剩余类和完全剩余系</h3><h4 id="剩余类与剩余"><a href="#剩余类与剩余" class="headerlink" title="剩余类与剩余"></a>剩余类与剩余</h4><p>$m \in Z^+$，$\forall a \in Z$，令 $C_a = \lbrace c | c \in Z, c \equiv a (mod \; m) \rbrace$，则 $C_a$ 称为模 $m$ 的 $a$ 的<strong>剩余类</strong>，一个剩余类中的任一数称为该类的<strong>剩余</strong>或<strong>代表元</strong>，若 $r_0, r_1, \dots, r_n \in Z$ 且任意两个数都不在同一个剩余类中，则称其为模 $m$ 的一个完全剩余系</p>
-<p>通常将模 $m$ 的所有剩余类记作 $Z/mZ$，模 $m$ 的所有简化剩余类记作 $(Z/mZ)^*$</p>
-<h4 id="完全剩余系"><a href="#完全剩余系" class="headerlink" title="完全剩余系"></a>完全剩余系</h4><p>$r_0, r_1, \dots ,r_n$ 为模 $m$ 的一个完全剩余系 $\iff$ 模 $m$ 两两不同余</p>
-<p>一些特殊的完全剩余系：<strong>最小非负完全剩余系</strong>、<strong>最小正完全剩余系</strong>、<strong>最大非正完全剩余系</strong>、<strong>最大负完全剩余系</strong>、<strong>绝对值最小完全剩余系</strong> </p>
-<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><ul>
-<li><font color="red">$m \in Z^+, (a, m) = 1$，$\forall b \in Z$，若 $k$ 遍历模 $m$ 的一个完全剩余系，则 $a \cdot k + b$ 也遍历模 $m$ 的一个完全剩余系</font></li>
-<li>$(m_1, m_2) = 1$，若 $k_1, k_2$ 分别遍历模 $m_1, m_2$ 的完全剩余系，则 $m_2 \cdot k_1 + m_1 \cdot k_2$ 遍历模 $m_1 \cdot m_2$ 的完全剩余系</li>
-</ul>
-<h3 id="简化剩余系与欧拉函数"><a href="#简化剩余系与欧拉函数" class="headerlink" title="简化剩余系与欧拉函数"></a>简化剩余系与欧拉函数</h3><h4 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>欧拉函数 $\psi(m)$，指 $0, 1, \dots, m-1$ 中与 $m$ 互素的整数个数</p>
-<h4 id="简化剩余类"><a href="#简化剩余类" class="headerlink" title="简化剩余类"></a>简化剩余类</h4><p>若剩余类 $C_a$ 中的一个剩余 $a$ 满足 $(a, m)=1$，则称该类为<strong>简化剩余类</strong>，简化剩余类中的剩余称为<strong>简化剩余</strong>，从每个简化剩余类中任取一个整数组成的集合称为<strong>简化剩余系</strong></p>
-<p><strong>注：</strong>由定义可知 $|(Z/mZ)^*|=\psi(m)$</p>
-<p>同剩余系，简化剩余也可分为一些特殊的简化剩余系</p>
-<h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><ul>
-<li><p>$(a, m) = 1$，如果 $x$ 遍历模 $m$ 的一个简化剩余系，则 $a \cdot x$ 也遍历模 $m$ 的一个简化剩余系</p>
-</li>
-<li><p>$(a, m) = 1$，存在 $a^{-1} \in Z$，且 $1 \le a^{-1} &lt; m$，使得 $a \cdot a^{-1} \equiv 1 \quad (mod \; m)$ </p>
-<ul>
-<li>由 Bezout 等式立即得到结论成立</li>
-</ul>
-</li>
-<li><p>$(m_1, m_2) = 1$，如果 $k_1, k_2$ 分别遍历模 $m_1,m_2$ 的简化剩余系，则 $m_2 \cdot k_1 + m_1 \cdot k_2$ 遍历模 $m_1 \cdot m_2$ 的简化剩余系</p>
-</li>
-<li><p><font color="red">$(m, n) = 1$，则 $\psi(mn)=\psi(m) \cdot \psi(n)$</font></p>
-<ul>
-<li>考虑 $xm + yn$ 由上一条定理立证</li>
-</ul>
-</li>
-<li><p>设 $n = \Pi p_i^{\alpha_i}$，则 $\psi(n) = n \cdot \Pi(1-\frac{1}{p_i})$</p>
-</li>
-<li><p>$$<br>\sum_{d|m} \psi(d) = m<br>$$</p>
-<ul>
-<li><font color="red">该定理将用于原根的构造</font></li>
-<li>$1, \dots , m$ 中的每一个整数按照与 $m$ 的最大公因数进行分类</li>
-</ul>
-</li>
-</ul>
-<h3 id="欧拉定理和费马小定理"><a href="#欧拉定理和费马小定理" class="headerlink" title="欧拉定理和费马小定理"></a>欧拉定理和费马小定理</h3><h4 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h4><p>若 $(a, m) = 1$，则有 $a^{\psi(m)} \equiv 1 \quad (mod \; m)$</p>
-<h4 style="color:red;"> RSA  
+                <h3 id="同余式"><a href="#同余式" class="headerlink" title="同余式"></a>同余式</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>$m \in Z^+$，$f(x)=a_nx^n+ \cdots + a_0$，且 $a_i \in Z$，则<br>$$<br>f(x) \equiv 0 \quad (mod \; m)<br>$$<br>称为模 $m$ 同余式，若 $a_n \neq 0 \quad (mod \; m)$，则 $n$ 叫做 $f(x)$ 的次数，记为 $deg f$，上述式子还可以称为模 $m$ 的 $n$ 次同余式，若 $x \equiv a \quad (mod \; m)$ 使得上述式子成立，则称其为同余式的解</p>
+<h3 id="一次同余式"><a href="#一次同余式" class="headerlink" title="一次同余式"></a>一次同余式</h3><p>$m \in Z^+$，$a \in Z$ 且 $m \nmid a$，则一次同余式<br>$$<br>ax \equiv b \quad (mod \; m)<br>$$<br>有解的充要条件是 $(a, m) | b$，若有解，则其解为：<br>$$<br>x \equiv \cfrac{b}{(a, m)}((\cfrac{a}{(a, m)})^{-1} \quad (mod \; \cfrac{m}{(a, m)})) + t \cdot \cfrac{m}{(a, m)} \quad (mod \; m)<br>$$<br>例子：求解同余式<br>$$<br>33x \equiv 22 \quad (mod \; 77)<br>$$<br>$(33, 77) = 11 | 22 \implies$ 有解</p>
+<p>$3x \equiv 2 \quad (mod \; 7)$ 的解为3</p>
+<p>故全部解为 $3 + 7t, \quad t \in [0, 10]$</p>
+<h3 style="color: red;">
+    中国剩余定理
+</h3>
 
-<p>设 $p, q$ 是两个不同的奇素数，$n = p \cdot q$，$a \in Z$ 且 $(a, n) = 1$，如果 $e$ 满足：<br>$$<br>1 &lt; e &lt; \psi(n), \quad (e, \psi(n)) = 1<br>$$<br>那么存在整数 $d$，使得 $e \cdot d \equiv 1 \quad (mod \; \psi(n))$，而且，对于整数<br>$$<br>a^e \equiv c \quad (mod \; n), \quad 1 &lt; c &lt; n<br>$$<br>有<br>$$<br>c^d \equiv a \quad (mod \; n)<br>$$<br>上述公钥为 $n,e$，私钥为 $p,q,d$，明文为 $a$，密文为 $c$</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">GeneratePrime</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""generate prime by miller robin algorithm"""</span>
+<p>设 $m_i$ 是 $k$ 个两两互素的正整数，则 $\forall b_i$，同余式组<br>$$<br>\begin{cases}<br>x \equiv b_1 \quad (mod \; m_1) \\<br>\dots \\<br>x \equiv b_k \quad (mod \; m_k)<br>\end{cases}<br>$$<br>有唯一解，若零 $m = \Pi m_i$，$m = m_i \cdot M_i$，$M_i^{-1}M_i \equiv 1 \quad (mod \; m_i)$，则<br>$$<br>x \equiv \sum b_i \cdot M_i \cdot M_i^{-1} \quad (mod \; m)<br>$$</p>
+<p>例子：求解同余式组<br>$$<br>\begin{cases}<br>x \equiv b_1 \quad (mod \; 5) \\<br>x \equiv b_2 \quad (mod \; 6) \\<br>x \equiv b_3 \quad (mod \; 7) \\<br>x \equiv b_4 \quad (mod \; 11)<br>\end{cases}<br>$$<br>$M_1=6 \times 7 \times 11 = 462$，类似求得 $M_2=385$，$M_3=330$，$M_4=210$</p>
+<p>$3 \times M_1 \equiv 1 \quad (mod \;5) \implies M_1^{-1}=3$，类似球的 $M_2^{-1}=1$，$M_3^{-1}=1$，$M_4^{-1}=1$</p>
+<p>带入可知解为<br>$$<br>x \equiv 1386b_1 + 385b_2 + 330b_3 + 210b_4 \quad (mod \; 2310)<br>$$</p>
+<h3 style="color: red;"> 高次同余式的解数及解法</h3>
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> judge_numbers<span class="token punctuation">:</span> Iterable<span class="token punctuation">[</span>int<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># judge_numbers are numbers to test in miller robin algorithm</span>
-        <span class="token keyword">if</span> <span class="token operator">not</span> judge_numbers<span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>judge_numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">}</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>judge_numbers <span class="token operator">=</span> judge_numbers
-
-    <span class="token keyword">def</span> <span class="token function">gen_nbit_prime</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">,</span> threshold<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""generate nbit length prime"""</span>
-
-        <span class="token comment" spellcheck="true"># support n &lt;= 1024</span>
-        <span class="token keyword">assert</span> n <span class="token operator">&lt;=</span> <span class="token number">1024</span>
-
-        lower_bound <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> n
-        upper_bound <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-
-        num <span class="token operator">=</span> <span class="token number">0</span>
-        <span class="token keyword">while</span> num <span class="token operator">&lt;</span> threshold<span class="token punctuation">:</span>
-            <span class="token comment" spellcheck="true"># keep odd</span>
-            p <span class="token operator">=</span> randint<span class="token punctuation">(</span>lower_bound<span class="token punctuation">,</span> upper_bound<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">1</span>
-            <span class="token keyword">if</span> self<span class="token punctuation">.</span>is_prime<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> p
-            num <span class="token operator">+=</span> <span class="token number">1</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"fail to find prime"</span><span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">is_prime</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> p <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-        <span class="token keyword">if</span> p <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">}</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-        <span class="token keyword">for</span> judge_num <span class="token keyword">in</span> self<span class="token punctuation">.</span>judge_numbers<span class="token punctuation">:</span>
-            <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>miller_robin_test<span class="token punctuation">(</span>p<span class="token punctuation">,</span> judge_num<span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-    @staticmethod
-    <span class="token keyword">def</span> <span class="token function">miller_robin_test</span><span class="token punctuation">(</span>p<span class="token punctuation">:</span> int<span class="token punctuation">,</span> a<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""miller robin algorithm to test if p is prime
-
-        More details can be found in wikipedia "https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test"
-        """</span>
-        <span class="token comment" spellcheck="true"># fermat theorem: a^p = a (mod p) if p is prime</span>
-        <span class="token comment" spellcheck="true"># here we use builtin function for efficiency</span>
-        <span class="token keyword">if</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> p<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">!=</span> a<span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token boolean">False</span>
-
-        n <span class="token operator">=</span> p <span class="token operator">-</span> <span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># if x^2 = 1 (mod p) then, x = 1/p-1 (mod p)</span>
-        <span class="token keyword">while</span> n <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            remainder <span class="token operator">=</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
-            <span class="token keyword">if</span> remainder <span class="token operator">not</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-                <span class="token keyword">return</span> <span class="token boolean">False</span>
-            n <span class="token operator">//=</span> <span class="token number">2</span>
-
-        <span class="token keyword">return</span> <span class="token boolean">True</span>
-
-
-<span class="token keyword">class</span> <span class="token class-name">RSA</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""RSA example
-
-    Description:
-        this implement 2.4.5 in chapter2
-    """</span>
-
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nbit<span class="token punctuation">,</span> e<span class="token operator">=</span><span class="token number">65537</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-
-        prime_gen <span class="token operator">=</span> GeneratePrime<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        p <span class="token operator">=</span> prime_gen<span class="token punctuation">.</span>gen_nbit_prime<span class="token punctuation">(</span>nbit<span class="token punctuation">)</span>
-        q <span class="token operator">=</span> prime_gen<span class="token punctuation">.</span>gen_nbit_prime<span class="token punctuation">(</span>nbit<span class="token punctuation">)</span>
-        n <span class="token operator">=</span> p <span class="token operator">*</span> q
-        phi_n <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
-        d<span class="token punctuation">,</span> <span class="token operator">*</span>_ <span class="token operator">=</span> self<span class="token punctuation">.</span>extended_euclidean<span class="token punctuation">(</span>e<span class="token punctuation">,</span> phi_n<span class="token punctuation">)</span>
-        d <span class="token operator">%=</span> phi_n
-        self<span class="token punctuation">.</span>private_key <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token string">"p"</span><span class="token punctuation">:</span> p<span class="token punctuation">,</span>
-            <span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">,</span>
-            <span class="token string">"phi_n"</span><span class="token punctuation">:</span> phi_n<span class="token punctuation">,</span>
-            <span class="token string">"d"</span><span class="token punctuation">:</span> d
-        <span class="token punctuation">}</span>
-
-        self<span class="token punctuation">.</span>public_key <span class="token operator">=</span> <span class="token punctuation">{</span>
-            <span class="token string">"n"</span><span class="token punctuation">:</span> n<span class="token punctuation">,</span>
-            <span class="token string">"e"</span><span class="token punctuation">:</span> e
-        <span class="token punctuation">}</span>
-
-    <span class="token keyword">def</span> <span class="token function">encrypt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""encrypt plaintext a with public key e"""</span>
-        e <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span>
-        n <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> e<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
-
-    <span class="token keyword">def</span> <span class="token function">decrypt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        d <span class="token operator">=</span> self<span class="token punctuation">.</span>private_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span>
-        n <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
-
-    @staticmethod
-    <span class="token keyword">def</span> <span class="token function">extended_euclidean</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""use extended euclidean algorithm to calculate s, t, k, s.t. sa + tb = k = (a, b)"""</span>
-
-        quotients <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        q<span class="token punctuation">,</span> r1 <span class="token operator">=</span> divmod<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
-        r2 <span class="token operator">=</span> b
-        quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
-        <span class="token keyword">while</span> r1 <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
-            q<span class="token punctuation">,</span> r <span class="token operator">=</span> divmod<span class="token punctuation">(</span>r2<span class="token punctuation">,</span> r1<span class="token punctuation">)</span>
-            r2 <span class="token operator">=</span> r1
-            r1 <span class="token operator">=</span> r
-            quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
-
-        s<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
-        t<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>quotients<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            s<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>s<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            t<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>t<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-        <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r2</code></pre>
-</h4><h4 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h4><p>$p$ 是一个素数，$\forall a,t,k \in Z$，有 $a^{t + k \cdot (p-1)} \equiv a^t \quad (mod \; p)$</p>
-<h4 id="Wilson-定理"><a href="#Wilson-定理" class="headerlink" title="Wilson 定理"></a>Wilson 定理</h4><p>$p$ 是一个素数，则有<br>$$<br>(p-1)! \equiv -1 \quad (mod \; p)<br>$$</p>
-<h3 style="color: red;">模重复平方计算法</h3>
-
-<p>计算 $b^n \; (mod \; m)$ 的步骤：</p>
-<ul>
-<li>将 $n$ 表示成二进制 $n=(n_{k-1}n_{k-2} \cdots n_0)_2$</li>
-<li>在模 $m$ 下计算 $b_0=b,b_1=b_0^2, \dots, b_{k-1}=b_{k-2}^2$</li>
-<li>在模 $m$ 下计算 $a_0 = b_0^{n_0}, a_t=a_{t-1} \cdot b_t^{n_t}, \; \; t \in [1, k-1]$</li>
-<li>$a_{k-1}$ 即为结果</li>
-</ul>
-<p>例子：计算 $312^{13} \; (mod \; 667)$<br>$$<br>\begin{align}&amp; 13 = (1101)_2 \\&amp; b_0 = b = 312； b_1 = b_0^2 = 629； b_2 = b_1^2 = 110；b_3 = b_2^2 = 94 \\&amp; a_0 = b_0^{n_0} = 312；a_1 = a_0 \cdot b_1^{n_1} = 312；a_2 = a_1 \cdot b_2^{n_2} = 303；a_3 = a_2 \cdot b_3^{n_3} = 468 \end{align}<br>$$<br>故结果为 $468$</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">exponentiation_by_squaring</span><span class="token punctuation">(</span>b<span class="token punctuation">:</span> int<span class="token punctuation">,</span> e<span class="token punctuation">:</span> int<span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""calculate non-negative integer k that satisfies b^e = k (mod m)
-
-    Description:
-        This function implement exponentiation mod in chapter2
-
-    Args:
-        b: the base integer
-        e: the exponent integer
-        m: the modulus
-
-    Returns:
-        the non-negative integer k that satisfies b^e = k (mod m) and 0 &lt;= k &lt; m
-    """</span>
-
-    <span class="token keyword">def</span> <span class="token function">integer_to_binary</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
-        <span class="token triple-quoted-string string">"""change non-negative integer s to binary"""</span>
-        bin_array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">while</span> s <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
-            bin_array<span class="token punctuation">.</span>append<span class="token punctuation">(</span>s <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span>
-            s <span class="token operator">//=</span> <span class="token number">2</span>
-
-        <span class="token comment" spellcheck="true"># the binary is expressed as a_0 + a_1*2 + ... + a_n*2^n</span>
-        <span class="token keyword">return</span> bin_array
-
-    bin_list <span class="token operator">=</span> integer_to_binary<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># previously calculate b, b^2, b^4, ... in the case of module m</span>
-    previous_b_list<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>b <span class="token operator">%</span> m<span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>bin_list<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        previous_b_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>previous_b_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">%</span> m<span class="token punctuation">)</span>
-
-    <span class="token comment" spellcheck="true"># calculate k</span>
-    k <span class="token operator">=</span> b <span class="token operator">**</span> bin_list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">%</span> m
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>bin_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> bin_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            k <span class="token operator">=</span> k <span class="token operator">*</span> previous_b_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> m
-
-    <span class="token keyword">return</span> k</code></pre>
+<h4 id="中国剩余定理-暴力计算"><a href="#中国剩余定理-暴力计算" class="headerlink" title="中国剩余定理+暴力计算"></a>中国剩余定理+暴力计算</h4><p>略</p>
+<h4 id="高次同余式的提升"><a href="#高次同余式的提升" class="headerlink" title="高次同余式的提升"></a>高次同余式的提升</h4><p>当 $p$ 为素数时，求解多项式 $f(x) \equiv 0 \quad (mod \; p^{\alpha})$</p>
+<p>设 $x \equiv x_1 \quad (mod \; p)$ 是同余式<br>$$<br>f(x) \equiv 0 \quad (mod \; p)<br>$$<br>的一个解，且<br>$$<br>(f’(x_1), p) = 1<br>$$<br>则 $f(x) \equiv 0 \quad (mod \; p^{\alpha})$ 有解<br>$$<br>x \equiv x_{\alpha} \quad (mod \; p^{\alpha})<br>$$<br>其中 $x_{\alpha}$ 满足递归关系式<br>$$<br>\begin{align}<br>&amp; x_i \equiv x_{i-1} + t_{i-1} \cdot p^{i-1} \quad (mod \; p^i) \\<br>&amp; t_{i-1} \equiv \cfrac{-f(x_{i-1})}{p^{i-1}} \cdot (f’(x_1)^{-1} \; (mod \; p)) \quad (mod \; p)<br>\end{align}<br>$$<br>例子：求解同余式 $f(x) \equiv x^4 + 7x + 4 \equiv 0 \quad (mod \; 27)$</p>
+<p>易得 $f(x) \equiv 0 \quad (mod \; 3)$ 的解为 $x_1 \equiv 1$，又 $f’(x_1) = 11 \implies (11, 3) = 1$ 故有解，且 $f’(x_1)^{-1} \equiv 2 \quad (mod \; 3)$ 根据递推关系式可计算得到 $t_1 \equiv 2, x_2 \equiv 4, t_2 \equiv 2, x_3 \equiv 22 $ ，故解为22</p>
+<h3 id="求解素数模的同余式"><a href="#求解素数模的同余式" class="headerlink" title="求解素数模的同余式"></a>求解素数模的同余式</h3><h4 id="多项式欧几里得除法"><a href="#多项式欧几里得除法" class="headerlink" title="多项式欧几里得除法"></a>多项式欧几里得除法</h4><p>$f(x)$ 为 $n$ 次整系数多项式，$g(x)$ 为 $m$ 次首一整系数多项式，则存在整系数多项式 $q(x)$ 和 $r(x)$，使得<br>$$<br>f(x) = q(x) \cdot g(x) + r(x), \qquad deg \; r(x) &lt; deg \; g(x)<br>$$<br>由费马小定理及上述结论可知 $f(x)$ 与一个次数不超过 $p-1$ 的模 $p$ 同余式等价<br>$$<br>f(x) = q(x) \cdot (x^p - x) + r(x)<br>$$</p>
+<h4 id="素数模同余式的因式分解"><a href="#素数模同余式的因式分解" class="headerlink" title="素数模同余式的因式分解"></a>素数模同余式的因式分解</h4><p>素数模同余式满足因式分解定理</p>
+<h4 id="素数模同余式的解数估计"><a href="#素数模同余式的解数估计" class="headerlink" title="素数模同余式的解数估计"></a>素数模同余式的解数估计</h4><p>$f(x)$ 的解数不超过其次数(因式分解立证)</p>
+<h4 id="解的判断"><a href="#解的判断" class="headerlink" title="解的判断"></a>解的判断</h4><p>$p$ 是一个素数，$n \in Z^+$，$n \le p$，则<br>$$<br>f(x) = x^n + \cdots + a_1x + a_0 \equiv \quad (mod \; p)<br>$$<br>有 $n$ 个解的充要条件是 $x^p - x$ 被 $f(x)$ 除所得的余式的所有系数都是 $p$ 的倍数</p>
+<p>例子：判断同余式<br>$$<br>2x^3 + 5x^2 + 6x + 1 \equiv 0 \quad (mod \; 7)<br>$$<br>是否有三个解</p>
+<p>首先将多项式两边 $\times 4$ 变成首1多项式<br>$$<br>4 \times (2x^3 + 5x^2 + 6x + 1) \equiv x^3 - x^2 + 3x - 3<br>$$<br>又有<br>$$<br>x^7 - x \equiv x(x^3+x^2-2x-2) \cdot (x^3 - x^2 + 3x - 3) + 7x(x^2-1)<br>$$<br>故有三个解</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -831,7 +624,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/math-tong-yu/">https://beasuna.xyz/math-tong-yu/</a>
+                    <a href="https://beasuna.xyz/math-congruence-polynomial/">https://beasuna.xyz/math-congruence-polynomial/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1049,7 +842,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-12T11-57-04',
+        id: '2020-04-12T21-24-08',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1073,32 +866,91 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/cod-ji-suan-ji-gai-yao-yu-ji-zhu/">
+                <a href="/math-congruence-polynomial/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="计算机概要与技术">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="congruence polynomial">
                         
-                        <span class="card-title">计算机概要与技术</span>
+                        <span class="card-title">congruence polynomial</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算机的应用的分类及其特性：
-个人计算机：用于个人使用的计算机，价格低廉，通常包含图形显示器、键盘和鼠标等
-服务器：用于为多用户运行大型程序的计算机，通常由多个用户并行使用，并且一般通过网络访问
-嵌入式计算机：嵌入到其他设备中的计算机，一般
+                            同余式定义$m \in Z^+$，$f(x)=a_nx^n+ \cdots + a_0$，且 $a_i \in Z$，则$$f(x) \equiv 0 \quad (mod \; m)$$称为模 $m$ 同余式，若 $a_n \neq 0 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/math/" class="post-category">
+                                    math
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/math/">
+                        <span class="chip bg-color">math</span>
+                    </a>
+                    
+                    <a href="/tags/infomation-security/">
+                        <span class="chip bg-color">infomation security</span>
+                    </a>
+                    
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="开发存储器层次结构">
+                        
+                        <span class="card-title">开发存储器层次结构</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            局部性原理：
+时间局部性：如果某个数据项被访问，那么在不久的将来他可能再次被访问
+空间局部性：如果某个数据项被访问，那么与地址相邻的数据项可能很快也将被访问
+例子：循环结构体现了指令和数据的时间局部性；顺序执行和对数组或者记录中的元素进行顺
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1116,69 +968,6 @@
                     
                     <a href="/tags/computer-science/">
                         <span class="chip bg-color">computer science</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/fastapi-query-parameters-and-string-validations/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="fastapi Query Parameters and String Validations">
-                        
-                        <span class="card-title">fastapi Query Parameters and String Validations</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Query Parameters and String ValidationsFastAPI 允许对参数进行验证和声明附加信息
-from fastapi import FastAPI
-
-app = FastAPI()
-
-
-@app.get(
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/python/" class="post-category">
-                                    python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/fastapi/">
-                        <span class="chip bg-color">fastapi</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>

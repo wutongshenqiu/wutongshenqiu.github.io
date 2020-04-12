@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>congruence polynomial</title>
+      <link href="/math-congruence-polynomial/"/>
+      <url>/math-congruence-polynomial/</url>
+      
+        <content type="html"><![CDATA[<h3 id="同余式"><a href="#同余式" class="headerlink" title="同余式"></a>同余式</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>$m \in Z^+$，$f(x)=a_nx^n+ \cdots + a_0$，且 $a_i \in Z$，则<br>$$<br>f(x) \equiv 0 \quad (mod \; m)<br>$$<br>称为模 $m$ 同余式，若 $a_n \neq 0 \quad (mod \; m)$，则 $n$ 叫做 $f(x)$ 的次数，记为 $deg f$，上述式子还可以称为模 $m$ 的 $n$ 次同余式，若 $x \equiv a \quad (mod \; m)$ 使得上述式子成立，则称其为同余式的解</p><h3 id="一次同余式"><a href="#一次同余式" class="headerlink" title="一次同余式"></a>一次同余式</h3><p>$m \in Z^+$，$a \in Z$ 且 $m \nmid a$，则一次同余式<br>$$<br>ax \equiv b \quad (mod \; m)<br>$$<br>有解的充要条件是 $(a, m) | b$，若有解，则其解为：<br>$$<br>x \equiv \cfrac{b}{(a, m)}((\cfrac{a}{(a, m)})^{-1} \quad (mod \; \cfrac{m}{(a, m)})) + t \cdot \cfrac{m}{(a, m)} \quad (mod \; m)<br>$$<br>例子：求解同余式<br>$$<br>33x \equiv 22 \quad (mod \; 77)<br>$$<br>$(33, 77) = 11 | 22 \implies$ 有解</p><p>$3x \equiv 2 \quad (mod \; 7)$ 的解为3</p><p>故全部解为 $3 + 7t, \quad t \in [0, 10]$</p><h3 style="color: red;">    中国剩余定理</h3><p>设 $m_i$ 是 $k$ 个两两互素的正整数，则 $\forall b_i$，同余式组<br>$$<br>\begin{cases}<br>x \equiv b_1 \quad (mod \; m_1) \\<br>\dots \\<br>x \equiv b_k \quad (mod \; m_k)<br>\end{cases}<br>$$<br>有唯一解，若零 $m = \Pi m_i$，$m = m_i \cdot M_i$，$M_i^{-1}M_i \equiv 1 \quad (mod \; m_i)$，则<br>$$<br>x \equiv \sum b_i \cdot M_i \cdot M_i^{-1} \quad (mod \; m)<br>$$</p><p>例子：求解同余式组<br>$$<br>\begin{cases}<br>x \equiv b_1 \quad (mod \; 5) \\<br>x \equiv b_2 \quad (mod \; 6) \\<br>x \equiv b_3 \quad (mod \; 7) \\<br>x \equiv b_4 \quad (mod \; 11)<br>\end{cases}<br>$$<br>$M_1=6 \times 7 \times 11 = 462$，类似求得 $M_2=385$，$M_3=330$，$M_4=210$</p><p>$3 \times M_1 \equiv 1 \quad (mod \;5) \implies M_1^{-1}=3$，类似球的 $M_2^{-1}=1$，$M_3^{-1}=1$，$M_4^{-1}=1$</p><p>带入可知解为<br>$$<br>x \equiv 1386b_1 + 385b_2 + 330b_3 + 210b_4 \quad (mod \; 2310)<br>$$</p><h3 style="color: red;"> 高次同余式的解数及解法</h3><h4 id="中国剩余定理-暴力计算"><a href="#中国剩余定理-暴力计算" class="headerlink" title="中国剩余定理+暴力计算"></a>中国剩余定理+暴力计算</h4><p>略</p><h4 id="高次同余式的提升"><a href="#高次同余式的提升" class="headerlink" title="高次同余式的提升"></a>高次同余式的提升</h4><p>当 $p$ 为素数时，求解多项式 $f(x) \equiv 0 \quad (mod \; p^{\alpha})$</p><p>设 $x \equiv x_1 \quad (mod \; p)$ 是同余式<br>$$<br>f(x) \equiv 0 \quad (mod \; p)<br>$$<br>的一个解，且<br>$$<br>(f’(x_1), p) = 1<br>$$<br>则 $f(x) \equiv 0 \quad (mod \; p^{\alpha})$ 有解<br>$$<br>x \equiv x_{\alpha} \quad (mod \; p^{\alpha})<br>$$<br>其中 $x_{\alpha}$ 满足递归关系式<br>$$<br>\begin{align}<br>&amp; x_i \equiv x_{i-1} + t_{i-1} \cdot p^{i-1} \quad (mod \; p^i) \\<br>&amp; t_{i-1} \equiv \cfrac{-f(x_{i-1})}{p^{i-1}} \cdot (f’(x_1)^{-1} \; (mod \; p)) \quad (mod \; p)<br>\end{align}<br>$$<br>例子：求解同余式 $f(x) \equiv x^4 + 7x + 4 \equiv 0 \quad (mod \; 27)$</p><p>易得 $f(x) \equiv 0 \quad (mod \; 3)$ 的解为 $x_1 \equiv 1$，又 $f’(x_1) = 11 \implies (11, 3) = 1$ 故有解，且 $f’(x_1)^{-1} \equiv 2 \quad (mod \; 3)$ 根据递推关系式可计算得到 $t_1 \equiv 2, x_2 \equiv 4, t_2 \equiv 2, x_3 \equiv 22 $ ，故解为22</p><h3 id="求解素数模的同余式"><a href="#求解素数模的同余式" class="headerlink" title="求解素数模的同余式"></a>求解素数模的同余式</h3><h4 id="多项式欧几里得除法"><a href="#多项式欧几里得除法" class="headerlink" title="多项式欧几里得除法"></a>多项式欧几里得除法</h4><p>$f(x)$ 为 $n$ 次整系数多项式，$g(x)$ 为 $m$ 次首一整系数多项式，则存在整系数多项式 $q(x)$ 和 $r(x)$，使得<br>$$<br>f(x) = q(x) \cdot g(x) + r(x), \qquad deg \; r(x) &lt; deg \; g(x)<br>$$<br>由费马小定理及上述结论可知 $f(x)$ 与一个次数不超过 $p-1$ 的模 $p$ 同余式等价<br>$$<br>f(x) = q(x) \cdot (x^p - x) + r(x)<br>$$</p><h4 id="素数模同余式的因式分解"><a href="#素数模同余式的因式分解" class="headerlink" title="素数模同余式的因式分解"></a>素数模同余式的因式分解</h4><p>素数模同余式满足因式分解定理</p><h4 id="素数模同余式的解数估计"><a href="#素数模同余式的解数估计" class="headerlink" title="素数模同余式的解数估计"></a>素数模同余式的解数估计</h4><p>$f(x)$ 的解数不超过其次数(因式分解立证)</p><h4 id="解的判断"><a href="#解的判断" class="headerlink" title="解的判断"></a>解的判断</h4><p>$p$ 是一个素数，$n \in Z^+$，$n \le p$，则<br>$$<br>f(x) = x^n + \cdots + a_1x + a_0 \equiv \quad (mod \; p)<br>$$<br>有 $n$ 个解的充要条件是 $x^p - x$ 被 $f(x)$ 除所得的余式的所有系数都是 $p$ 的倍数</p><p>例子：判断同余式<br>$$<br>2x^3 + 5x^2 + 6x + 1 \equiv 0 \quad (mod \; 7)<br>$$<br>是否有三个解</p><p>首先将多项式两边 $\times 4$ 变成首1多项式<br>$$<br>4 \times (2x^3 + 5x^2 + 6x + 1) \equiv x^3 - x^2 + 3x - 3<br>$$<br>又有<br>$$<br>x^7 - x \equiv x(x^3+x^2-2x-2) \cdot (x^3 - x^2 + 3x - 3) + 7x(x^2-1)<br>$$<br>故有三个解</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+            <tag> infomation security </tag>
+            
+            <tag> course </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>开发存储器层次结构</title>
       <link href="/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/"/>
       <url>/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/</url>
