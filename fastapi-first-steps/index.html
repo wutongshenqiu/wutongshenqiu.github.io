@@ -557,19 +557,21 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h4><h5 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
+                <h4 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h4><h5 id="main-py"><a href="#main-py" class="headerlink" title="main.py"></a>main.py</h5><pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
 
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app = FastAPI()
 
 
-@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">root</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Hello World"</span><span class="token punctuation">}</span></code></pre>
-<h5 id="启动-uvicorn-命令"><a href="#启动-uvicorn-命令" class="headerlink" title="启动 uvicorn 命令"></a>启动 uvicorn 命令</h5><pre class=" language-bash"><code class="language-bash">uvicorn main:app --reload</code></pre>
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+</code></pre>
+<h5 id="启动-uvicorn-命令"><a href="#启动-uvicorn-命令" class="headerlink" title="启动 uvicorn 命令"></a>启动 uvicorn 命令</h5><pre class=" language-lang-bash"><code class="language-lang-bash">uvicorn main:app --reload
+</code></pre>
 <ul>
 <li>main：python 的模块，即文件 main.py</li>
 <li>app：指 <code>python app=FastAPI()</code> 中的app</li>
-<li>–reload：代码改变时重启服务器，<strong>只用于开发</strong></li>
+<li>—reload：代码改变时重启服务器，<strong>只用于开发</strong></li>
 </ul>
 <h4 id="API-文档"><a href="#API-文档" class="headerlink" title="API 文档"></a>API 文档</h4><ul>
 <li>交互式：位于 <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">http://127.0.0.1:8000/docs</a></li>
@@ -1175,7 +1177,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">17.5k</span>&nbsp;字
             
             
             

@@ -568,206 +568,207 @@
 <hr>
 <h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><p>注释已经非常详细了，这里就不再赘述。</p>
 <hr>
-<h4 id="异常类定义"><a href="#异常类定义" class="headerlink" title="异常类定义"></a>异常类定义</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">AuthenticationError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<h4 id="异常类定义"><a href="#异常类定义" class="headerlink" title="异常类定义"></a>异常类定义</h4><pre class=" language-lang-python"><code class="language-lang-python">class AuthenticationError(Exception):
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> Errorinfo<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        super<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>__init__<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        self<span class="token punctuation">.</span>errorinfo <span class="token operator">=</span> Errorinfo
-    <span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> self<span class="token punctuation">.</span>errorinfo</code></pre>
+    def __init__(self, Errorinfo):
+        super().__init__()
+        self.errorinfo = Errorinfo
+    def __str__(self):
+        return self.errorinfo
+</code></pre>
 <hr>
 <h4 id="服务器端代码"><a href="#服务器端代码" class="headerlink" title="服务器端代码"></a>服务器端代码</h4><hr>
-<h5 id="服务器类定义："><a href="#服务器类定义：" class="headerlink" title="服务器类定义："></a>服务器类定义：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> socket
-<span class="token keyword">import</span> rsa
-<span class="token keyword">import</span> pickle
-<span class="token keyword">from</span> cryptography<span class="token punctuation">.</span>fernet <span class="token keyword">import</span> Fernet
-<span class="token keyword">import</span> hashlib
-<span class="token keyword">from</span> errorclass <span class="token keyword">import</span> AuthenticationError
-<span class="token keyword">import</span> time
+<h5 id="服务器类定义："><a href="#服务器类定义：" class="headerlink" title="服务器类定义："></a>服务器类定义：</h5><pre class=" language-lang-python"><code class="language-lang-python">import socket
+import rsa
+import pickle
+from cryptography.fernet import Fernet
+import hashlib
+from errorclass import AuthenticationError
+import time
 
-<span class="token comment" spellcheck="true"># 使用图灵机器人的自动回复功能</span>
-<span class="token keyword">from</span> tlrobot <span class="token keyword">import</span> get_reply
+# 使用图灵机器人的自动回复功能
+from tlrobot import get_reply
 
-<span class="token keyword">class</span> <span class="token class-name">Server</span><span class="token punctuation">:</span>
+class Server:
 
-    <span class="token comment" spellcheck="true"># 用来标记同时连接的客户端的数量</span>
-    number <span class="token operator">=</span> <span class="token number">0</span>
+    # 用来标记同时连接的客户端的数量
+    number = 0
 
-    <span class="token comment" spellcheck="true"># 默认的最大等待数量为5</span>
-    <span class="token comment" spellcheck="true"># 默认使用本机的ip地址和8080端口</span>
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> backlog<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> addr<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议</span>
-        self<span class="token punctuation">.</span>serverSocket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 绑定监听的ip地址和端口号</span>
-        self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>bind<span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 开始等待</span>
-        self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>listen<span class="token punctuation">(</span>backlog<span class="token punctuation">)</span>
+    # 默认的最大等待数量为5
+    # 默认使用本机的ip地址和8080端口
+    def __init__(self, backlog=5, addr=('localhost', 8080)):
+        # 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议
+        self.serverSocket = socket.socket()
+        # 绑定监听的ip地址和端口号
+        self.serverSocket.bind(addr)
+        # 开始等待
+        self.serverSocket.listen(backlog)
 
-    <span class="token comment" spellcheck="true"># 该函数需要并行处理</span>
-    <span class="token keyword">def</span> <span class="token function">link_one_client</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 获取客户端对象和客户端地址</span>
-        clientSocket<span class="token punctuation">,</span> addr <span class="token operator">=</span> self<span class="token punctuation">.</span>serverSocket<span class="token punctuation">.</span>accept<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    # 该函数需要并行处理
+    def link_one_client(self):
+        # 获取客户端对象和客户端地址
+        clientSocket, addr = self.serverSocket.accept()
 
-        <span class="token comment" spellcheck="true"># 客户端数量加1</span>
-        Server<span class="token punctuation">.</span>number <span class="token operator">=</span> Server<span class="token punctuation">.</span>number <span class="token operator">+</span> <span class="token number">1</span>
-        <span class="token comment" spellcheck="true"># 标记当前客户端编号</span>
-        now_number <span class="token operator">=</span> Server<span class="token punctuation">.</span>number
+        # 客户端数量加1
+        Server.number = Server.number + 1
+        # 标记当前客户端编号
+        now_number = Server.number
 
-        <span class="token comment" spellcheck="true"># 打印</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"和客户端{0}建立连接\n目标主机地址为：{1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now_number<span class="token punctuation">,</span> addr<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 接受客户端传递的公钥</span>
-        <span class="token comment" spellcheck="true"># 这里可以加一个哈希函数检验公钥的正确性！</span>
-        <span class="token comment" spellcheck="true"># 运用pickle进行反序列化</span>
-        publicKeyPK<span class="token punctuation">,</span> pubKeySha256 <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>publicKeyPK<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> pubKeySha256<span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> AuthenticationError<span class="token punctuation">(</span><span class="token string">"密钥被篡改！"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            publicKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>publicKeyPK<span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"已接受公钥"</span><span class="token punctuation">)</span>
-
-
-        <span class="token comment" spellcheck="true"># 下面是用公钥加密对称密钥并传递的过程</span>
-        <span class="token comment" spellcheck="true"># 产生用于对称加密的密钥</span>
-        sym_key <span class="token operator">=</span> Fernet<span class="token punctuation">.</span>generate_key<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 用pickle进行序列化用来进行网络传输</span>
-        <span class="token comment" spellcheck="true"># 对密钥进行hash保证其准确性</span>
-        en_sym_key <span class="token operator">=</span> rsa<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>sym_key<span class="token punctuation">)</span><span class="token punctuation">,</span> publicKey<span class="token punctuation">)</span>
-        en_sym_key_sha256 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>en_sym_key<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在加密传送密钥"</span><span class="token punctuation">)</span>
-        clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">(</span>en_sym_key<span class="token punctuation">,</span>en_sym_key_sha256<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-        <span class="token comment" spellcheck="true"># 这里可以添加密钥交换成功的函数</span>
+        # 打印
+        print("和客户端{0}建立连接\n目标主机地址为：{1}".format(now_number, addr))
+        # 接受客户端传递的公钥
+        # 这里可以加一个哈希函数检验公钥的正确性！
+        # 运用pickle进行反序列化
+        publicKeyPK, pubKeySha256 = pickle.loads(clientSocket.recv(1024))
+        if hashlib.sha256(publicKeyPK).hexdigest() != pubKeySha256:
+            raise AuthenticationError("密钥被篡改！")
+        else:
+            publicKey = pickle.loads(publicKeyPK)
+            print("已接受公钥")
 
 
-        <span class="token comment" spellcheck="true"># 初始化加密对象</span>
-        f <span class="token operator">=</span> Fernet<span class="token punctuation">(</span>sym_key<span class="token punctuation">)</span>
+        # 下面是用公钥加密对称密钥并传递的过程
+        # 产生用于对称加密的密钥
+        sym_key = Fernet.generate_key()
+        # 用pickle进行序列化用来进行网络传输
+        # 对密钥进行hash保证其准确性
+        en_sym_key = rsa.encrypt(pickle.dumps(sym_key), publicKey)
+        en_sym_key_sha256 = hashlib.sha256(en_sym_key).hexdigest()
+        print("正在加密传送密钥")
+        clientSocket.send(pickle.dumps((en_sym_key,en_sym_key_sha256)))
 
-        <span class="token comment" spellcheck="true"># 下面使用对称密钥进行加密对话的过程</span>
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 接收到的加密消息</span>
-            en_recvData <span class="token operator">=</span> clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-            recvData <span class="token operator">=</span> f<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>en_recvData<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"接受到客户端{0}传来的消息：{1}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>now_number<span class="token punctuation">,</span> recvData<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        # 这里可以添加密钥交换成功的函数
 
-            <span class="token comment" spellcheck="true"># 调用图灵机器人</span>
-            sendData <span class="token operator">=</span> get_reply<span class="token punctuation">(</span>recvData<span class="token punctuation">)</span>
-            <span class="token comment" spellcheck="true"># 对消息进行加密</span>
-            en_sendData <span class="token operator">=</span> f<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>sendData<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>en_sendData<span class="token punctuation">)</span>
 
+        # 初始化加密对象
+        f = Fernet(sym_key)
+
+        # 下面使用对称密钥进行加密对话的过程
+        while True:
+            time.sleep(0.3)
+            # 接收到的加密消息
+            en_recvData = clientSocket.recv(1024)
+            recvData = f.decrypt(en_recvData).decode()
+            print("接受到客户端{0}传来的消息：{1}".format(now_number, recvData))
+
+            # 调用图灵机器人
+            sendData = get_reply(recvData)
+            # 对消息进行加密
+            en_sendData = f.encrypt(sendData.encode())
+            clientSocket.send(en_sendData)
 </code></pre>
 <hr>
-<h5 id="服务器端类实例化："><a href="#服务器端类实例化：" class="headerlink" title="服务器端类实例化："></a>服务器端类实例化：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> threading
+<h5 id="服务器端类实例化："><a href="#服务器端类实例化：" class="headerlink" title="服务器端类实例化："></a>服务器端类实例化：</h5><pre class=" language-lang-python"><code class="language-lang-python">import threading
 
-<span class="token keyword">from</span> serverclass <span class="token keyword">import</span> Server
+from serverclass import Server
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用服务端程序！"</span><span class="token punctuation">)</span>
+print("欢迎使用服务端程序！")
 
-server <span class="token operator">=</span> Server<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># 这里使用多线程可以避免服务器阻塞在一个客户端上</span>
-    t <span class="token operator">=</span> threading<span class="token punctuation">.</span>Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>server<span class="token punctuation">.</span>link_one_client<span class="token punctuation">)</span>
-    t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+server = Server()
+while True:
+    # 这里使用多线程可以避免服务器阻塞在一个客户端上
+    t = threading.Thread(target=server.link_one_client)
+    t.start()
+</code></pre>
 <hr>
 <h4 id="客户端代码"><a href="#客户端代码" class="headerlink" title="客户端代码"></a>客户端代码</h4><hr>
-<h5 id="客户端类定义："><a href="#客户端类定义：" class="headerlink" title="客户端类定义："></a>客户端类定义：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> socket
-<span class="token keyword">import</span> rsa
-<span class="token keyword">import</span> pickle
-<span class="token keyword">from</span> cryptography<span class="token punctuation">.</span>fernet <span class="token keyword">import</span> Fernet
-<span class="token keyword">import</span> hashlib
-<span class="token keyword">from</span> errorclass <span class="token keyword">import</span> AuthenticationError
+<h5 id="客户端类定义："><a href="#客户端类定义：" class="headerlink" title="客户端类定义："></a>客户端类定义：</h5><pre class=" language-lang-python"><code class="language-lang-python">import socket
+import rsa
+import pickle
+from cryptography.fernet import Fernet
+import hashlib
+from errorclass import AuthenticationError
 
-<span class="token keyword">class</span> <span class="token class-name">Client</span><span class="token punctuation">:</span>
+class Client:
 
-    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 产生非对称密钥</span>
-        self<span class="token punctuation">.</span>asyKey <span class="token operator">=</span> rsa<span class="token punctuation">.</span>newkeys<span class="token punctuation">(</span><span class="token number">2048</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 公钥和私钥</span>
-        self<span class="token punctuation">.</span>publicKey <span class="token operator">=</span> self<span class="token punctuation">.</span>asyKey<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-        self<span class="token punctuation">.</span>privateKey <span class="token operator">=</span> self<span class="token punctuation">.</span>asyKey<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+    def __init__(self):
+        # 产生非对称密钥
+        self.asyKey = rsa.newkeys(2048)
+        # 公钥和私钥
+        self.publicKey = self.asyKey[0]
+        self.privateKey = self.asyKey[1]
 
 
-    <span class="token keyword">def</span> <span class="token function">link_server</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> addr<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'localhost'</span><span class="token punctuation">,</span> <span class="token number">8080</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># 创建socket通信对象</span>
-        <span class="token comment" spellcheck="true"># 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议</span>
-        clientSocket <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># 默认连接服务器地址为本机ip和8080端口</span>
-        clientSocket<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>addr<span class="token punctuation">)</span>
+    def link_server(self, addr=('localhost', 8080)):
+        # 创建socket通信对象
+        # 默认使用AF_INET协议族，即ipv4地址和端口号的组合以及tcp协议
+        clientSocket = socket.socket()
+        # 默认连接服务器地址为本机ip和8080端口
+        clientSocket.connect(addr)
 
-        <span class="token comment" spellcheck="true"># 向服务器传递公钥，和该公钥字符串化后的sha256值</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"正在向服务器传送公钥"</span><span class="token punctuation">)</span>
-        sendKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>self<span class="token punctuation">.</span>publicKey<span class="token punctuation">)</span>
-        sendKeySha256 <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>sendKey<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token punctuation">(</span>sendKey<span class="token punctuation">,</span> sendKeySha256<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        # 向服务器传递公钥，和该公钥字符串化后的sha256值
+        print("正在向服务器传送公钥")
+        sendKey = pickle.dumps(self.publicKey)
+        sendKeySha256 = hashlib.sha256(sendKey).hexdigest()
+        clientSocket.send(pickle.dumps((sendKey, sendKeySha256)))
 
-        <span class="token comment" spellcheck="true"># 接受服务器传递的密钥并进行解密</span>
-        symKey<span class="token punctuation">,</span> symKeySha256 <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">if</span> hashlib<span class="token punctuation">.</span>sha256<span class="token punctuation">(</span>symKey<span class="token punctuation">)</span><span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> symKeySha256<span class="token punctuation">:</span>
-            <span class="token keyword">raise</span> AuthenticationError<span class="token punctuation">(</span><span class="token string">"密钥被篡改！"</span><span class="token punctuation">)</span>
-        <span class="token keyword">else</span><span class="token punctuation">:</span>
-            self<span class="token punctuation">.</span>symKey <span class="token operator">=</span> pickle<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>rsa<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>symKey<span class="token punctuation">,</span> self<span class="token punctuation">.</span>privateKey<span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"密钥交换完成"</span><span class="token punctuation">)</span>
+        # 接受服务器传递的密钥并进行解密
+        symKey, symKeySha256 = pickle.loads(clientSocket.recv(1024))
+        if hashlib.sha256(symKey).hexdigest() != symKeySha256:
+            raise AuthenticationError("密钥被篡改！")
+        else:
+            self.symKey = pickle.loads(rsa.decrypt(symKey, self.privateKey))
+            print("密钥交换完成")
 
-        <span class="token comment" spellcheck="true"># 初始化加密对象</span>
-        f <span class="token operator">=</span> Fernet<span class="token punctuation">(</span>self<span class="token punctuation">.</span>symKey<span class="token punctuation">)</span>
+        # 初始化加密对象
+        f = Fernet(self.symKey)
 
-        <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        while True:
 
-            sendData <span class="token operator">=</span> input<span class="token punctuation">(</span><span class="token string">"输入你要发送的消息："</span><span class="token punctuation">)</span>
-            en_sendData <span class="token operator">=</span> f<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>sendData<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            clientSocket<span class="token punctuation">.</span>send<span class="token punctuation">(</span>en_sendData<span class="token punctuation">)</span>
+            sendData = input("输入你要发送的消息：")
+            en_sendData = f.encrypt(sendData.encode())
+            clientSocket.send(en_sendData)
 
-            en_recvData <span class="token operator">=</span> clientSocket<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-            recvData <span class="token operator">=</span> f<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>en_recvData<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"接受到服务器传来的消息：{0}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>recvData<span class="token punctuation">)</span><span class="token punctuation">)</span>
-
+            en_recvData = clientSocket.recv(1024)
+            recvData = f.decrypt(en_recvData).decode()
+            print("接受到服务器传来的消息：{0}".format(recvData))
 </code></pre>
 <hr>
-<h5 id="客户端类实例化："><a href="#客户端类实例化：" class="headerlink" title="客户端类实例化："></a>客户端类实例化：</h5><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> clientclass <span class="token keyword">import</span> Client
+<h5 id="客户端类实例化："><a href="#客户端类实例化：" class="headerlink" title="客户端类实例化："></a>客户端类实例化：</h5><pre class=" language-lang-python"><code class="language-lang-python">from clientclass import Client
 
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"欢迎使用客户端程序！"</span><span class="token punctuation">)</span>
-client <span class="token operator">=</span> Client<span class="token punctuation">(</span><span class="token punctuation">)</span>
-client<span class="token punctuation">.</span>link_server<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+print("欢迎使用客户端程序！")
+client = Client()
+client.link_server()
+</code></pre>
 <hr>
-<h4 id="调用图灵机器人的代码"><a href="#调用图灵机器人的代码" class="headerlink" title="调用图灵机器人的代码"></a>调用<a href="https://www.kancloud.cn/turing/www-tuling123-com/718218" target="_blank" rel="noopener">图灵</a>机器人的代码</h4><pre class=" language-python"><code class="language-python">
-<span class="token keyword">import</span> requests
-<span class="token keyword">import</span> json
+<h4 id="调用图灵机器人的代码"><a href="#调用图灵机器人的代码" class="headerlink" title="调用图灵机器人的代码"></a>调用<a href="https://www.kancloud.cn/turing/www-tuling123-com/718218" target="_blank" rel="noopener">图灵</a>机器人的代码</h4><pre class=" language-lang-python"><code class="language-lang-python">
+import requests
+import json
 
-<span class="token keyword">def</span> <span class="token function">get_reply</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    datas <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token string">'reqType'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-        <span class="token string">"perception"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token string">"inputText"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"text"</span><span class="token punctuation">:</span> data
-            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+def get_reply(data):
+    datas = {
+        'reqType': 0,
+        "perception": {
+            "inputText": {
+                "text": data
+            },
 
-            <span class="token string">"selfInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                <span class="token string">"location"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-                    <span class="token string">"city"</span><span class="token punctuation">:</span> <span class="token string">"武汉"</span><span class="token punctuation">,</span>
-                    <span class="token string">"province"</span><span class="token punctuation">:</span> <span class="token string">"湖北"</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            "selfInfo": {
+                "location": {
+                    "city": "武汉",
+                    "province": "湖北"
+                }
+            }
+        },
 
-        <span class="token string">"userInfo"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true"># 这里填上自己的apiKey</span>
-            <span class="token string">"apiKey"</span><span class="token punctuation">:</span> <span class="token string">"*********************"</span><span class="token punctuation">,</span>
-            <span class="token comment" spellcheck="true"># userid可以随便填写</span>
-            <span class="token string">"userId"</span><span class="token punctuation">:</span> <span class="token string">"443545"</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+        "userInfo": {
+            # 这里填上自己的apiKey
+            "apiKey": "*********************",
+            # userid可以随便填写
+            "userId": "443545"
+        }
+    }
 
-    datas <span class="token operator">=</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>datas<span class="token punctuation">)</span>
-    url <span class="token operator">=</span> <span class="token string">"http://openapi.tuling123.com/openapi/api/v2"</span>
-    r <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>datas<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"results"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"values"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"text"</span><span class="token punctuation">)</span>
+    datas = json.dumps(datas)
+    url = "http://openapi.tuling123.com/openapi/api/v2"
+    r = requests.post(url=url, data=datas)
+    return json.loads(r.text).get("results")[0].get("values").get("text")
 </code></pre>
 <hr>
 <h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><ul>
 <li><a href="https://cryptography.io/en/latest/" target="_blank" rel="noopener">cryptography</a></li>
 <li><a href="https://www.jb51.net/article/119048.htm" target="_blank" rel="noopener">rsa</a></li>
-<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017787560490144" target="_blank" rel="noopener">廖雪峰老师–网络编程</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/1016959663602400/1017787560490144" target="_blank" rel="noopener">廖雪峰老师—网络编程</a></li>
 <li><a href="https://segmentfault.com/a/1190000012968005" target="_blank" rel="noopener">python(3.x) 实现AES 加解密</a></li>
 <li><a href="https://www.cnblogs.com/wangcq/p/3520400.html" target="_blank" rel="noopener">Socket通信原理</a></li>
 </ul>
@@ -1356,7 +1357,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">17.5k</span>&nbsp;字
             
             
             

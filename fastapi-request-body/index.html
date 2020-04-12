@@ -569,23 +569,24 @@
 <li><p>通常用：<code>POST</code>(最常见)，<code>PUT</code>，<code>DELETE</code>，<code>PATCH</code> 中的一种发送数据</p>
 </li>
 </ul>
-<h3 id="Pydantic-example"><a href="#Pydantic-example" class="headerlink" title="Pydantic example"></a>Pydantic example</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
-<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<h3 id="Pydantic-example"><a href="#Pydantic-example" class="headerlink" title="Pydantic example"></a>Pydantic example</h3><pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+from pydantic import BaseModel
 
 
-<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    name<span class="token punctuation">:</span> str
-    description<span class="token punctuation">:</span> str <span class="token operator">=</span> None
-    price<span class="token punctuation">:</span> float
-    tax<span class="token punctuation">:</span> float <span class="token operator">=</span> None
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
 
 
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app = FastAPI()
 
 
-@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_item</span><span class="token punctuation">(</span>item<span class="token punctuation">:</span> Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> item</code></pre>
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+</code></pre>
 <p>声明 <strong>request body</strong> 步骤：</p>
 <ol>
 <li>导入 <code>BaseModel</code> </li>
@@ -618,68 +619,71 @@ app <span class="token operator">=</span> FastAPI<span class="token punctuation"
 <p>它们也会被用在每个需要path operation的 API 文档上</p>
 <h3 id="Editor-support"><a href="#Editor-support" class="headerlink" title="Editor support"></a>Editor support</h3><p>IDE 将支持类型提示和自动补全，以及错误检查</p>
 <h3 id="Use-the-model"><a href="#Use-the-model" class="headerlink" title="Use the model"></a>Use the model</h3><p>在函数中，可以直接访问所有数据模型的属性(和正常的访问没有区别)</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
-<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+from pydantic import BaseModel
 
 
-<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    name<span class="token punctuation">:</span> str
-    description<span class="token punctuation">:</span> str <span class="token operator">=</span> None
-    price<span class="token punctuation">:</span> float
-    tax<span class="token punctuation">:</span> float <span class="token operator">=</span> None
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
 
 
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app = FastAPI()
 
 
-@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_item</span><span class="token punctuation">(</span>item<span class="token punctuation">:</span> Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    item_dict <span class="token operator">=</span> item<span class="token punctuation">.</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">if</span> item<span class="token punctuation">.</span>tax<span class="token punctuation">:</span>
-        price_with_tax <span class="token operator">=</span> item<span class="token punctuation">.</span>price <span class="token operator">+</span> item<span class="token punctuation">.</span>tax
-        item_dict<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"price_with_tax"</span><span class="token punctuation">:</span> price_with_tax<span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> item_dict</code></pre>
+@app.post("/items/")
+async def create_item(item: Item):
+    item_dict = item.dict()
+    if item.tax:
+        price_with_tax = item.price + item.tax
+        item_dict.update({"price_with_tax": price_with_tax})
+    return item_dict
+</code></pre>
 <h3 id="Request-body-path-parameters"><a href="#Request-body-path-parameters" class="headerlink" title="Request body + path parameters"></a>Request body + path parameters</h3><p>可以同时声明路径参数和 <strong>request body</strong></p>
 <p><strong>FastAPI</strong> 能够自动识别函数参数中从路径中得到的<strong>路径参数</strong>和 <strong>request body</strong> 中获得的 <strong>Pydantic models</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
-<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+from pydantic import BaseModel
 
 
-<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    name<span class="token punctuation">:</span> str
-    description<span class="token punctuation">:</span> str <span class="token operator">=</span> None
-    price<span class="token punctuation">:</span> float
-    tax<span class="token punctuation">:</span> float <span class="token operator">=</span> None
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
 
 
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app = FastAPI()
 
 
-@app<span class="token punctuation">.</span>put<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> int<span class="token punctuation">,</span> item<span class="token punctuation">:</span> Item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token operator">**</span>item<span class="token punctuation">.</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre>
+@app.put("/items/{item_id}")
+async def create_item(item_id: int, item: Item):
+    return {"item_id": item_id, **item.dict()}
+</code></pre>
 <h3 id="Request-body-path-query-parameters"><a href="#Request-body-path-query-parameters" class="headerlink" title="Request body + path + query parameters"></a>Request body + path + query parameters</h3><p>可以同时声明路径参数、<strong>request body</strong> 以及查询参数</p>
 <p><strong>FastAPI</strong> 能够自动识别它们</p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
-<span class="token keyword">from</span> pydantic <span class="token keyword">import</span> BaseModel
+<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+from pydantic import BaseModel
 
 
-<span class="token keyword">class</span> <span class="token class-name">Item</span><span class="token punctuation">(</span>BaseModel<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    name<span class="token punctuation">:</span> str
-    description<span class="token punctuation">:</span> str <span class="token operator">=</span> None
-    price<span class="token punctuation">:</span> float
-    tax<span class="token punctuation">:</span> float <span class="token operator">=</span> None
+class Item(BaseModel):
+    name: str
+    description: str = None
+    price: float
+    tax: float = None
 
 
-app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+app = FastAPI()
 
 
-@app<span class="token punctuation">.</span>put<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
-<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> int<span class="token punctuation">,</span> item<span class="token punctuation">:</span> Item<span class="token punctuation">,</span> q<span class="token punctuation">:</span> str <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    result <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token operator">**</span>item<span class="token punctuation">.</span>dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
-    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
-        result<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> result</code></pre>
+@app.put("/items/{item_id}")
+async def create_item(item_id: int, item: Item, q: str = None):
+    result = {"item_id": item_id, **item.dict()}
+    if q:
+        result.update({"q": q})
+    return result
+</code></pre>
 <p><strong><font color="red">函数参数的识别遵循：</font></strong></p>
 <ul>
 <li>如果参数出现在 <strong>path</strong> 中，则为路径参数</li>
@@ -991,8 +995,9 @@ app <span class="token operator">=</span> FastAPI<span class="token punctuation"
                             可接受任意数量参数的函数使用 * 参数，可以让一个函数接受任意数量的位置参数
 def test(arg, *args):
     pass
+
 在上述例子中，args 是一个由除 arg 以外所有位置参数组成的元组
-使用 ** 参数，可以让一个
+使用 ** 参数，可以让一
                         
                     </div>
                     <div class="publish-info">
@@ -1274,7 +1279,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">17.5k</span>&nbsp;字
             
             
             

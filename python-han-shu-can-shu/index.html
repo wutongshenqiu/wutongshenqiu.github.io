@@ -550,24 +550,28 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="可接受任意数量参数的函数"><a href="#可接受任意数量参数的函数" class="headerlink" title="可接受任意数量参数的函数"></a>可接受任意数量参数的函数</h3><p><strong>使用 * 参数，可以让一个函数接受任意数量的位置参数</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">def test(arg, *args):
+    pass
+</code></pre>
 <p>在上述例子中，<code>args</code> 是一个由除 <code>arg</code> 以外所有位置参数组成的元组</p>
 <p><strong>使用 ** 参数，可以让一个函数接受任意数量的关键字参数</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">def test(arg, **kwargs):
+    pass
+</code></pre>
 <p>在上述例子中，<code>kwargs</code> 是包含被传入进来的关键字参数字典</p>
 <p><strong>同时使用 * 和 **，能够让函数接受任意数量的位置参数和关键字参数</strong></p>
 <h3 id="只接受关键字参数的函数"><a href="#只接受关键字参数的函数" class="headerlink" title="只接受关键字参数的函数"></a>只接受关键字参数的函数</h3><p><strong>将参数放在 *参数或者单个 *后面</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span>
+<pre class=" language-lang-python"><code class="language-lang-python">def test(arg, *, key):
+    pass
 
-<span class="token keyword">def</span> <span class="token function">other_test</span><span class="token punctuation">(</span>arg<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span></code></pre>
+def other_test(arg, *args, key):
+    pass
+</code></pre>
 <p>在上述例子中，<code>key</code> 必须为关键字参数</p>
 <h3 id="仅限位置形参"><a href="#仅限位置形参" class="headerlink" title="仅限位置形参"></a>仅限位置形参</h3><p><strong>使用 <code>/</code> 指明某些函数的形参必须使用仅限位置而非关键字参数的形式</strong></p>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">f</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> <span class="token operator">/</span><span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> e<span class="token punctuation">,</span> f<span class="token punctuation">)</span></code></pre>
+<pre class=" language-lang-python"><code class="language-lang-python">def f(a, b, /, c, d, *, e, f):
+    print(a, b, c, d, e, f)
+</code></pre>
 <p>在上述例子中，<code>a</code>，<code>b</code> 为仅限位置形参，<code>c</code>，<code>d</code> 可以是位置形参也可以是关键字形参，<code>e</code> ，<code>f</code>必须为关键字形参</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1158,7 +1162,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">8.5k</span>&nbsp;字
+                class="white-color">17.5k</span>&nbsp;字
             
             
             
