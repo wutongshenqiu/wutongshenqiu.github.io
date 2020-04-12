@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="v2ray-configure, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="Path Parameters and Numeric Validations, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>v2ray-configure | qiufeng&#39;s blog</title>
+    <title>Path Parameters and Numeric Validations | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">v2ray-configure</h1>
+                    <h1 class="description center-align post-title">Path Parameters and Numeric Validations</h1>
                 </div>
             </div>
         </div>
@@ -492,8 +492,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/v2ray/">
-                                <span class="chip bg-color">v2ray</span>
+                            <a href="/tags/fastapi/">
+                                <span class="chip bg-color">fastapi</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -504,8 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/tools/" class="post-category">
-                                tools
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -517,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-13
                 </div>
                 
 
@@ -526,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    584
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -549,7 +557,80 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="记录一下怕自己忘记了"><a href="#记录一下怕自己忘记了" class="headerlink" title="记录一下怕自己忘记了"></a>记录一下怕自己忘记了</h4><p><a href="https://www.ecsoe.com/archives/38.html" target="_blank" rel="noopener">v2配置</a><br><a href="https://www.4spaces.org/speed-up-your-vps-with-bbr-plus/" target="_blank" rel="noopener">v2加速</a><br><a href="https://blog.sprov.xyz/2019/03/11/" target="_blank" rel="noopener">cdn加速</a><br><a href="https://clients.hostwinds.com/" target="_blank" rel="noopener">hostwind 服务器</a><br><a href="https://www.namesilo.com/" target="_blank" rel="noopener">namesilo 域名网站</a></p>
+                <h3 id="Path-Parameters-and-Numeric-Validations"><a href="#Path-Parameters-and-Numeric-Validations" class="headerlink" title="Path Parameters and Numeric Validations"></a>Path Parameters and Numeric Validations</h3><p>和用 <code>Query</code> 为<strong>查询参数</strong>声明更多的验证规则和元信息相同，可以用 <code>Path</code> 为路径参数声明同样的验证规则和元信息</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Path<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    q<span class="token punctuation">:</span> str <span class="token operator">=</span> Query<span class="token punctuation">(</span>None<span class="token punctuation">,</span> alias<span class="token operator">=</span><span class="token string">"item-query"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p><code>Path</code> 可声明的参数与 <code>Query</code> 完全相同，例如，在上述例子中，为 <code>item_id</code> 声明了元信息 <code>title</code></p>
+<p><strong>注：</strong>因为路径参数总是必须的，因此可以用 <code>...</code> 声明，实际上即使有默认值，也不会有效果，因为<strong>路径参数总是必须的</strong></p>
+<h3 id="Order-the-parameters-as-you-need"><a href="#Order-the-parameters-as-you-need" class="headerlink" title="Order the parameters as you need"></a>Order the parameters as you need</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Path
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    q<span class="token punctuation">:</span> str<span class="token punctuation">,</span> item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<h4 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h4><ul>
+<li>python 总是要求位置参数在关键字参数前面，因此 <code>q</code> 必须位于 <code>Path</code> 前</li>
+<li>参数的顺序并不会影响 <strong>FastAPI</strong>，它关注的是参数的名字、类型和默认声明 <code>Query</code>，<code>Path</code></li>
+</ul>
+<h3 id="Order-the-parameters-as-you-need-tricks"><a href="#Order-the-parameters-as-you-need-tricks" class="headerlink" title="Order the parameters as you need, tricks"></a>Order the parameters as you need, tricks</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Path
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    <span class="token operator">*</span><span class="token punctuation">,</span> item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> q<span class="token punctuation">:</span> str
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<p>在 <code>*</code> 后面的参数即使没有默认值，也会被识别为关键字参数，因此可以如上例声明参数 666</p>
+<h3 id="Number-validations-greater-than-or-equal"><a href="#Number-validations-greater-than-or-equal" class="headerlink" title="Number validations: greater than or equal"></a>Number validations: greater than or equal</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Path<span class="token punctuation">,</span> Query
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_items</span><span class="token punctuation">(</span>
+    <span class="token operator">*</span><span class="token punctuation">,</span>
+    item_id<span class="token punctuation">:</span> int <span class="token operator">=</span> Path<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> title<span class="token operator">=</span><span class="token string">"The ID of the item to get"</span><span class="token punctuation">,</span> ge<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> le<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    q<span class="token punctuation">:</span> str<span class="token punctuation">,</span>
+    size<span class="token punctuation">:</span> float <span class="token operator">=</span> Query<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">,</span> gt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span> lt<span class="token operator">=</span><span class="token number">10.5</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    results <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        results<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> results</code></pre>
+<h4 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h4><ul>
+<li><code>ge</code> 表示 greater equal</li>
+<li><code>gt</code> 表示 greater than</li>
+<li><code>le</code> 表示 less equal</li>
+<li><code>lt</code> 表示 less than</li>
+</ul>
+<h3 id="技术细节："><a href="#技术细节：" class="headerlink" title="技术细节："></a>技术细节：</h3><ul>
+<li><code>Query</code>，<code>Path</code> 等都是 <code>Param</code> 类的子类，它们<strong>共享相同的验证参数和元信息</strong></li>
+<li><code>Query</code>，<code>Path</code> 等，其实只是函数，当他们被调用的时候，<strong>返回同名类的实例</strong>，例如当调用 <code>Query</code> 函数时，返回 <code>Query</code> 类的实例。这样做是为了避免直接使用类，这样编辑器就不会标记和他们类型有关的错误</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -593,7 +674,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/v2ray-configure/">https://beasuna.xyz/v2ray-configure/</a>
+                    <a href="https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/">https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,8 +712,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/v2ray/">
-                                    <span class="chip bg-color">v2ray</span>
+                                <a href="/tags/fastapi/">
+                                    <span class="chip bg-color">fastapi</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -803,7 +892,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-07T19-59-11',
+        id: '2020-04-13T00-29-42',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -827,36 +916,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/fastapi-first-steps/">
+                <a href="/fastapi-path-parameters-and-numeric-validations/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="First Steps">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Path Parameters and Numeric Validations">
                         
-                        <span class="card-title">First Steps</span>
+                        <span class="card-title">Path Parameters and Numeric Validations</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一个简单的例子main.pyfrom fastapi import FastAPI
-
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hel
+                            Path Parameters and Numeric Validations和用 Query 为查询参数声明更多的验证规则和元信息相同，可以用 Path 为路径参数声明同样的验证规则和元信息
+from fastapi import Fas
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -869,6 +953,7 @@ async def root():
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -895,40 +980,32 @@ async def root():
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/socket-jia-mi-tong-xin/">
+                <a href="/math-quadratic-residue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="socket加密通信">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="math Quadratic residue">
                         
-                        <span class="card-title">socket加密通信</span>
+                        <span class="card-title">math Quadratic residue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程思路：
-客户端和服务器端建立连接
-客户端产生非对称密钥，将公钥传送给服务器端
-服务器端通过公钥将密钥进行加密并传送给客户端
-客户端接收到密钥并进行解密，双方开始通信
-
-
-背景资料：
-AES原理(图解密码技术第三章)
-RSA原理(图解密码
+                            二次剩余若同余式$$x^2 \equiv a \quad (mod \; m), \qquad (a, m) = 1$$有解，则 $a$ 叫做模 $m$ 的平方/二次剩余，否则称为平方/二次非剩余
+模为奇素数的平方剩余欧拉判别条件$a$ 是
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cryptography/" class="post-category">
-                                    cryptography
+                            <a href="/categories/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
@@ -938,12 +1015,16 @@ RSA原理(图解密码
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/math/">
+                        <span class="chip bg-color">math</span>
                     </a>
                     
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
+                    <a href="/tags/infomation-security/">
+                        <span class="chip bg-color">infomation security</span>
+                    </a>
+                    
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
                     </a>
                     
                 </div>
@@ -1081,13 +1162,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
     <footer class="page-footer bg-color">

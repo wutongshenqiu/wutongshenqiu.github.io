@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-12T15:15:24.116Z</updated>
+  <updated>2020-04-12T16:39:03.402Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Path Parameters and Numeric Validations</title>
+    <link href="https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/"/>
+    <id>https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/</id>
+    <published>2020-04-12T16:29:42.000Z</published>
+    <updated>2020-04-12T16:39:03.402Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Path-Parameters-and-Numeric-Validations&quot;&gt;&lt;a href=&quot;#Path-Parameters-and-Numeric-Validations&quot; class=&quot;headerlink&quot; title=&quot;Path
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>math Quadratic residue</title>
@@ -242,11 +273,11 @@
   </entry>
   
   <entry>
-    <title>fastapi Query Parameters and String Validations</title>
+    <title>Query Parameters and String Validations</title>
     <link href="https://beasuna.xyz/fastapi-query-parameters-and-string-validations/"/>
     <id>https://beasuna.xyz/fastapi-query-parameters-and-string-validations/</id>
     <published>2020-04-11T15:59:35.000Z</published>
-    <updated>2020-04-11T16:00:14.343Z</updated>
+    <updated>2020-04-12T16:38:54.530Z</updated>
     
     <summary type="html">
     
@@ -277,7 +308,7 @@
     <link href="https://beasuna.xyz/python-han-shu-can-shu/"/>
     <id>https://beasuna.xyz/python-han-shu-can-shu/</id>
     <published>2020-04-11T15:18:52.000Z</published>
-    <updated>2020-04-11T15:21:35.958Z</updated>
+    <updated>2020-04-12T16:29:19.368Z</updated>
     
     <summary type="html">
     
@@ -285,7 +316,7 @@
       
         
         
-          &lt;h3 id=&quot;可接受任意数量参数的函数&quot;&gt;&lt;a href=&quot;#可接受任意数量参数的函数&quot; class=&quot;headerlink&quot; title=&quot;可接受任意数量参数的函数&quot;&gt;&lt;/a&gt;可接受任意数量参数的函数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;使用 *
+          &lt;h3 id=&quot;可接受任意数量参数的函数&quot;&gt;&lt;a href=&quot;#可接受任意数量参数的函数&quot; class=&quot;headerlink&quot; title=&quot;可接受任意数量参数的函数&quot;&gt;&lt;/a&gt;可接受任意数量参数的函数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;使用 &lt;code&gt;*&lt;/code&gt;
         
       
     
