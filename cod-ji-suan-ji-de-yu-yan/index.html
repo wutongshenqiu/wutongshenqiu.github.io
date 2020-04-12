@@ -536,7 +536,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="常用的寄存器（32个）："><a href="#常用的寄存器（32个）：" class="headerlink" title="常用的寄存器（32个）："></a>常用的寄存器（32个）：</h5><ul>
+                <h3 id="常用的寄存器（32个）："><a href="#常用的寄存器（32个）：" class="headerlink" title="常用的寄存器（32个）："></a>常用的寄存器（32个）：</h3><ul>
 <li>$\$0(\$zero)$：零寄存器，值恒为 $0$ </li>
 <li>$\$1(\$at)$：寄存器 $at$ ，保留给汇编器使用</li>
 <li>$\$2、\$3(\$v_0、\$v_1)$：函数返回值寄存器，调用时不保存</li>
@@ -549,7 +549,10 @@
 <li>$\$30(\$fp)$：帧指针寄存器，调用时需要保存</li>
 <li>$\$31(\$ra)$：返回地址寄存器，调用时需要保存</li>
 </ul>
-<p><img src="/img/cod/1.png" alt="喵喵喵"></p>
+<img src="/img/cod/1.png" alt="喵喵喵">
+
+
+
 <p>MIPS 进行<strong>算数运算</strong>指令的操作数必须来自<strong><em>寄存器</em></strong></p>
 <h5 id="硬件设计的基本原则："><a href="#硬件设计的基本原则：" class="headerlink" title="硬件设计的基本原则："></a>硬件设计的基本原则：</h5><ul>
 <li>简单源于规整</li>
@@ -561,7 +564,26 @@
 <h5 id="指令格式"><a href="#指令格式" class="headerlink" title="指令格式"></a>指令格式</h5><ul>
 <li><p>$R$ 型指令：</p>
 <ul>
-<li><p>|  op  |  rs  |  rt  |  rd  | shamt | funct |<br>| :—: | :—: | :—: | :—: | :—-: | :—-: |<br>|  6   |  5   |  5   |  5   |   5   |   6   |</p>
+<li><table>
+<thead>
+<tr>
+<th align="center">op</th>
+<th align="center">rs</th>
+<th align="center">rt</th>
+<th align="center">rd</th>
+<th align="center">shamt</th>
+<th align="center">funct</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">6</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">6</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>$R$ 型指令由 $op$ 和 $funct$ 字段决定指令的功能</p>
 </li>
@@ -575,7 +597,22 @@
 </li>
 <li><p>$I$ 型指令：</p>
 <ul>
-<li><p>|  op  |  rs  |  rt  | imme |<br>| :—: | :—: | :—: | :—: |<br>|  6   |  5   |  5   |  16  |</p>
+<li><table>
+<thead>
+<tr>
+<th align="center">op</th>
+<th align="center">rs</th>
+<th align="center">rt</th>
+<th align="center">imme</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">6</td>
+<td align="center">5</td>
+<td align="center">5</td>
+<td align="center">16</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>$rs$ 基址寄存器</p>
 </li>
@@ -589,7 +626,18 @@
 </li>
 <li><p>$J$ 型指令：</p>
 <ul>
-<li><p>|  op  | address |<br>| :—: | :——-: |<br>|  6   |   26    |</p>
+<li><table>
+<thead>
+<tr>
+<th align="center">op</th>
+<th align="center">address</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">6</td>
+<td align="center">26</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>$op$ 指令的功能</p>
 </li>
@@ -633,8 +681,11 @@
 </ul>
 <p>在一个过程中，如果需要用到更多的寄存器 (多于4个参数寄存器和2个返回值寄存器)，则可能需要使用<font color="red">栈</font>来保护调用过程中的寄存器，例如 $\$t_0-\$t_9$ 属于临时寄存器，可以不必被调用者保存，$\$s_0-\$s_7$ 为保留寄存器，需要被调用者保存，<font color="red">由于可能存在嵌套过程，$ra$ 和参数寄存器也可能需要压栈</font></p>
 <p>全局指针$gp$ ：指向静态数据区的保留寄存器</p>
-<p><img src="/img/cod/2.png" alt="喵喵喵"></p>
-<h5 id="加载-32-位常量（假定高十六位为-a，低十六位为-b）到寄存器-s-0-的操作："><a href="#加载-32-位常量（假定高十六位为-a，低十六位为-b）到寄存器-s-0-的操作：" class="headerlink" title="加载 32 位常量（假定高十六位为 a，低十六位为 b）到寄存器 $\$s_0$ 的操作："></a>加载 32 位常量（假定高十六位为 a，低十六位为 b）到寄存器 $\$s_0$ 的操作：</h5><ul>
+<img src="/img/cod/2.png" alt="喵喵喵">
+
+
+
+<h3 id="加载-32-位常量（假定高十六位为-a，低十六位为-b）到寄存器-s-0-的操作："><a href="#加载-32-位常量（假定高十六位为-a，低十六位为-b）到寄存器-s-0-的操作：" class="headerlink" title="加载 32 位常量（假定高十六位为 a，低十六位为 b）到寄存器 $\$s_0$ 的操作："></a>加载 32 位常量（假定高十六位为 a，低十六位为 b）到寄存器 $\$s_0$ 的操作：</h3><ul>
 <li><p>$lui \quad \$s_0, \; a$</p>
 </li>
 <li><p>$ori \quad \$s_0,\; b $</p>
@@ -643,7 +694,7 @@
 <p>保留寄存器 $\$at$ 通常用来创建长整数值</p>
 <p>mips 中的条件分支寻址的形式为 <font color="purple">PC 相对寻址</font>，且是相对于 $PC+4$ 而不是当前指令 $PC$ ，并且寻址时的地址是<font color="pink">字地址</font> 而不是字节地址</p>
 <p>$J$ 型指令的目标地址 $PC_{target}= \lbrace PC[31:28], addr &lt;&lt; 4\rbrace$ </p>
-<h5 id="远距离的分支转移替换："><a href="#远距离的分支转移替换：" class="headerlink" title="远距离的分支转移替换："></a>远距离的分支转移替换：</h5><ul>
+<h3 id="远距离的分支转移替换："><a href="#远距离的分支转移替换：" class="headerlink" title="远距离的分支转移替换："></a>远距离的分支转移替换：</h3><ul>
 <li>$beq \quad \$s_0,\; \$s_1,\; L1$ 可以转换为下述指令：<ul>
 <li>$bne \quad \$s_0,\; \$s1, \; L2$</li>
 <li>$j \quad L1$ </li>
@@ -651,7 +702,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="MIPS-寻址模式"><a href="#MIPS-寻址模式" class="headerlink" title="MIPS 寻址模式"></a>MIPS 寻址模式</h5><ul>
+<h3 id="MIPS-寻址模式"><a href="#MIPS-寻址模式" class="headerlink" title="MIPS 寻址模式"></a>MIPS 寻址模式</h3><ul>
 <li>立即数寻址：操作数是位于指令自身的常数，如 (addi, subi等)</li>
 <li>寄存器寻址：操作数是寄存器，如 (add, sub等)</li>
 <li>基址寻址：操作数在内存中，其地址是指令中基址寄存器和常数的和，如 (lw, sw等)</li>
@@ -659,7 +710,7 @@
 <li>伪直接寻址：地址是PC高4位和26位立即数字段 (左移两位)组成</li>
 </ul>
 <p>数据竞争：假如来自不同线程的两个访存请求访问同一个地址，他们连续出现，并且至少其中一个是<font color="lightblue"><strong>写</strong></font>操作，那么这两个存储访问形成数据竞争</p>
-<h5 id="翻译和执行程序的步骤："><a href="#翻译和执行程序的步骤：" class="headerlink" title="翻译和执行程序的步骤："></a>翻译和执行程序的步骤：</h5><ol>
+<h3 id="翻译和执行程序的步骤："><a href="#翻译和执行程序的步骤：" class="headerlink" title="翻译和执行程序的步骤："></a>翻译和执行程序的步骤：</h3><ol>
 <li>编译：将高级语言转化为汇编语言</li>
 <li>汇编：将汇编语言转化为机器语言</li>
 <li>链接：将多个模块和库程序组合在一起解析所有的引用</li>
@@ -1250,7 +1301,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

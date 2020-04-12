@@ -558,17 +558,16 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="Query-Parameters"><a href="#Query-Parameters" class="headerlink" title="Query Parameters"></a>Query Parameters</h3><p>当声明的函数参数不是路径参数的一部分时，它们会被自动的解释为<a href="https://en.wikipedia.org/wiki/Query_string" target="_blank" rel="noopener">查询参数</a>(可以直观的理解为 URL 中 ? 后面，以 &amp; 分割的键值对)</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+fake_items_db <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"item_name"</span><span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_name"</span><span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"item_name"</span><span class="token punctuation">:</span> <span class="token string">"Baz"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
 
 
-@app.get("/items/")
-async def read_item(skip: int = 0, limit: int = 10):
-    return fake_items_db[skip : skip + limit]
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_item</span><span class="token punctuation">(</span>skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> fake_items_db<span class="token punctuation">[</span>skip <span class="token punctuation">:</span> skip <span class="token operator">+</span> limit<span class="token punctuation">]</span></code></pre>
 <p>在上述例子中，如果访问 <code>http://127.0.0.1:8000/items/?skip=0&amp;limit=10</code> ，则查询参数为：</p>
 <ul>
 <li>skip：值为 0</li>
@@ -590,36 +589,34 @@ async def read_item(skip: int = 0, limit: int = 10):
 <li>limit：10</li>
 </ul>
 <h3 id="Optional-parameters"><a href="#Optional-parameters" class="headerlink" title="Optional parameters"></a>Optional parameters</h3><p>同样的，可以通过将默认值指定为 <code>None</code> 来声明<strong>可选</strong>查询参数</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: str, q: str = None):
-    if q:
-        return {"item_id": item_id, "q": q}
-    return {"item_id": item_id}
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> q<span class="token punctuation">:</span> str <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span></code></pre>
 <p>在上述例子中，参数 <code>q</code> 是可选的，并且默认值是 <code>None</code></p>
 <p><strong>注</strong>：<strong>FastAPI</strong> 可以自动识别 <code>item_id</code> 为路径参数，<code>q</code> 是可选参数</p>
 <h3 id="Query-parameter-type-conversion"><a href="#Query-parameter-type-conversion" class="headerlink" title="Query parameter type conversion"></a>Query parameter type conversion</h3><p>同样可以声明 <code>bool</code> 类型，它们也会被自动转换</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: str, q: str = None, short: bool = False):
-    item = {"item_id": item_id}
-    if q:
-        item.update({"q": q})
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
-        )
-    return item
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> q<span class="token punctuation">:</span> str <span class="token operator">=</span> None<span class="token punctuation">,</span> short<span class="token punctuation">:</span> bool <span class="token operator">=</span> <span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        item<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> short<span class="token punctuation">:</span>
+        item<span class="token punctuation">.</span>update<span class="token punctuation">(</span>
+            <span class="token punctuation">{</span><span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"This is an amazing item that has a long description"</span><span class="token punctuation">}</span>
+        <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> item</code></pre>
 <p>在这个例子中，访问如下网址及其大小写变体，都有 <code>short=True</code> 成立，<strong>相反的意思</strong> 则为 <code>False</code></p>
 <ul>
 <li><p><code>http://127.0.0.1:8000/items/foo?short=1</code></p>
@@ -630,53 +627,51 @@ async def read_item(item_id: str, q: str = None, short: bool = False):
 </li>
 <li><p><code>http://127.0.0.1:8000/items/foo?short=on</code></p>
 </li>
-<li><code>http://127.0.0.1:8000/items/foo?short=yes</code></li>
+<li><p><code>http://127.0.0.1:8000/items/foo?short=yes</code></p>
+</li>
 </ul>
 <p><strong>注</strong>：相反的意思指的是单词的意思相反，如 0-1，true-false 等，访问其他不可解析的路径时会报错</p>
 <h3 id="Multiple-path-and-query-parameters"><a href="#Multiple-path-and-query-parameters" class="headerlink" title="Multiple path and query parameters"></a>Multiple path and query parameters</h3><p>可以同时声明多个路径参数和查询参数，<strong>FastAPI</strong> 知道如何进行选择</p>
 <p>由于 <strong>FastAPI</strong> 是根据参数的名字来判断的，因此对参数的声明顺序没有要求</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/users/{user_id}/items/{item_id}")
-async def read_user_item(
-    user_id: int, item_id: str, q: str = None, short: bool = False
-):
-    item = {"item_id": item_id, "owner_id": user_id}
-    if q:
-        item.update({"q": q})
-    if not short:
-        item.update(
-            {"description": "This is an amazing item that has a long description"}
-        )
-    return item
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/users/{user_id}/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user_item</span><span class="token punctuation">(</span>
+    user_id<span class="token punctuation">:</span> int<span class="token punctuation">,</span> item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> q<span class="token punctuation">:</span> str <span class="token operator">=</span> None<span class="token punctuation">,</span> short<span class="token punctuation">:</span> bool <span class="token operator">=</span> <span class="token boolean">False</span>
+<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token string">"owner_id"</span><span class="token punctuation">:</span> user_id<span class="token punctuation">}</span>
+    <span class="token keyword">if</span> q<span class="token punctuation">:</span>
+        item<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> short<span class="token punctuation">:</span>
+        item<span class="token punctuation">.</span>update<span class="token punctuation">(</span>
+            <span class="token punctuation">{</span><span class="token string">"description"</span><span class="token punctuation">:</span> <span class="token string">"This is an amazing item that has a long description"</span><span class="token punctuation">}</span>
+        <span class="token punctuation">)</span>
+    <span class="token keyword">return</span> item</code></pre>
 <h3 id="Required-query-parameters"><a href="#Required-query-parameters" class="headerlink" title="Required query parameters"></a>Required query parameters</h3><p>当声明的非路径参数(目前只介绍了查询参数)有默认值时，它不是必须的</p>
 <p>如果只想设置可选参数而不指定特定值，则可以设置默认值为 <code>None</code></p>
 <p>如果想要让查询参数是必须的，只需要不指定默认值</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_user_item(item_id: str, needy: str):
-    item = {"item_id": item_id, "needy": needy}
-    return item
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> needy<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token string">"needy"</span><span class="token punctuation">:</span> needy<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> item</code></pre>
 <p>在上面的例子中，<code>needy</code> 是类型为 <code>str</code> 的必须查询参数</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_user_item(item_id: str, needy: str, skip: int = 0, limit: int = None):
-    item = {"item_id": item_id, "needy": needy, "skip": skip, "limit": limit}
-    return item
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> needy<span class="token punctuation">:</span> str<span class="token punctuation">,</span> skip<span class="token punctuation">:</span> int <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> limit<span class="token punctuation">:</span> int <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token string">"needy"</span><span class="token punctuation">:</span> needy<span class="token punctuation">,</span> <span class="token string">"skip"</span><span class="token punctuation">:</span> skip<span class="token punctuation">,</span> <span class="token string">"limit"</span><span class="token punctuation">:</span> limit<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> item</code></pre>
 <p>在上面的例子中，查询参数有 3 个：</p>
 <ul>
 <li>needy：类型为 <code>str</code> 的必选参数</li>
@@ -686,29 +681,25 @@ async def read_user_item(item_id: str, needy: str, skip: int = 0, limit: int = N
 <p><strong>注</strong>：可以同上一节一样使用枚举变量</p>
 <h3 id="Optional-type-declarations"><a href="#Optional-type-declarations" class="headerlink" title="Optional type declarations"></a>Optional type declarations</h3><p><strong>注</strong>：高级用法</p>
 <p>在 <code>mypy</code> 中，如果使用：</p>
-<pre class=" language-lang-python"><code class="language-lang-python">limit: int = None
-</code></pre>
+<pre class=" language-python"><code class="language-python">limit<span class="token punctuation">:</span> int <span class="token operator">=</span> None</code></pre>
 <p>可能会出现错误：</p>
-<pre class=" language-lang-bash"><code class="language-lang-bash">Incompatible types in assignment (expression has type "None", variable has type "int")
-</code></pre>
+<pre class=" language-bash"><code class="language-bash">Incompatible types <span class="token keyword">in</span> assignment <span class="token punctuation">(</span>expression has <span class="token function">type</span> <span class="token string">"None"</span>, variable has <span class="token function">type</span> <span class="token string">"int"</span><span class="token punctuation">)</span></code></pre>
 <p>可以通过 <code>Optional</code> 告知 <code>mypy</code> 值可以为 <code>None</code> ，例如：</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from typing import Optional
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Optional
 
-limit: Optional[int] = None
-</code></pre>
+limit<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>int<span class="token punctuation">]</span> <span class="token operator">=</span> None</code></pre>
 <p>在路径声明中，可以这样写</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from typing import Optional
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> Optional
 
-from fastapi import FastAPI
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_user_item(item_id: str, limit: Optional[int] = None):
-    item = {"item_id": item_id, "limit": limit}
-    return item
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> str<span class="token punctuation">,</span> limit<span class="token punctuation">:</span> Optional<span class="token punctuation">[</span>int<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    item <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">,</span> <span class="token string">"limit"</span><span class="token punctuation">:</span> limit<span class="token punctuation">}</span>
+    <span class="token keyword">return</span> item</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1070,9 +1061,7 @@ API 总
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            整除定义$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得 
-
-a=q \cdot b则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，$
+                            整除定义$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得$$a=q \cdot b$$则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，
                         
                     </div>
                     <div class="publish-info">
@@ -1302,7 +1291,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

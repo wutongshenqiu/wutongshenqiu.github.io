@@ -534,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    9 分
                 </div>
                 
 
@@ -565,7 +565,8 @@
 </li>
 <li><p>$a \equiv b \quad (mod \; m) \iff$ $a, b$ 被 $m$ 除的余数相同</p>
 </li>
-<li>同余做<strong>加法</strong>和<strong>乘法</strong>之后仍然同余</li>
+<li><p>同余做<strong>加法</strong>和<strong>乘法</strong>之后仍然同余</p>
+</li>
 </ol>
 <h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul>
 <li>设 $d \cdot a \equiv d \cdot b \quad (mod \; m)$，若 $(d,m) = 1$，则 $a \equiv b \quad (mod \; m)$</li>
@@ -597,170 +598,160 @@
 </li>
 <li><p>$(m_1, m_2) = 1$，如果 $k_1, k_2$ 分别遍历模 $m_1,m_2$ 的简化剩余系，则 $m_2 \cdot k_1 + m_1 \cdot k_2$ 遍历模 $m_1 \cdot m_2$ 的简化剩余系</p>
 </li>
-<li><font color="red">$(m, n) = 1$，则 $\psi(mn)=\psi(m) \cdot \psi(n)$</font>
-
+<li><p><font color="red">$(m, n) = 1$，则 $\psi(mn)=\psi(m) \cdot \psi(n)$</font></p>
 <ul>
 <li>考虑 $xm + yn$ 由上一条定理立证</li>
 </ul>
 </li>
 <li><p>设 $n = \Pi p_i^{\alpha_i}$，则 $\psi(n) = n \cdot \Pi(1-\frac{1}{p_i})$</p>
 </li>
-<li><script type="math/tex; mode=display">
-\sum_{d|m} \psi(d) = m</script><ul>
+<li><p>$$<br>\sum_{d|m} \psi(d) = m<br>$$</p>
+<ul>
 <li><font color="red">该定理将用于原根的构造</font></li>
 <li>$1, \dots , m$ 中的每一个整数按照与 $m$ 的最大公因数进行分类</li>
 </ul>
 </li>
 </ul>
 <h3 id="欧拉定理和费马小定理"><a href="#欧拉定理和费马小定理" class="headerlink" title="欧拉定理和费马小定理"></a>欧拉定理和费马小定理</h3><h4 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h4><p>若 $(a, m) = 1$，则有 $a^{\psi(m)} \equiv 1 \quad (mod \; m)$</p>
-<p></p><h4 style="color:red;"> RSA &lt;/font&gt; <p></p>
-<p>设 $p, q$ 是两个不同的奇素数，$n = p \cdot q$，$a \in Z$ 且 $(a, n) = 1$，如果 $e$ 满足：</p>
-<script type="math/tex; mode=display">
-1 < e < \psi(n), \quad (e, \psi(n)) = 1</script><p>那么存在整数 $d$，使得 $e \cdot d \equiv 1 \quad (mod \; \psi(n))$，而且，对于整数</p>
-<script type="math/tex; mode=display">
-a^e \equiv c \quad (mod \\; n), \quad 1 < c < n</script><p>有</p>
-<script type="math/tex; mode=display">
-c^d \equiv a \quad (mod \\; n)</script><p>上述公钥为 $n,e$，私钥为 $p,q,d$，明文为 $a$，密文为 $c$</p>
-<pre class=" language-lang-python"><code class="language-lang-python">class GeneratePrime:
-    """generate prime by miller robin algorithm"""
+<h4 style="color:red;"> RSA  
 
-    def __init__(self, judge_numbers: Iterable[int] = None):
-        # judge_numbers are numbers to test in miller robin algorithm
-        if not judge_numbers:
-            self.judge_numbers = {2, 3, 5, 7, 11, 13}
-        else:
-            self.judge_numbers = judge_numbers
+<p>设 $p, q$ 是两个不同的奇素数，$n = p \cdot q$，$a \in Z$ 且 $(a, n) = 1$，如果 $e$ 满足：<br>$$<br>1 &lt; e &lt; \psi(n), \quad (e, \psi(n)) = 1<br>$$<br>那么存在整数 $d$，使得 $e \cdot d \equiv 1 \quad (mod \; \psi(n))$，而且，对于整数<br>$$<br>a^e \equiv c \quad (mod \; n), \quad 1 &lt; c &lt; n<br>$$<br>有<br>$$<br>c^d \equiv a \quad (mod \; n)<br>$$<br>上述公钥为 $n,e$，私钥为 $p,q,d$，明文为 $a$，密文为 $c$</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">GeneratePrime</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""generate prime by miller robin algorithm"""</span>
 
-    def gen_nbit_prime(self, n, threshold=1000):
-        """generate nbit length prime"""
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> judge_numbers<span class="token punctuation">:</span> Iterable<span class="token punctuation">[</span>int<span class="token punctuation">]</span> <span class="token operator">=</span> None<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># judge_numbers are numbers to test in miller robin algorithm</span>
+        <span class="token keyword">if</span> <span class="token operator">not</span> judge_numbers<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>judge_numbers <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">13</span><span class="token punctuation">}</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>judge_numbers <span class="token operator">=</span> judge_numbers
 
-        # support n <= 1024
-        assert n <= 1024
+    <span class="token keyword">def</span> <span class="token function">gen_nbit_prime</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> n<span class="token punctuation">,</span> threshold<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""generate nbit length prime"""</span>
 
-        lower_bound = 2 ** n
-        upper_bound = 2 ** (n+1)
+        <span class="token comment" spellcheck="true"># support n &lt;= 1024</span>
+        <span class="token keyword">assert</span> n <span class="token operator">&lt;=</span> <span class="token number">1024</span>
 
-        num = 0
-        while num < threshold:
-            # keep odd
-            p = randint(lower_bound, upper_bound) | 1
-            if self.is_prime(p):
-                return p
-            num += 1
-        print("fail to find prime")
+        lower_bound <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> n
+        upper_bound <span class="token operator">=</span> <span class="token number">2</span> <span class="token operator">**</span> <span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
 
-    def is_prime(self, p) -> bool:
-        if p & 1 == 0:
-            return False
-        if p in {2, 3, 5, 7, 11}:
-            return True
+        num <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">while</span> num <span class="token operator">&lt;</span> threshold<span class="token punctuation">:</span>
+            <span class="token comment" spellcheck="true"># keep odd</span>
+            p <span class="token operator">=</span> randint<span class="token punctuation">(</span>lower_bound<span class="token punctuation">,</span> upper_bound<span class="token punctuation">)</span> <span class="token operator">|</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>is_prime<span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> p
+            num <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"fail to find prime"</span><span class="token punctuation">)</span>
 
-        for judge_num in self.judge_numbers:
-            if not self.miller_robin_test(p, judge_num):
-                return False
+    <span class="token keyword">def</span> <span class="token function">is_prime</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> p <span class="token operator">&amp;</span> <span class="token number">1</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
+        <span class="token keyword">if</span> p <span class="token keyword">in</span> <span class="token punctuation">{</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">}</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">True</span>
 
-        return True
+        <span class="token keyword">for</span> judge_num <span class="token keyword">in</span> self<span class="token punctuation">.</span>judge_numbers<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token operator">not</span> self<span class="token punctuation">.</span>miller_robin_test<span class="token punctuation">(</span>p<span class="token punctuation">,</span> judge_num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
 
     @staticmethod
-    def miller_robin_test(p: int, a: int) -> bool:
-        """miller robin algorithm to test if p is prime
+    <span class="token keyword">def</span> <span class="token function">miller_robin_test</span><span class="token punctuation">(</span>p<span class="token punctuation">:</span> int<span class="token punctuation">,</span> a<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> bool<span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""miller robin algorithm to test if p is prime
 
         More details can be found in wikipedia "https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test"
-        """
-        # fermat theorem: a^p = a (mod p) if p is prime
-        # here we use builtin function for efficiency
-        if pow(a, p, p) != a:
-            return False
+        """</span>
+        <span class="token comment" spellcheck="true"># fermat theorem: a^p = a (mod p) if p is prime</span>
+        <span class="token comment" spellcheck="true"># here we use builtin function for efficiency</span>
+        <span class="token keyword">if</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> p<span class="token punctuation">,</span> p<span class="token punctuation">)</span> <span class="token operator">!=</span> a<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token boolean">False</span>
 
-        n = p - 1
-        # if x^2 = 1 (mod p) then, x = 1/p-1 (mod p)
-        while n & 1:
-            remainder = pow(a, n, p)
-            if remainder not in (1, p-1):
-                return False
-            n //= 2
+        n <span class="token operator">=</span> p <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token comment" spellcheck="true"># if x^2 = 1 (mod p) then, x = 1/p-1 (mod p)</span>
+        <span class="token keyword">while</span> n <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            remainder <span class="token operator">=</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> n<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> remainder <span class="token operator">not</span> <span class="token keyword">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> p<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">return</span> <span class="token boolean">False</span>
+            n <span class="token operator">//=</span> <span class="token number">2</span>
 
-        return True
+        <span class="token keyword">return</span> <span class="token boolean">True</span>
 
 
-class RSA:
-    """RSA example
+<span class="token keyword">class</span> <span class="token class-name">RSA</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""RSA example
 
     Description:
         this implement 2.4.5 in chapter2
-    """
+    """</span>
 
-    def __init__(self, nbit, e=65537):
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nbit<span class="token punctuation">,</span> e<span class="token operator">=</span><span class="token number">65537</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
 
-        prime_gen = GeneratePrime()
-        p = prime_gen.gen_nbit_prime(nbit)
-        q = prime_gen.gen_nbit_prime(nbit)
-        n = p * q
-        phi_n = (p-1) * (q-1)
-        d, *_ = self.extended_euclidean(e, phi_n)
-        d %= phi_n
-        self.private_key = {
-            "p": p,
-            "q": q,
-            "phi_n": phi_n,
-            "d": d
-        }
+        prime_gen <span class="token operator">=</span> GeneratePrime<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        p <span class="token operator">=</span> prime_gen<span class="token punctuation">.</span>gen_nbit_prime<span class="token punctuation">(</span>nbit<span class="token punctuation">)</span>
+        q <span class="token operator">=</span> prime_gen<span class="token punctuation">.</span>gen_nbit_prime<span class="token punctuation">(</span>nbit<span class="token punctuation">)</span>
+        n <span class="token operator">=</span> p <span class="token operator">*</span> q
+        phi_n <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token number">-1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>q<span class="token number">-1</span><span class="token punctuation">)</span>
+        d<span class="token punctuation">,</span> <span class="token operator">*</span>_ <span class="token operator">=</span> self<span class="token punctuation">.</span>extended_euclidean<span class="token punctuation">(</span>e<span class="token punctuation">,</span> phi_n<span class="token punctuation">)</span>
+        d <span class="token operator">%=</span> phi_n
+        self<span class="token punctuation">.</span>private_key <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"p"</span><span class="token punctuation">:</span> p<span class="token punctuation">,</span>
+            <span class="token string">"q"</span><span class="token punctuation">:</span> q<span class="token punctuation">,</span>
+            <span class="token string">"phi_n"</span><span class="token punctuation">:</span> phi_n<span class="token punctuation">,</span>
+            <span class="token string">"d"</span><span class="token punctuation">:</span> d
+        <span class="token punctuation">}</span>
 
-        self.public_key = {
-            "n": n,
-            "e": e
-        }
+        self<span class="token punctuation">.</span>public_key <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">"n"</span><span class="token punctuation">:</span> n<span class="token punctuation">,</span>
+            <span class="token string">"e"</span><span class="token punctuation">:</span> e
+        <span class="token punctuation">}</span>
 
-    def encrypt(self, a):
-        """encrypt plaintext a with public key e"""
-        e = self.public_key.get("e")
-        n = self.public_key.get("n")
-        return pow(a, e, n)
+    <span class="token keyword">def</span> <span class="token function">encrypt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""encrypt plaintext a with public key e"""</span>
+        e <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"e"</span><span class="token punctuation">)</span>
+        n <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> pow<span class="token punctuation">(</span>a<span class="token punctuation">,</span> e<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
 
-    def decrypt(self, c):
-        d = self.private_key.get("d")
-        n = self.public_key.get("n")
-        return pow(c, d, n)
+    <span class="token keyword">def</span> <span class="token function">decrypt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        d <span class="token operator">=</span> self<span class="token punctuation">.</span>private_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"d"</span><span class="token punctuation">)</span>
+        n <span class="token operator">=</span> self<span class="token punctuation">.</span>public_key<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"n"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> pow<span class="token punctuation">(</span>c<span class="token punctuation">,</span> d<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
 
     @staticmethod
-    def extended_euclidean(a, b):
-        """use extended euclidean algorithm to calculate s, t, k, s.t. sa + tb = k = (a, b)"""
+    <span class="token keyword">def</span> <span class="token function">extended_euclidean</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""use extended euclidean algorithm to calculate s, t, k, s.t. sa + tb = k = (a, b)"""</span>
 
-        quotients = []
-        q, r1 = divmod(a, b)
-        r2 = b
-        quotients.append(q)
-        while r1 > 0:
-            q, r = divmod(r2, r1)
-            r2 = r1
-            r1 = r
-            quotients.append(q)
+        quotients <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        q<span class="token punctuation">,</span> r1 <span class="token operator">=</span> divmod<span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span>
+        r2 <span class="token operator">=</span> b
+        quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
+        <span class="token keyword">while</span> r1 <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            q<span class="token punctuation">,</span> r <span class="token operator">=</span> divmod<span class="token punctuation">(</span>r2<span class="token punctuation">,</span> r1<span class="token punctuation">)</span>
+            r2 <span class="token operator">=</span> r1
+            r1 <span class="token operator">=</span> r
+            quotients<span class="token punctuation">.</span>append<span class="token punctuation">(</span>q<span class="token punctuation">)</span>
 
-        s: list = [1, 0]
-        t: list = [0, 1]
-        for i in range(len(quotients) - 1):
-            s.append(quotients[i] * -s[i+1] + s[i])
-            t.append(quotients[i] * -t[i+1] + t[i])
+        s<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+        t<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>quotients<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            s<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>s<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            t<span class="token punctuation">.</span>append<span class="token punctuation">(</span>quotients<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token operator">-</span>t<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> t<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
 
-        return s[-1], t[-1], r2
-</code></pre>
+        <span class="token keyword">return</span> s<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> t<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> r2</code></pre>
 </h4><h4 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h4><p>$p$ 是一个素数，$\forall a,t,k \in Z$，有 $a^{t + k \cdot (p-1)} \equiv a^t \quad (mod \; p)$</p>
-<h4 id="Wilson-定理"><a href="#Wilson-定理" class="headerlink" title="Wilson 定理"></a>Wilson 定理</h4><p>$p$ 是一个素数，则有</p>
-<script type="math/tex; mode=display">
-(p-1)! \equiv -1 \quad (mod \\; p)</script><h3 style="color: red;">模重复平方计算法</h3>
+<h4 id="Wilson-定理"><a href="#Wilson-定理" class="headerlink" title="Wilson 定理"></a>Wilson 定理</h4><p>$p$ 是一个素数，则有<br>$$<br>(p-1)! \equiv -1 \quad (mod \; p)<br>$$</p>
+<h3 style="color: red;">模重复平方计算法</h3>
 
 <p>计算 $b^n \; (mod \; m)$ 的步骤：</p>
 <ul>
-<li>将 $n$ 表示成二进制 $n=(n<em>{k-1}n</em>{k-2} \cdots n_0)_2$</li>
-<li>在模 $m$ 下计算 $b<em>0=b,b_1=b_0^2, \dots, b</em>{k-1}=b_{k-2}^2$</li>
-<li>在模 $m$ 下计算 $a<em>0 = b_0^{n_0}, a_t=a</em>{t-1} \cdot b_t^{n_t}, \; \; t \in [1, k-1]$</li>
+<li>将 $n$ 表示成二进制 $n=(n_{k-1}n_{k-2} \cdots n_0)_2$</li>
+<li>在模 $m$ 下计算 $b_0=b,b_1=b_0^2, \dots, b_{k-1}=b_{k-2}^2$</li>
+<li>在模 $m$ 下计算 $a_0 = b_0^{n_0}, a_t=a_{t-1} \cdot b_t^{n_t}, \; \; t \in [1, k-1]$</li>
 <li>$a_{k-1}$ 即为结果</li>
 </ul>
-<p>例子：计算 $312^{13} \; (mod \; 667)$</p>
-<script type="math/tex; mode=display">
-\begin{align}& 13 = (1101)_2 \\\\& b_0 = b = 312； b_1 = b_0^2 = 629； b_2 = b_1^2 = 110；b_3 = b_2^2 = 94 \\\\& a_0 = b_0^{n_0} = 312；a_1 = a_0 \cdot b_1^{n_1} = 312；a_2 = a_1 \cdot b_2^{n_2} = 303；a_3 = a_2 \cdot b_3^{n_3} = 468 \end{align}</script><p>故结果为 $468$</p>
-<pre class=" language-lang-python"><code class="language-lang-python">def exponentiation_by_squaring(b: int, e: int, m: int) -> int:
-    """calculate non-negative integer k that satisfies b^e = k (mod m)
+<p>例子：计算 $312^{13} \; (mod \; 667)$<br>$$<br>\begin{align}&amp; 13 = (1101)_2 \\&amp; b_0 = b = 312； b_1 = b_0^2 = 629； b_2 = b_1^2 = 110；b_3 = b_2^2 = 94 \\&amp; a_0 = b_0^{n_0} = 312；a_1 = a_0 \cdot b_1^{n_1} = 312；a_2 = a_1 \cdot b_2^{n_2} = 303；a_3 = a_2 \cdot b_3^{n_3} = 468 \end{align}<br>$$<br>故结果为 $468$</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">exponentiation_by_squaring</span><span class="token punctuation">(</span>b<span class="token punctuation">:</span> int<span class="token punctuation">,</span> e<span class="token punctuation">:</span> int<span class="token punctuation">,</span> m<span class="token punctuation">:</span> int<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> int<span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""calculate non-negative integer k that satisfies b^e = k (mod m)
 
     Description:
         This function implement exponentiation mod in chapter2
@@ -771,33 +762,32 @@ class RSA:
         m: the modulus
 
     Returns:
-        the non-negative integer k that satisfies b^e = k (mod m) and 0 <= k < m
-    """
+        the non-negative integer k that satisfies b^e = k (mod m) and 0 &lt;= k &lt; m
+    """</span>
 
-    def integer_to_binary(s) -> List[int]:
-        """change non-negative integer s to binary"""
-        bin_array = []
-        while s > 0:
-            bin_array.append(s % 2)
-            s //= 2
+    <span class="token keyword">def</span> <span class="token function">integer_to_binary</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> List<span class="token punctuation">[</span>int<span class="token punctuation">]</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""change non-negative integer s to binary"""</span>
+        bin_array <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">while</span> s <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">:</span>
+            bin_array<span class="token punctuation">.</span>append<span class="token punctuation">(</span>s <span class="token operator">%</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            s <span class="token operator">//=</span> <span class="token number">2</span>
 
-        # the binary is expressed as a_0 + a_1*2 + ... + a_n*2^n
-        return bin_array
+        <span class="token comment" spellcheck="true"># the binary is expressed as a_0 + a_1*2 + ... + a_n*2^n</span>
+        <span class="token keyword">return</span> bin_array
 
-    bin_list = integer_to_binary(e)
-    # previously calculate b, b^2, b^4, ... in the case of module m
-    previous_b_list: list = [b % m]
-    for i in range(len(bin_list) - 1):
-        previous_b_list.append(previous_b_list[i] ** 2 % m)
+    bin_list <span class="token operator">=</span> integer_to_binary<span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+    <span class="token comment" spellcheck="true"># previously calculate b, b^2, b^4, ... in the case of module m</span>
+    previous_b_list<span class="token punctuation">:</span> list <span class="token operator">=</span> <span class="token punctuation">[</span>b <span class="token operator">%</span> m<span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>bin_list<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        previous_b_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>previous_b_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">**</span> <span class="token number">2</span> <span class="token operator">%</span> m<span class="token punctuation">)</span>
 
-    # calculate k
-    k = b ** bin_list[0] % m
-    for i in range(1, len(bin_list)):
-        if bin_list[i] == 1:
-            k = k * previous_b_list[i] % m
+    <span class="token comment" spellcheck="true"># calculate k</span>
+    k <span class="token operator">=</span> b <span class="token operator">**</span> bin_list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">%</span> m
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> len<span class="token punctuation">(</span>bin_list<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> bin_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+            k <span class="token operator">=</span> k <span class="token operator">*</span> previous_b_list<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> m
 
-    return k
-</code></pre>
+    <span class="token keyword">return</span> k</code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1394,7 +1384,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

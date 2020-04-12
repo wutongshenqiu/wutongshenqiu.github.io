@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COD 开发存储器层次结构, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="开发存储器层次结构, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>COD 开发存储器层次结构 | qiufeng&#39;s blog</title>
+    <title>开发存储器层次结构 | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">COD 开发存储器层次结构</h1>
+                    <h1 class="description center-align post-title">开发存储器层次结构</h1>
                 </div>
             </div>
         </div>
@@ -549,27 +549,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="局部性原理："><a href="#局部性原理：" class="headerlink" title="局部性原理："></a>局部性原理：</h5><ul>
+                <h3 id="局部性原理："><a href="#局部性原理：" class="headerlink" title="局部性原理："></a>局部性原理：</h3><ul>
 <li>时间局部性：如果某个数据项被访问，那么在不久的将来他可能再次被访问</li>
 <li>空间局部性：如果某个数据项被访问，那么与地址相邻的数据项可能很快也将被访问</li>
 <li>例子：循环结构体现了指令和数据的时间局部性；顺序执行和对数组或者记录中的元素进行顺序访问则体现了指令和数据的空间局部性</li>
 </ul>
-<h5 id="层次结构："><a href="#层次结构：" class="headerlink" title="层次结构："></a>层次结构：</h5><ul>
+<h3 id="层次结构："><a href="#层次结构：" class="headerlink" title="层次结构："></a>层次结构：</h3><ul>
 <li><p>存储器层次结构：一种由多存储器层次组成的结构，存储器的容量和访问时间随着离处理器距离的增加而增加</p>
 </li>
 <li><p>数据层次结构：靠近处理器那一层的数据是那些较远层次中的子集，<font color="lightblue">所有的数据</font>被存储在最缓慢的层</p>
 </li>
-<li>存储器的层次结构可以由多层构成，但是数据每次只能在相邻的两个层次之间进行复制，高层次的存储器靠近处理器，比低层存储器容量小但是访问速度更快。</li>
-<li>两级层次结构中存储信息交换的最小单元称为块或行</li>
+<li><p>存储器的层次结构可以由多层构成，但是数据每次只能在相邻的两个层次之间进行复制，高层次的存储器靠近处理器，比低层存储器容量小但是访问速度更快。</p>
+</li>
+<li><p>两级层次结构中存储信息交换的最小单元称为块或行</p>
+</li>
 </ul>
-<h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><ul>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
 <li>块或行：两级层次结构中存储信息交换的最小单元</li>
 <li>命中率：在高层存储器中找到目标数据的存储访问比例</li>
 <li>缺失率：1-命中率</li>
 <li>命中时间：访问某存储器层次结构所需要的时间，包括了判断当前访问是命中还是缺失所需的时间</li>
 <li>缺失代价：将相应的块或行从低层存储器替换到高层存储器以及将该信息快传送给处理器的时间之和</li>
 </ul>
-<h5 id="存储器技术："><a href="#存储器技术：" class="headerlink" title="存储器技术："></a>存储器技术：</h5><ul>
+<h3 id="存储器技术："><a href="#存储器技术：" class="headerlink" title="存储器技术："></a>存储器技术：</h3><ul>
 <li>一些典型的存储器：<img src="/img/cod/14.png" alt="喵喵喵"></li>
 <li>闪存：一种电可擦除的可编程只读存储器</li>
 <li>磁盘存储器：<ul>
@@ -585,25 +587,19 @@
 </ul>
 </li>
 </ul>
-<h5 id="cache-基本原理："><a href="#cache-基本原理：" class="headerlink" title="cache 基本原理："></a>cache 基本原理：</h5><ul>
+<h3 id="cache-基本原理："><a href="#cache-基本原理：" class="headerlink" title="cache 基本原理："></a>cache 基本原理：</h3><ul>
 <li>直接映射：每个存储器中的数据项都放在cache中的确定位置</li>
 </ul>
 <p>较大的 cache 块能够更好的利用空间局部性以降低缺失率</p>
-<h5 id="指令-cache-缺失时的处理步骤（指令存储器的-cache）："><a href="#指令-cache-缺失时的处理步骤（指令存储器的-cache）：" class="headerlink" title="指令 cache 缺失时的处理步骤（指令存储器的 cache）："></a>指令 cache 缺失时的处理步骤（指令存储器的 cache）：</h5><ol>
+<h3 id="指令-cache-缺失时的处理步骤（指令存储器的-cache）："><a href="#指令-cache-缺失时的处理步骤（指令存储器的-cache）：" class="headerlink" title="指令 cache 缺失时的处理步骤（指令存储器的 cache）："></a>指令 cache 缺失时的处理步骤（指令存储器的 cache）：</h3><ol>
 <li>把程序计数器 PC 和 原始值 PC-4 送到存储器中</li>
 <li>通知主存执行一次读操作，并等待主存访问完成</li>
 <li>写 cache 项，将从主存取回的数据写入 cache 中存放数据的部分，并设置 cache 中对应的（有效位，标记为和索引）</li>
 <li>重启指令执行第一步，此时指令在 cache 中</li>
 </ol>
-<font color="lightblue">数据 cache 缺失</font>与指令 cache 缺失时的处理步骤基本相同，发生缺失时，处理器发生阻塞，直到从存储器中取回数据后才响应
-
-
-
-写操作和读操作的不同之处在于：如果只将数据写入数据 cache（而不改变主存的内容），那么，再写入 cache 之后，主存与 cache 相应位置的值将<font color="red">不同</font>，此时 cache 和主存被认为<font color="red">不一致</font>
-
-
-
-<h4 id="写操作："><a href="#写操作：" class="headerlink" title="写操作："></a>写操作：</h4><ul>
+<p><font color="lightblue">数据 cache 缺失</font>与指令 cache 缺失时的处理步骤基本相同，发生缺失时，处理器发生阻塞，直到从存储器中取回数据后才响应</p>
+<p>写操作和读操作的不同之处在于：如果只将数据写入数据 cache（而不改变主存的内容），那么，再写入 cache 之后，主存与 cache 相应位置的值将<font color="red">不同</font>，此时 cache 和主存被认为<font color="red">不一致</font></p>
+<h3 id="写操作："><a href="#写操作：" class="headerlink" title="写操作："></a>写操作：</h3><ul>
 <li>写命中（处理器 sw 指令的地址在数据 cache 中）时保持 cache 和主存一致性的方法：<ul>
 <li>写直达（写通过、写穿）：更新 cache 的同时更新下一存储器层次，保持二者的一致性<ul>
 <li>写缓冲：一中解决写直达缓慢的解决方法。在一个数据等待被写入主存时，先将它放入写缓冲（保存等待写入主存数据的缓冲队列）中。如果写缓冲已经满了，则处理器必须阻塞直到写缓冲中有一个位置。（写缓冲写入内存主要存储器的写操作速度，数据写入写缓冲主要看处理器的写操作速度）当存储器完成写操作的速度慢于处理器产生写操作的速度，那么就必须产生上述阻塞，再多的缓冲器也没有用，当存储器的写操作速度快于处理器时，也有可能由于写冲突而发生阻塞</li>
@@ -620,7 +616,6 @@
 <li>因为采用写回操作时，如果出现写缺失，更新操作可能造成 cache 中更新但是没有写入下一存储器层次的数据丢失（可以采用脏位），因此写回一般和写不分配搭配（并不绝对）</li>
 </ul>
 <p>在<font color="red">组相联</font>中，cache 的组成为</p>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -629,20 +624,17 @@
 <th>块偏移</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>选择块</td>
 <td>选择组</td>
 <td>选择被请求的数据地址</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <ul>
 <li>全相联不需要索引位</li>
 </ul>
 <p>汉明码达到 DED 只需要加一位奇偶校验位校验所有的数据</p>
-<h5 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h5><ul>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><ul>
 <li><p>一种将主存用作辅助存储器高速缓存的技术。主存可以看作硬盘的 cache（<font color="red">主存既有虚拟页号也有物理页号？？</font>）</p>
 </li>
 <li><p>虚拟存储器实现了程序地址空间（虚拟地址）到物理地址的转换，这种地址转换处理加强了各个程序地址空间之间的保护</p>
@@ -662,13 +654,15 @@
 </li>
 <li><p>虚拟存储器中通常采用写回机制，因为写直达的开销太大</p>
 </li>
-<li>页表：保存着虚拟地址和物理地址之间转换关系的表。包含有效位、虚页号和物理页号<ul>
+<li><p>页表：保存着虚拟地址和物理地址之间转换关系的表。包含有效位、虚页号和物理页号</p>
+<ul>
 <li>若有效位为 1，则表明该页在主存中，可以直接通过访问物理页号获取数据</li>
 <li>若有效位为 0，表明该页不在主存中，即缺页，需要去磁盘访问</li>
 <li>页表包含了每一个可能的虚拟页的映射</li>
 </ul>
 </li>
-<li>因为虚拟存储器采用全相连映射，所以物理页号和虚拟页号其实没有什么关系</li>
+<li><p>因为虚拟存储器采用全相连映射，所以物理页号和虚拟页号其实没有什么关系</p>
+</li>
 </ul>
 <p><strong>段式管理</strong>：一种可变长度的地址映射策略。其中每个地址由两部分组成：映射到物理地址的段号和段内偏移</p>
 <script>
@@ -957,9 +951,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COD 开发存储器层次结构">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="开发存储器层次结构">
                         
-                        <span class="card-title">COD 开发存储器层次结构</span>
+                        <span class="card-title">开发存储器层次结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1010,9 +1004,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="COD 处理器">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="处理器">
                         
-                        <span class="card-title">COD 处理器</span>
+                        <span class="card-title">处理器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1251,7 +1245,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

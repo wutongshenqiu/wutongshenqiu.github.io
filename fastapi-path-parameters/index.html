@@ -558,25 +558,23 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong>path</strong> 中可以用 <strong>python</strong> 格式字符串的形式来声明变量，例如</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id):
-    return {"item_id": item_id}
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span></code></pre>
 <p>变量 <code>item_id</code> 会成为为函数的一个参数</p>
-<h4 id="带类型的路径变量"><a href="#带类型的路径变量" class="headerlink" title="带类型的路径变量"></a>带类型的路径变量</h4><pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<h4 id="带类型的路径变量"><a href="#带类型的路径变量" class="headerlink" title="带类型的路径变量"></a>带类型的路径变量</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/items/{item_id}")
-async def read_item(item_id: int):
-    return {"item_id": item_id}
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/items/{item_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_item</span><span class="token punctuation">(</span>item_id<span class="token punctuation">:</span> int<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"item_id"</span><span class="token punctuation">:</span> item_id<span class="token punctuation">}</span></code></pre>
 <p><strong>给路径变量添加类型</strong>：</p>
 <ul>
 <li><p>有助于 IDE 的检查和代码自动补全</p>
@@ -588,75 +586,71 @@ async def read_item(item_id: int):
 </li>
 <li><p><strong>FastAPI</strong> 可以根据声明的类型对<strong>数据进行验证</strong>，例如访问 <a href="http://127.0.0.1:8000/items/foo" target="_blank" rel="noopener">http://127.0.0.1:8000/items/foo</a> 会得到如下错误</p>
 <ul>
-<li><pre class=" language-lang-json"><code class="language-lang-json">{
-    "detail": [
-        {
-            "loc": [
-                "path",
-                "item_id"
-            ],
-            "msg": "value is not a valid integer",
-            "type": "type_error.integer"
-        }
-    ]
-}
-</code></pre>
+<li><pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">"detail"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"loc"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">"path"</span><span class="token punctuation">,</span>
+                <span class="token string">"item_id"</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">"msg"</span><span class="token operator">:</span> <span class="token string">"value is not a valid integer"</span><span class="token punctuation">,</span>
+            <span class="token property">"type"</span><span class="token operator">:</span> <span class="token string">"type_error.integer"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
 </li>
 </ul>
 <h4 id="Pydantic"><a href="#Pydantic" class="headerlink" title="Pydantic"></a>Pydantic</h4><p>所有的数据验证工作都是由 <strong><a href="https://pydantic-docs.helpmanual.io/" target="_blank" rel="noopener">Pydantic</a></strong> 提供的</p>
-<h4 id="路径顺序"><a href="#路径顺序" class="headerlink" title="路径顺序"></a>路径顺序</h4><pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<h4 id="路径顺序"><a href="#路径顺序" class="headerlink" title="路径顺序"></a>路径顺序</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
-
-
-@app.get("/users/me")
-async def read_user_me():
-    return {"user_id": "the current user"}
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/users/{user_id}")
-async def read_user(user_id: str):
-    return {"user_id": user_id}
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/users/me"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user_me</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"user_id"</span><span class="token punctuation">:</span> <span class="token string">"the current user"</span><span class="token punctuation">}</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/users/{user_id}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_user</span><span class="token punctuation">(</span>user_id<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"user_id"</span><span class="token punctuation">:</span> user_id<span class="token punctuation">}</span></code></pre>
 <p>如果用 <code>/users/me</code> 表示当前用户 <code>/users/{user_id}</code> 表示特定用户，则 <code>/users/me</code> 需要放在前面，在 <strong>fastapi</strong> 中路径是按照声明的顺序来依次匹配的</p>
 <h4 id="Predefined-values"><a href="#Predefined-values" class="headerlink" title="Predefined values"></a>Predefined values</h4><p>如果希望接收到预先定义的合法路径变量，可以使用 <strong><a href="https://docs.python.org/3/library/enum.html" target="_blank" rel="noopener">Enum</a></strong> </p>
-<pre class=" language-lang-python"><code class="language-lang-python">from enum import Enum
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> enum <span class="token keyword">import</span> Enum
 
-from fastapi import FastAPI
-
-
-# 继承自 str 相当于给每一个属性声明 str 类型
-class ModelName(str, Enum):
-    alexnet = "alexnet"
-    resnet = "resnet"
-    lenet = "lenet"
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
 
-app = FastAPI()
+<span class="token comment" spellcheck="true"># 继承自 str 相当于给每一个属性声明 str 类型</span>
+<span class="token keyword">class</span> <span class="token class-name">ModelName</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> Enum<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    alexnet <span class="token operator">=</span> <span class="token string">"alexnet"</span>
+    resnet <span class="token operator">=</span> <span class="token string">"resnet"</span>
+    lenet <span class="token operator">=</span> <span class="token string">"lenet"</span>
 
 
-@app.get("/model/{model_name}")
-async def get_model(model_name: ModelName):
-    # 枚举的值可以从类中得到
-    if model_name == ModelName.alexnet:
-        return {"model_name": model_name, "message": "Deep Learning FTW!"}
-    # 枚举的值可以从实例中得到
-    if model_name.value == "lenet":
-        return {"model_name": model_name, "message": "LeCNN all the images"}
-    return {"model_name": model_name, "message": "Have some residuals"}
-</code></pre>
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/model/{model_name}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">get_model</span><span class="token punctuation">(</span>model_name<span class="token punctuation">:</span> ModelName<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true"># 枚举的值可以从类中得到</span>
+    <span class="token keyword">if</span> model_name <span class="token operator">==</span> ModelName<span class="token punctuation">.</span>alexnet<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"model_name"</span><span class="token punctuation">:</span> model_name<span class="token punctuation">,</span> <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Deep Learning FTW!"</span><span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true"># 枚举的值可以从实例中得到</span>
+    <span class="token keyword">if</span> model_name<span class="token punctuation">.</span>value <span class="token operator">==</span> <span class="token string">"lenet"</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"model_name"</span><span class="token punctuation">:</span> model_name<span class="token punctuation">,</span> <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"LeCNN all the images"</span><span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"model_name"</span><span class="token punctuation">:</span> model_name<span class="token punctuation">,</span> <span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"Have some residuals"</span><span class="token punctuation">}</span></code></pre>
 <h4 id="包含路径的路径变量"><a href="#包含路径的路径变量" class="headerlink" title="包含路径的路径变量"></a>包含路径的路径变量</h4><p><strong>OpenAPI</strong> 不支持包含路径变量中包含路径，但是 <strong>FastAPI</strong> 借助 <strong>Starlette</strong> 的内置工具可以实现，并且生成的 API 文档仍然可用</p>
-<pre class=" language-lang-python"><code class="language-lang-python">from fastapi import FastAPI
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI
 
-app = FastAPI()
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 
-@app.get("/files/{file_path:path}")
-async def read_file(file_path: str):
-    return {"file_path": file_path}
-</code></pre>
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/files/{file_path:path}"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">read_file</span><span class="token punctuation">(</span>file_path<span class="token punctuation">:</span> str<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"file_path"</span><span class="token punctuation">:</span> file_path<span class="token punctuation">}</span></code></pre>
 <p>在上面的例子中，如果希望 <code>file_path=/home/johndoe/myfile.txt</code> 则访问的地址为 <a href="http://127.0.0.1:8000/files//home/johndoe/myfile.txt" target="_blank" rel="noopener">http://127.0.0.1:8000/files//home/johndoe/myfile.txt</a></p>
 <h4 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h4><p>使用 <strong>Python type declarations</strong> 可以：</p>
 <ul>
@@ -966,9 +960,7 @@ async def read_file(file_path: str):
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            整除定义$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得 
-
-a=q \cdot b则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，$
+                            整除定义$a, b \in Z$ 且 $b \neq 0$ ，如果存在 $q \in Z$ 使得$$a=q \cdot b$$则称 $b$ 整除 $a$ 或者 $a$ 被 $b$ 整除，记作 $b | a$ ，$b$ 称为 $a$ 的因数，
                         
                     </div>
                     <div class="publish-info">
@@ -1262,7 +1254,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

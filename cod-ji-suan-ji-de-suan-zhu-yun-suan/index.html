@@ -549,7 +549,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="溢出发生的条件："><a href="#溢出发生的条件：" class="headerlink" title="溢出发生的条件："></a>溢出发生的条件：</h5><ul>
+                <h3 id="溢出发生的条件："><a href="#溢出发生的条件：" class="headerlink" title="溢出发生的条件："></a>溢出发生的条件：</h3><ul>
 <li>加法：<ul>
 <li>同正得负</li>
 <li>同负得正</li>
@@ -587,7 +587,7 @@
 </ol>
 </li>
 </ol>
-<h5 id="MIPS-提供了寄存器-Hi-和-Lo-来容纳乘法过程中-64-位的乘积，例如："><a href="#MIPS-提供了寄存器-Hi-和-Lo-来容纳乘法过程中-64-位的乘积，例如：" class="headerlink" title="MIPS 提供了寄存器 $Hi$ 和 $Lo$ 来容纳乘法过程中 64 位的乘积，例如："></a>MIPS 提供了寄存器 $Hi$ 和 $Lo$ 来容纳乘法过程中 64 位的乘积，例如：</h5><ul>
+<h3 id="MIPS-提供了寄存器-Hi-和-Lo-来容纳乘法过程中-64-位的乘积，例如："><a href="#MIPS-提供了寄存器-Hi-和-Lo-来容纳乘法过程中-64-位的乘积，例如：" class="headerlink" title="MIPS 提供了寄存器 $Hi$ 和 $Lo$ 来容纳乘法过程中 64 位的乘积，例如："></a>MIPS 提供了寄存器 $Hi$ 和 $Lo$ 来容纳乘法过程中 64 位的乘积，例如：</h3><ul>
 <li>$mult/multu \quad rs,\; rt$ 将寄存器 $rs$ 和 $rt$ 的数据相乘，乘积的低32位存入$Lo$ ,高32位存入 $Hi$ </li>
 <li>指令 $mul \quad rd,\; rs,\; rt$ 将 $rs$ 和 $rt$ 乘积的低32位存入寄存器 $rd$ 中</li>
 <li>指令 $mfhi/mflo \quad rd$ 将 $Hi/Lo$ 的值送入寄存器 $rd$ </li>
@@ -597,38 +597,38 @@
 <ul>
 <li>$-7 \div 2=-3…-1$ 而不是 <font color="red">$-7 \div 2 = -4…1$</font>  （不满足后面一条性质）</li>
 </ul>
-<h5 id="提供了-Hi-和-Lo-来存储余数和商："><a href="#提供了-Hi-和-Lo-来存储余数和商：" class="headerlink" title="提供了 $Hi$ 和 $Lo$ 来存储余数和商："></a>提供了 $Hi$ 和 $Lo$ 来存储余数和商：</h5><ul>
+<h3 id="提供了-Hi-和-Lo-来存储余数和商："><a href="#提供了-Hi-和-Lo-来存储余数和商：" class="headerlink" title="提供了 $Hi$ 和 $Lo$ 来存储余数和商："></a>提供了 $Hi$ 和 $Lo$ 来存储余数和商：</h3><ul>
 <li>$div \quad rs,\; rt$ 将 $rs \div rt$ 的商存入寄存器 $Lo$，余数存入寄存器 $Hi$ </li>
 <li>$divu$ 无符号的除法</li>
 </ul>
 <p>MIPS 除法指令同样忽略溢出，需要软件来检测商是否溢出</p>
-<font color="red">P130精解不理解</font>
-
-
-
+<p><font color="red">P130精解不理解</font></p>
 <p>检测溢出可以用最高为的进位和次高为的进位相异或，$1 \Rightarrow Overflow \quad else \; no \; overflow$ </p>
 <p><strong>规格化数</strong>：没有前导零且小数点左边只有一位整数（如 $1.0*10^{-9}$）</p>
 <p>MIPS 中浮点数的表示：1位符号位+8位指数位+23位尾数位（指数部分表示数的范围，尾数部分表示数的精度），MIPS 中浮点数的值可用 $(-1)^S \times (1+F) \times 2^E$ 其中 $F$ 为尾数，$E$ 为指数</p>
-<h5 id="浮点数的溢出："><a href="#浮点数的溢出：" class="headerlink" title="浮点数的溢出："></a>浮点数的溢出：</h5><ul>
+<h3 id="浮点数的溢出："><a href="#浮点数的溢出：" class="headerlink" title="浮点数的溢出："></a>浮点数的溢出：</h3><ul>
 <li>上溢：正的指数太大而导致指数域放不下的情况</li>
 <li>下溢：负的指数太小而导致指数域放不下的情况</li>
 </ul>
-<h5 id="浮点数的精度："><a href="#浮点数的精度：" class="headerlink" title="浮点数的精度："></a>浮点数的精度：</h5><ul>
+<h3 id="浮点数的精度："><a href="#浮点数的精度：" class="headerlink" title="浮点数的精度："></a>浮点数的精度：</h3><ul>
 <li>单精度：浮点数由一个32位的字表示（1+8+23），范围约为 $2.0 \times 10^{\pm38}$ </li>
 <li>双精度：浮点数由两个32位的字表示（1+11+52），范围约为 $2.0 \times 10^{\pm308}$</li>
 </ul>
 <p>为了提高精度，$IEEE \quad 754$ 通常省略了前导一，即将浮点数的表示为：$(-1)^S \times (1+F) \times 2^E$ ，$F \in [0,1)$ </p>
 <p>如果从左到右标记尾数依次为 $s1, s2, s3, … ,s_t$ ，且指数的值为 $E$ ，则浮点数的值为：$(-1)^S \times [1+s_1 \times 2^{-1}+s_2 \times 2^{-2}+…] \times 2^E$ </p>
-<p><img src="/img/cod/7.png" alt="喵喵喵"></p>
-<h5 id="带偏阶的计数法："><a href="#带偏阶的计数法：" class="headerlink" title="带偏阶的计数法："></a>带偏阶的计数法：</h5><ul>
+<img src="/img/cod/7.png" alt="喵喵喵">
+
+
+
+<h3 id="带偏阶的计数法："><a href="#带偏阶的计数法：" class="headerlink" title="带偏阶的计数法："></a>带偏阶的计数法：</h3><ul>
 <li>希望计数法能将最小的负数表示为 $000…00_2$ ，最大的正数表示为 $1111…11_2$ ，我们通常在原数的基础上加上一个偏阶</li>
 <li>$IEEE \quad 754$ 规定单精度的偏阶为 127，例如指数为-1时，会表示成126，即 $01111110_2$ ，指数为+1时，会表示成 128，即 $10000000_2$ ；双精度额偏阶规定为 1023，给指数带偏阶之后，浮点数的表示为： $(-1)^S \times (1+F) \times 2^{E-Bias}$ </li>
 </ul>
-<h5 id="求-0-75-10-的单精度和双精度表示："><a href="#求-0-75-10-的单精度和双精度表示：" class="headerlink" title="求 $-0.75_{10}$ 的单精度和双精度表示："></a>求 $-0.75_{10}$ 的单精度和双精度表示：</h5><ul>
+<h3 id="求-0-75-10-的单精度和双精度表示："><a href="#求-0-75-10-的单精度和双精度表示：" class="headerlink" title="求 $-0.75_{10}$ 的单精度和双精度表示："></a>求 $-0.75_{10}$ 的单精度和双精度表示：</h3><ul>
 <li>单精度：{1, 01111110, 100…0}</li>
 <li>双精度：{1, 011111111110, 100…0}</li>
 </ul>
-<h5 id="浮点数加法的步骤："><a href="#浮点数加法的步骤：" class="headerlink" title="浮点数加法的步骤："></a>浮点数加法的步骤：</h5><ol>
+<h3 id="浮点数加法的步骤："><a href="#浮点数加法的步骤：" class="headerlink" title="浮点数加法的步骤："></a>浮点数加法的步骤：</h3><ol>
 <li>将指数较小的数向指数较大的数对齐</li>
 <li>将有效数相加</li>
 <li>规格化（不一定要做）</li>
@@ -642,7 +642,7 @@
 <li>$1.0015 \times 10^2 \rightarrow 1.002 \times 10^2$  </li>
 </ol>
 </li>
-<li>例子2（假定有效位数为4）：$0.5<em>{10}+(-0.4375</em>{10})$ <ol>
+<li>例子2（假定有效位数为4）：$0.5_{10}+(-0.4375_{10})$ <ol>
 <li>两者的科学表示分别为 $1.000 \times 2^{-1}、-1.110\times2^{-2}$ </li>
 <li>$-1.110 \times 2^{-2} \rightarrow -0.111 \times2^{-1}$ </li>
 <li>$1.000 \times 2^{-1} + -0.111 \times 2^{-1}=0.001\times2^{-1}$</li>
@@ -651,7 +651,7 @@
 </li>
 <li>浮点数基本结构示意图：<img src="/img/cod/6.png" alt="喵喵喵"></li>
 </ul>
-<h5 id="浮点数乘法的步骤："><a href="#浮点数乘法的步骤：" class="headerlink" title="浮点数乘法的步骤："></a>浮点数乘法的步骤：</h5><ol>
+<h3 id="浮点数乘法的步骤："><a href="#浮点数乘法的步骤：" class="headerlink" title="浮点数乘法的步骤："></a>浮点数乘法的步骤：</h3><ol>
 <li>将源操作数的指数相加作为积的指数（注意要减去一个偏阶）</li>
 <li>计算有效数的乘法</li>
 <li>规格化（检查上溢或者下溢）</li>
@@ -659,7 +659,7 @@
 <li>积的符号相同为正，相异为负</li>
 </ol>
 <ul>
-<li>例子1（假定有效位为4）：计算 $0.5<em>{10} \times (-0.4375)</em>{10}$ <ol>
+<li>例子1（假定有效位为4）：计算 $0.5_{10} \times (-0.4375)_{10}$ <ol>
 <li>二进制表示分别为：$1.000\times2^{-1}$ 和 $-1.110 \times 2^{-2}$ </li>
 <li>计算积的偏阶为：$-1+(-2)=-3$ （此时是没有带偏阶的，所以不需要减去偏阶）</li>
 <li>将有效数相乘：$1.000 \times 1.110=1.110$，因此此时得到的结果为 $1.110 \times 2^{-3}$ </li>
@@ -669,19 +669,24 @@
 </ol>
 </li>
 </ul>
-<h5 id="MIPS-中的浮点数指令："><a href="#MIPS-中的浮点数指令：" class="headerlink" title="MIPS 中的浮点数指令："></a>MIPS 中的浮点数指令：</h5><ul>
+<h3 id="MIPS-中的浮点数指令："><a href="#MIPS-中的浮点数指令：" class="headerlink" title="MIPS 中的浮点数指令："></a>MIPS 中的浮点数指令：</h3><ul>
 <li>MIPS 常见的浮点数指令为：<img src="/img/cod/5.png" alt="喵喵喵"></li>
-<li>MIPS 中有32个32位浮点寄存器$(\$f<em>0,\$f_1,…,\$f</em>{31})$ ，单精度浮点数直接用某一个寄存器来表示，双精度浮点数由一组单精度寄存器（偶数+奇数）来表示，例如 $\$f_2,\$f_3$ 形成一个双精度寄存器，称为 $\$f_2$ </li>
+<li>MIPS 中有32个32位浮点寄存器$(\$f_0,\$f_1,…,\$f_{31})$ ，单精度浮点数直接用某一个寄存器来表示，双精度浮点数由一组单精度寄存器（偶数+奇数）来表示，例如 $\$f_2,\$f_3$ 形成一个双精度寄存器，称为 $\$f_2$ </li>
 <li>常见的浮点数指令如图：<img src="/img/cod/4.png" alt="喵喵喵"></li>
 </ul>
-<p><img src="/img/cod/3.png" alt="喵喵喵"></p>
-<h5 id="浮点算数的精确性："><a href="#浮点算数的精确性：" class="headerlink" title="浮点算数的精确性："></a>浮点算数的精确性：</h5><ul>
+<img src="/img/cod/3.png" alt="喵喵喵">
+
+
+
+
+
+<h3 id="浮点算数的精确性："><a href="#浮点算数的精确性：" class="headerlink" title="浮点算数的精确性："></a>浮点算数的精确性：</h3><ul>
 <li>保护位：右边多保留的第一位</li>
 <li>舍入位：右边多保留的第二位</li>
 <li>粘贴位：当舍入位右边有非零的数即置1，主要用于当保护位和舍入位恰好是10的情况</li>
 </ul>
 <p><strong>混合乘加</strong>指令执行一次乘法和一次加法，但只在加法后执行一次舍入，能够提高浮点性能</p>
-<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><ul>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
 <li>为了从一次浮点操作中最大限度的获得精度，标准允许一些数（指数最小时）以非规格化的形式出现，例如：<ul>
 <li>最小的正的单精度规格化数为：$1.00…0 \times 2^{-126}$ </li>
 <li>最小的正的单精度非规格化数为：$0.000…1\times2^{-126}$ </li>
@@ -975,9 +980,9 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="COD 处理器">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="处理器">
                         
-                        <span class="card-title">COD 处理器</span>
+                        <span class="card-title">处理器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1257,7 +1262,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             

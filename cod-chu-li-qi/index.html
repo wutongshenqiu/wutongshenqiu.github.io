@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COD 处理器, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="处理器, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>COD 处理器 | qiufeng&#39;s blog</title>
+    <title>处理器 | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">COD 处理器</h1>
+                    <h1 class="description center-align post-title">处理器</h1>
                 </div>
             </div>
         </div>
@@ -526,7 +526,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    3.6k
                 </div>
                 
 
@@ -549,141 +549,113 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h5 id="逻辑单元："><a href="#逻辑单元：" class="headerlink" title="逻辑单元："></a>逻辑单元：</h5><ul>
+                <h3 id="逻辑单元："><a href="#逻辑单元：" class="headerlink" title="逻辑单元："></a>逻辑单元：</h3><ul>
 <li>组合单元：处理数据值的单元，其输出只取决于当前的输入。例如：alu、门</li>
 <li>状态单元：存储状态的单元。例如：指令存储器、数据存储器、寄存器。一个状态单元至少有两个输入（时钟信号和写入单元的值）和一个输出</li>
 </ul>
 <p>时钟方法：规定了信号可以读出和写入的时间，用来确定相对于时钟何时稳定和有效的方法</p>
 <p>如果某状态单元在每个有效的时钟边沿都进行写入操作，则可以忽略写控制信号，否则需要写控制信号和时钟信号共同控制</p>
-<font color="red">使用沿时钟边沿的写信号时，可以在一个周期同时进行读和写操作，因为在一个周期中随时可以读出数据，但是只有在时钟的边沿才能触发写操作</font> （不确定正确性）
-
-
-
-##### 数据通路：
-
-- 数据通路部件：一个用来操作或保存处理器中数据的单元。在MIPS的实现中，数据通路部件包括：指令存储器、数据存储器、alu、寄存器堆、加法器（<font color="red">这个算alu吗？</font>）
-
-- 指令存储器是<font color="lightblue">只读的</font>，可以视为<font color="lightblue">组合逻辑</font>：任意时刻的输出都反映了输入地址处的内容，从而不需要读控制信号（忽略了装载程序时写入指令）
-- 程序计数器在每个时钟周期末都会被写入（多周期似乎并不是如此），从而不需要写控制信号
-- 加法器可以看成只进行加法的<font color="lightblue">alu</font>
-- 寄存器堆：寄存器的集合，包含了计算机寄存器的状态。其中的寄存器都可以通过指定相应的寄存器号来进行读写。寄存器堆包含有4个输入（3个寄存器号（2个读1个写）+1个要写入的数据）
-- 因为写操作是在时钟边沿触发的，而读操作并非是在时钟边沿触发的，因此同一个时钟周期可以进行读写操作，且读的数据是该时钟周期写入之前的数据
-- 数据存储器有两个时钟信号，<font color="lightblue">读、写控制信号</font>，且任意一个时钟周期只能激活其中的一个信号。有读控制信号的原因是可能会读取一个无效的地址
-- 在 beq 指令中，立即数字段<font color="lightblue">先拓展再左移</font>
-- alu控制信号的产生使用了<font color="lightblue">多级译码</font>的方式。即，主控制单元生成 aluop 作为 alu 控制单元的输入，再由 alu 控制单元生成真正的 alu 控制信号。使用多级译码可以减少主控制单元的规模，使用多个小控制单元还可以提高控制单元的速度。
-
-
-
-##### 注意：
-
-- 单周期设计可以正确的工作，但现代设计中往往并不采用这种方式，因为效率太低。单周期设计中，时钟周期必须对所有指令等长，这样，时钟周期由执行时间最长的那条指令决定（lw指令），它使用了五个功能单元：指令存储器、寄存器堆、alu、数据存储器、寄存器堆
-
-
-
-##### 一个MIPS指令通常包含的步骤：
-
-1. 从指令存储器中读取指令
-2. 指令译码的同时读取寄存器
-3. 执行操作或者计算地址
-4. 从数据存储器中读取操作数
-5. 写回寄存器
-
-
-
-流水线的时钟周期应该视为最慢的<font color="lightblue">功能单元</font>的时间
-
-
-
-流水线所带来的性能提高是通过<font color="lightblue">增加指令的吞吐量</font>，而不是<font color="pink">减少单条指令的执行时间</font>
-
-
-
-<h5 id="MIPS适合流水线的原因："><a href="#MIPS适合流水线的原因：" class="headerlink" title="MIPS适合流水线的原因："></a>MIPS适合流水线的原因：</h5><ul>
+<p><font color="red">使用沿时钟边沿的写信号时，可以在一个周期同时进行读和写操作，因为在一个周期中随时可以读出数据，但是只有在时钟的边沿才能触发写操作</font> （不确定正确性）</p>
+<h3 id="数据通路："><a href="#数据通路：" class="headerlink" title="数据通路："></a>数据通路：</h3><ul>
+<li><p>数据通路部件：一个用来操作或保存处理器中数据的单元。在MIPS的实现中，数据通路部件包括：指令存储器、数据存储器、alu、寄存器堆、加法器（<font color="red">这个算alu吗？</font>）</p>
+</li>
+<li><p>指令存储器是<font color="lightblue">只读的</font>，可以视为<font color="lightblue">组合逻辑</font>：任意时刻的输出都反映了输入地址处的内容，从而不需要读控制信号（忽略了装载程序时写入指令）</p>
+</li>
+<li><p>程序计数器在每个时钟周期末都会被写入（多周期似乎并不是如此），从而不需要写控制信号</p>
+</li>
+<li><p>加法器可以看成只进行加法的<font color="lightblue">alu</font></p>
+</li>
+<li><p>寄存器堆：寄存器的集合，包含了计算机寄存器的状态。其中的寄存器都可以通过指定相应的寄存器号来进行读写。寄存器堆包含有4个输入（3个寄存器号（2个读1个写）+1个要写入的数据）</p>
+</li>
+<li><p>因为写操作是在时钟边沿触发的，而读操作并非是在时钟边沿触发的，因此同一个时钟周期可以进行读写操作，且读的数据是该时钟周期写入之前的数据</p>
+</li>
+<li><p>数据存储器有两个时钟信号，<font color="lightblue">读、写控制信号</font>，且任意一个时钟周期只能激活其中的一个信号。有读控制信号的原因是可能会读取一个无效的地址</p>
+</li>
+<li><p>在 beq 指令中，立即数字段<font color="lightblue">先拓展再左移</font></p>
+</li>
+<li><p>alu控制信号的产生使用了<font color="lightblue">多级译码</font>的方式。即，主控制单元生成 aluop 作为 alu 控制单元的输入，再由 alu 控制单元生成真正的 alu 控制信号。使用多级译码可以减少主控制单元的规模，使用多个小控制单元还可以提高控制单元的速度。</p>
+</li>
+</ul>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li>单周期设计可以正确的工作，但现代设计中往往并不采用这种方式，因为效率太低。单周期设计中，时钟周期必须对所有指令等长，这样，时钟周期由执行时间最长的那条指令决定（lw指令），它使用了五个功能单元：指令存储器、寄存器堆、alu、数据存储器、寄存器堆</li>
+</ul>
+<h3 id="一个MIPS指令通常包含的步骤："><a href="#一个MIPS指令通常包含的步骤：" class="headerlink" title="一个MIPS指令通常包含的步骤："></a>一个MIPS指令通常包含的步骤：</h3><ol>
+<li>从指令存储器中读取指令</li>
+<li>指令译码的同时读取寄存器</li>
+<li>执行操作或者计算地址</li>
+<li>从数据存储器中读取操作数</li>
+<li>写回寄存器</li>
+</ol>
+<p>流水线的时钟周期应该视为最慢的<font color="lightblue">功能单元</font>的时间</p>
+<p>流水线所带来的性能提高是通过<font color="lightblue">增加指令的吞吐量</font>，而不是<font color="pink">减少单条指令的执行时间</font></p>
+<h3 id="MIPS适合流水线的原因："><a href="#MIPS适合流水线的原因：" class="headerlink" title="MIPS适合流水线的原因："></a>MIPS适合流水线的原因：</h3><ul>
 <li>所有的MIPS指令的长度都是相同的</li>
 <li>MIPS指令只有很少的几种格式</li>
 <li>MIPS中的存储器操作数仅出现在存取指令中</li>
 <li>MIPS中，所有的操作数必须在存储器中对齐</li>
 </ul>
-<font color="red">设计MIPS体系结构指令集的另一个原则</font>：每条 MIPS 指令最多只写一个结果并且在流水线的最后一级执行（为了简化旁路的设计）
-
-
-
-##### 流水线冒险：
-
-- 定义：在下一个时钟周期中，下一条指令不能执行
-- 冒险的种类
-  - 结构冒险：硬件不支持多条指令在同一时钟周期执行
-  - 数据冒险：因无法提供指令执行所需数据而导致不能在预定时钟周期执行的情况
-  - 控制冒险：取到的指令不是所需要的（往往发生在分支跳转中）
-
-- 分支预测：一种解决控制冒险的方法，预测某一个分支结果并<font color="red">立即</font>（不论分支指令是在ID、EX或是MEM执行，下一条指令是预测的指令）沿预测方向执行，而不是等真正的分支结果确定后才开始执行
-- 延迟分支：另一种解决控制冒险的方法，将一条不受该分支影响的指令插入决策指令的后面，在一条指令延迟之后再开始执行分支，<font color="red">不论是否分支，该指令都必须执行完</font>，可以看成总是预测分支不发生，但不会清除该指令（只有分支延迟较短的时候，延迟分支才有效，所以没有处理器使用超过一个时钟周期的延迟分支。对于更长的分支，一般使用硬件分支预测器）
-
-
-
-除了存储系统以外，流水线的有效运作是决定处理器 CPI 乃至其性能的最重要的因素
-
-
-
-延迟：流水线的级数或者顺序执行过程中两条指令间的级数，也可认为是某条指令从开始到完成所需要的时间
-
-
-
-##### 流水线的数据通路：
-
-- 单周期中的指令流大致遵循从左至右的规律，但是有两个例外，这两个例外导致若将该数据通路直接运用到流水线中会导致数据冒险和结构冒险
-
-  - 写回寄存器
-  - 选择PC的下一个值
-
-- 在流水线中为了从前面的流水级向后面的流水级传递信息，必须将信息放入**流水线寄存器**中，否则当下一条指令进入该流水级时这些信息将会丢失
-
-- 数据通路中的每一个结构单元（指令存储器、寄存器读取端口、alu、数据存储器、寄存器写入端口等）都只能在一个流水级中使用，否则就会产生结构冒险
-
-- 流水线的两种表示方法：
-
-  - 多时钟周期的流水线图：<img src="/img/cod/10.png" alt="喵喵喵">
-  - 单时钟周期的流水线图（从多时钟周期中抽取**一列**）：<img src="/img/cod/11.png" alt="喵喵喵">
-
-- 将指令译码阶段产生的控制信号存入流水线寄存器时，不同的流水线寄存器所需要存取的讯号数量不同：
-
-  - ID/EX：需要存储所有的9个控制信号
-  - EX/MEM：需要存储除了4个用于计算阶段（ALUSrc、ALUOp、<font color="lightblue">RegDst（因为已经将要写入的寄存器号存入了流水线寄存器，所以不需要存储该信号）</font>）的剩下的五个控制信号
-  - MEM/WB：存储除了3个用于存储阶段（MemRead、MemWrite、Branch）的剩下的两个控制信号（RegWrite、MemtoReg）
-
-- EX 冒险：
-  $$
-  if (EX/MEM.RegWrite \quad
-  and \quad \\\\ (EX/MEM.RegisterRd \ne 0) \quad 
-  and \quad \\\\ (EX/MEM.RegisterRd=ID/EX.RegisterRs(ID/EX.RegisterRt)))
-  $$
-
-- MEM 冒险：
-
-$$
-if (MEM/WB.RegWrite \quad
-and \quad \\\\ (MEM/WB.RegisterRd \ne 0) \quad
-and \quad \\\\ (MEM/WB.RegisterRd=ID/EX.RegisterRs(ID/EX.RegisterRt)))
-$$
-
-- 当同时发生 EX 冒险和 MEM 冒险的时候，按 <font color="lightblue">EX 冒险</font>来算
-
-- 装载指令发生的冒险必须通过阻塞流水线一个周期：
-
-  - 装载指令冒险检测单元：
-    $$
-    if (ID/EX.MemRead \quad 
-    and \quad \\\\(ID/EX.RegisterRt = IF/ID.RegisterRt) \quad  
-    or \quad \\\\(ID/EX.RegisterRt=IF/ID.RegisterRs)) \\\\
-    stall \quad the \quad pipeline
-    $$
-
-- 当ID级的指令被阻塞时，其IF级的指令也必须被阻塞，否则已经取到的指令就可能丢失，因此<font color="lightblue">需要保持PC寄存器和IF/ID流水线寄存器不变</font>
-
+<p><font color="red">设计MIPS体系结构指令集的另一个原则</font>：每条 MIPS 指令最多只写一个结果并且在流水线的最后一级执行（为了简化旁路的设计）</p>
+<h3 id="流水线冒险："><a href="#流水线冒险：" class="headerlink" title="流水线冒险："></a>流水线冒险：</h3><ul>
+<li><p>定义：在下一个时钟周期中，下一条指令不能执行</p>
+</li>
+<li><p>冒险的种类</p>
 <ul>
-<li>插入空指令的方法是将该指令的控制信号全部清零（这里事实上只需要将RegWrite、MemWrite清零，因为只有这两个的写入可能会改变原有的值），并且阻塞该指令之前的指令（参见上一条）</li>
+<li>结构冒险：硬件不支持多条指令在同一时钟周期执行</li>
+<li>数据冒险：因无法提供指令执行所需数据而导致不能在预定时钟周期执行的情况</li>
+<li>控制冒险：取到的指令不是所需要的（往往发生在分支跳转中）</li>
 </ul>
-<h5 id="缩短分支的延迟："><a href="#缩短分支的延迟：" class="headerlink" title="缩短分支的延迟："></a>缩短分支的延迟：</h5><ul>
+</li>
+<li><p>分支预测：一种解决控制冒险的方法，预测某一个分支结果并<font color="red">立即</font>（不论分支指令是在ID、EX或是MEM执行，下一条指令是预测的指令）沿预测方向执行，而不是等真正的分支结果确定后才开始执行</p>
+</li>
+<li><p>延迟分支：另一种解决控制冒险的方法，将一条不受该分支影响的指令插入决策指令的后面，在一条指令延迟之后再开始执行分支，<font color="red">不论是否分支，该指令都必须执行完</font>，可以看成总是预测分支不发生，但不会清除该指令（只有分支延迟较短的时候，延迟分支才有效，所以没有处理器使用超过一个时钟周期的延迟分支。对于更长的分支，一般使用硬件分支预测器）</p>
+</li>
+</ul>
+<p>除了存储系统以外，流水线的有效运作是决定处理器 CPI 乃至其性能的最重要的因素</p>
+<p>延迟：流水线的级数或者顺序执行过程中两条指令间的级数，也可认为是某条指令从开始到完成所需要的时间</p>
+<h3 id="流水线的数据通路："><a href="#流水线的数据通路：" class="headerlink" title="流水线的数据通路："></a>流水线的数据通路：</h3><ul>
+<li><p>单周期中的指令流大致遵循从左至右的规律，但是有两个例外，这两个例外导致若将该数据通路直接运用到流水线中会导致数据冒险和结构冒险</p>
+<ul>
+<li>写回寄存器</li>
+<li>选择PC的下一个值</li>
+</ul>
+</li>
+<li><p>在流水线中为了从前面的流水级向后面的流水级传递信息，必须将信息放入<strong>流水线寄存器</strong>中，否则当下一条指令进入该流水级时这些信息将会丢失</p>
+</li>
+<li><p>数据通路中的每一个结构单元（指令存储器、寄存器读取端口、alu、数据存储器、寄存器写入端口等）都只能在一个流水级中使用，否则就会产生结构冒险</p>
+</li>
+<li><p>流水线的两种表示方法：</p>
+<ul>
+<li>多时钟周期的流水线图：<img src="/img/cod/10.png" alt="喵喵喵"></li>
+<li>单时钟周期的流水线图（从多时钟周期中抽取<strong>一列</strong>）：<img src="/img/cod/11.png" alt="喵喵喵"></li>
+</ul>
+</li>
+<li><p>将指令译码阶段产生的控制信号存入流水线寄存器时，不同的流水线寄存器所需要存取的讯号数量不同：</p>
+<ul>
+<li>ID/EX：需要存储所有的9个控制信号</li>
+<li>EX/MEM：需要存储除了4个用于计算阶段（ALUSrc、ALUOp、<font color="lightblue">RegDst（因为已经将要写入的寄存器号存入了流水线寄存器，所以不需要存储该信号）</font>）的剩下的五个控制信号</li>
+<li>MEM/WB：存储除了3个用于存储阶段（MemRead、MemWrite、Branch）的剩下的两个控制信号（RegWrite、MemtoReg）</li>
+</ul>
+</li>
+<li><p>EX 冒险：<br>$$<br>if (EX/MEM.RegWrite \quad<br>and \quad \\ (EX/MEM.RegisterRd \ne 0) \quad<br>and \quad \\ (EX/MEM.RegisterRd=ID/EX.RegisterRs(ID/EX.RegisterRt)))<br>$$</p>
+</li>
+<li><p>MEM 冒险：</p>
+</li>
+</ul>
+<p>$$<br>if (MEM/WB.RegWrite \quad<br>and \quad \\ (MEM/WB.RegisterRd \ne 0) \quad<br>and \quad \\ (MEM/WB.RegisterRd=ID/EX.RegisterRs(ID/EX.RegisterRt)))<br>$$</p>
+<ul>
+<li><p>当同时发生 EX 冒险和 MEM 冒险的时候，按 <font color="lightblue">EX 冒险</font>来算</p>
+</li>
+<li><p>装载指令发生的冒险必须通过阻塞流水线一个周期：</p>
+<ul>
+<li>装载指令冒险检测单元：<br>$$<br>if (ID/EX.MemRead \quad<br>and \quad \\(ID/EX.RegisterRt = IF/ID.RegisterRt) \quad<br>or \quad \\(ID/EX.RegisterRt=IF/ID.RegisterRs)) \\<br>stall \quad the \quad pipeline<br>$$</li>
+</ul>
+</li>
+<li><p>当ID级的指令被阻塞时，其IF级的指令也必须被阻塞，否则已经取到的指令就可能丢失，因此<font color="lightblue">需要保持PC寄存器和IF/ID流水线寄存器不变</font></p>
+</li>
+<li><p>插入空指令的方法是将该指令的控制信号全部清零（这里事实上只需要将RegWrite、MemWrite清零，因为只有这两个的写入可能会改变原有的值），并且阻塞该指令之前的指令（参见上一条）</p>
+</li>
+</ul>
+<h3 id="缩短分支的延迟："><a href="#缩短分支的延迟：" class="headerlink" title="缩短分支的延迟："></a>缩短分支的延迟：</h3><ul>
 <li>将分支地址的计算和分支条件的判断提前到 ID 级（<font color="red">这里有可能会产生两种比较复杂的因素</font>）：<ul>
 <li>需要引入新的旁路单元（分支指令的操作数可能来自 ALU/MEM 或 MEM/WB）</li>
 <li>可能需要阻塞流水线（需要冒险检测单元）：<ul>
@@ -695,7 +667,7 @@ $$
 </li>
 <li>如果遇到数据冒险需要阻塞相应的时钟周期（alu指令1个时钟周期，lw指令两个时钟周期）</li>
 </ul>
-<h5 id="动态分支预测："><a href="#动态分支预测：" class="headerlink" title="动态分支预测："></a>动态分支预测：</h5><ul>
+<h3 id="动态分支预测："><a href="#动态分支预测：" class="headerlink" title="动态分支预测："></a>动态分支预测：</h3><ul>
 <li>动态分支预测：查找指令的地址观察上一次执行该指令时分支是否发生，如果上一次分支发生，就从上次分支发生的地方开始取新的信号</li>
 <li>一种实现方法是采用分支预测缓存或者分支记录表：分支预测缓存是一小块按照分支地址低位索引的存储器区，其中包括一位或者多位数据用以说明最近是否发生过分支</li>
 </ul>
@@ -703,12 +675,12 @@ $$
 <p>分支目标缓存：一种用于缓存分支目标地址或分支目标指令的结构，其一般形式为带标志位的 cache（硬件开销大于简单的分支预测缓存器）</p>
 <p>相关预测器：综合考虑特定分支的局部行为和最近执行分支的全局行为的分支预测器</p>
 <p>竞争预测器：具有多种预测机制的分支预测器，其带有一个选择器，对给定分支可选择其中一个作为预测结果</p>
-<h5 id="控制："><a href="#控制：" class="headerlink" title="控制："></a>控制：</h5><ul>
+<h3 id="控制："><a href="#控制：" class="headerlink" title="控制："></a>控制：</h3><ul>
 <li>异常：控制流中<font color="lightblue">任何</font>意外的改变，无论其产生的原因是来自处理器的内部还是外部（一般指内部）</li>
 <li>中断：来自<font color="lightblue">处理器外部</font>的异常</li>
 <li>例子：<img src="/img/cod/12.png" alt="喵喵喵"></li>
 </ul>
-<h5 id="异常处理："><a href="#异常处理：" class="headerlink" title="异常处理："></a>异常处理：</h5><ul>
+<h3 id="异常处理："><a href="#异常处理：" class="headerlink" title="异常处理："></a>异常处理：</h3><ul>
 <li>异常发生时处理器必须进行的基本操作是：在<strong>异常程序计数器（EPC）</strong>中保存出错指令的地址，并把控制权转交给操作系统的特定地址</li>
 <li>操作系统除了要知道是哪条指令引起异常之外，还必须知道引起异常的原因，主要有两种方法用于表示异常的原因：<ul>
 <li>设置一个状态寄存器，其中有一个字段用于记录异常产生的原因（MIPS中的方法）</li>
@@ -721,7 +693,7 @@ $$
 </ul>
 </li>
 </ul>
-<h5 id="流水线中的异常："><a href="#流水线中的异常：" class="headerlink" title="流水线中的异常："></a>流水线中的异常：</h5><ul>
+<h3 id="流水线中的异常："><a href="#流水线中的异常：" class="headerlink" title="流水线中的异常："></a>流水线中的异常：</h3><ul>
 <li>在流水线实现中，异常可被视作另一种形式的控制冒险</li>
 <li>在算术溢出导致的异常中：<ul>
 <li>溢出指令后一条指令的地址保存到 EPC 中</li>
@@ -747,7 +719,7 @@ $$
 </ul>
 </li>
 </ul>
-<h5 id="异常的类型："><a href="#异常的类型：" class="headerlink" title="异常的类型："></a>异常的类型：</h5><ul>
+<h3 id="异常的类型："><a href="#异常的类型：" class="headerlink" title="异常的类型："></a>异常的类型：</h3><ul>
 <li>非精确中断：也称为非精确异常，流水线计算机中的中断或异常不与导致中断或异常的指令准确的关联，而让操作系统来决定</li>
 <li>精确中断：也成为精确异常，流水线计算机中的中断或异常与导致中断或异常的指令准确的关联</li>
 </ul>
@@ -1036,9 +1008,9 @@ $$
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="COD 开发存储器层次结构">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="开发存储器层次结构">
                         
-                        <span class="card-title">COD 开发存储器层次结构</span>
+                        <span class="card-title">开发存储器层次结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1340,7 +1312,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.5k</span>&nbsp;字
+                class="white-color">18.8k</span>&nbsp;字
             
             
             
