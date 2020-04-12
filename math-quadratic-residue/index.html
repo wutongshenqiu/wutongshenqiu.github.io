@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="v2ray-configure, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="math Quadratic residue, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>v2ray-configure | qiufeng&#39;s blog</title>
+    <title>math Quadratic residue | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">v2ray-configure</h1>
+                    <h1 class="description center-align post-title">math Quadratic residue</h1>
                 </div>
             </div>
         </div>
@@ -492,8 +492,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/v2ray/">
-                                <span class="chip bg-color">v2ray</span>
+                            <a href="/tags/math/">
+                                <span class="chip bg-color">math</span>
+                            </a>
+                        
+                            <a href="/tags/infomation-security/">
+                                <span class="chip bg-color">infomation security</span>
+                            </a>
+                        
+                            <a href="/tags/course/">
+                                <span class="chip bg-color">course</span>
                             </a>
                         
                     </div>
@@ -504,8 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/tools/" class="post-category">
-                                tools
+                            <a href="/categories/math/" class="post-category">
+                                math
                             </a>
                         
                     </div>
@@ -517,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-07
+                    2020-04-12
                 </div>
                 
 
@@ -526,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    77
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -549,7 +557,58 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="记录一下怕自己忘记了"><a href="#记录一下怕自己忘记了" class="headerlink" title="记录一下怕自己忘记了"></a>记录一下怕自己忘记了</h4><p><a href="https://www.ecsoe.com/archives/38.html" target="_blank" rel="noopener">v2配置</a><br><a href="https://www.4spaces.org/speed-up-your-vps-with-bbr-plus/" target="_blank" rel="noopener">v2加速</a><br><a href="https://blog.sprov.xyz/2019/03/11/" target="_blank" rel="noopener">cdn加速</a><br><a href="https://clients.hostwinds.com/" target="_blank" rel="noopener">hostwind 服务器</a><br><a href="https://www.namesilo.com/" target="_blank" rel="noopener">namesilo 域名网站</a></p>
+                <h3 id="二次剩余"><a href="#二次剩余" class="headerlink" title="二次剩余"></a>二次剩余</h3><p>若同余式<br>$$<br>x^2 \equiv a \quad (mod \; m), \qquad (a, m) = 1<br>$$<br>有解，则 $a$ 叫做模 $m$ 的<strong>平方/二次剩余</strong>，否则称为<strong>平方/二次非剩余</strong></p>
+<h3 id="模为奇素数的平方剩余"><a href="#模为奇素数的平方剩余" class="headerlink" title="模为奇素数的平方剩余"></a>模为奇素数的平方剩余</h3><h4 id="欧拉判别条件"><a href="#欧拉判别条件" class="headerlink" title="欧拉判别条件"></a>欧拉判别条件</h4><p>$a$ 是模 $p$ 的平方剩余的充要条件是<br>$$<br>a^{(p-1)/2} \equiv 1 \quad (mod \; p)<br>$$<br>$a$ 是模 $p$ 的平方非剩余的充要条件是<br>$$<br>a^{(p-1)/2} \equiv -1 \quad (mod \; p)<br>$$<br>并且当 $a$ 是模 $p$ 的平方非剩余时，恰有两解</p>
+<p>例子：判断 $137$ 是否是 $227$ 的平方剩余</p>
+<p>由 $137^{(227-1)/2} \equiv -1 \quad (mod \; 227)$，知 $137$ 是 $227$ 的平方非剩余</p>
+<h4 id="定理二"><a href="#定理二" class="headerlink" title="定理二"></a>定理二</h4><p>设 $p$ 是奇素数，则模 $p$ 的简化剩余系中平方剩余与平方非剩余的个数各为 $(p-1)/2$，且 $(p-1)/2$ 个平方非剩余与序列：<br>$$<br>1^2, 2^2, \dots , (\cfrac{p-1}{2})^2<br>$$<br>中一个数同余，且仅与一个数同余</p>
+<h3 style="color: red;">
+     勒让德符号
+</h3>
+
+<p>$$<br>(\cfrac{a}{p}) = \begin{cases}<br>1, \quad &amp; 若 a 是模 p 的平方剩余 \\<br>-1, &amp; 若 a 是模 p 的平方非剩余 \\<br>0, &amp; 若 p | a<br>\end{cases}<br>$$</p>
+<h4 id="高斯引理"><a href="#高斯引理" class="headerlink" title="高斯引理"></a>高斯引理</h4><p>$p$ 是奇素数，$a$ 是整数，$(a, p) = 1$，如果整数<br>$$<br>a \cdot 1, a \cdot 2, \dots, a \cdot \frac{p-1}{2}<br>$$<br>中模 $p$ 的最小正剩余中大于 $\frac{p}{2}$ 的个数是 $m$ ，则<br>$$<br>(\cfrac{a}{p}) = (-1)^m<br>$$</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul>
+<li><p>$(\cfrac{a}{p}) \equiv a^{(p-1) / 2} \quad (mod \; p)$</p>
+</li>
+<li><p>$(\cfrac{a}{p}) = (\cfrac{a+kp}{p})$</p>
+</li>
+<li><p>$(\cfrac{a}{p})(\cfrac{b}{p}) = (\cfrac{ab}{p})$</p>
+</li>
+<li><p>若$(a, p) = 1$，则 $(\cfrac{a^2}{p}) = 1$</p>
+</li>
+<li><p>$(\cfrac{2}{p}) = (-1)^{\frac{p^2-1}{8}}$</p>
+</li>
+<li><p>若 $(a, 2p) = 1$， 则 $(\cfrac{a}{p}) = (-1)^{T(a,p)}$</p>
+</li>
+</ul>
+<p>$$<br>T(a, p) = \sum_{k=1}^{(p-1)/2} [\cfrac{ak}{p}]<br>$$</p>
+<h3 style="color: red;">
+    二次互反律
+</h3>
+
+<p>$p, q$ 是互素的<strong>奇素数</strong>，则<br>$$<br>(\cfrac{p}{q}) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}} (\cfrac{q}{p})<br>$$<br><strong>注：</strong>二次互反律成立的条件必须是<strong>奇素数</strong></p>
+<p>例子：判断同余式 $x^2 \equiv 137 \quad (mod \; 227)$ 是否有解<br>$$<br>\begin{align}<br>(\cfrac{137}{227}) = &amp; (-1)^{(\frac{137-1}{2}) \times (\frac{227-1}{2})} \times (\cfrac{90}{137}) \\<br>= &amp; (\cfrac{2}{137}) \times (\cfrac{5}{137}) \times (\cfrac{3^2}{137}) \\<br>= &amp; (-1)^{(137^2-1)/8} \times (-1)^{2 \times 68} \times (\cfrac{2}{5}) \\<br>= &amp; 1 \times (-1)^{(5^2-1)/8} \\<br>= &amp; -1<br>\end{align}<br>$$</p>
+<h3 style="color: red;">
+     雅可比符号
+</h3>
+
+<p>雅可比符号同勒让德符号的书写一样，且只要求 $m$ 是奇数，$a$ 可以为任意整数<br>$$<br>\frac{a}{m}<br>$$<br>但是要注意的是，雅可比符号只能用来判断是否是<strong>二次非剩余</strong>，而<strong>不能判断是否是二次剩余</strong></p>
+<p><strong>雅可比符号</strong>具有和勒让德符号一样的性质，包括二次互反律</p>
+<p><strong>注：</strong>二次互反律只在 $a,m$ 均是奇数的时候成立</p>
+<p>例子：判断同余式<br>$$<br>x^2 \equiv 286 \quad (mod \; 563)<br>$$<br>是否有解<br>$$<br>\begin{align}<br>(\cfrac{286}{563}) = &amp; (\cfrac{2}{563}) \times (\cfrac{143}{563}) \\<br>= &amp; (-1)^{(563^2-1)/8} \times (-1)^{\frac{143-1}{2} \times \frac{563-1}{2}} \times (\cfrac{-9}{143}) \\<br>= &amp; (\cfrac{-1}{143}) \\<br>= &amp; -1<br>\end{align}<br>$$<br>故无解</p>
+<h3 id="模-p-平方根"><a href="#模-p-平方根" class="headerlink" title="模 $p$ 平方根"></a>模 $p$ 平方根</h3><p>设 $p$ 是形如 $4k+3$ 型的素数，则同余式<br>$$<br>x^2 \equiv a \quad (mod \; p)<br>$$<br>的解为<br>$$<br>x \equiv \pm a^{\frac{p+1}{4}} \quad (mop \; p)<br>$$<br>更复杂的情况暂时略</p>
+<h3 style="color: red;">
+    Rabin密码体制
+</h3>
+
+<p>随机选择两个形如 $4k+3$ 的大素数 $p, q$，计算 $n = p \times q$，以 $n$ 作为公开密钥，$p, q$ 作为私有密钥，则密文 $c \equiv m^2 \quad (mod \; n)$，解密即为求方程组<br>$$<br>\begin{cases}<br>x^2 \equiv c \quad (mod \; q) \\<br>x^2 \equiv c \quad (mod \; p)<br>\end{cases}<br>$$<br>由中国剩余定理可知解共有 $4$ 个，于是需要在明文 $m$ 中添加某些信息来确保解密的结果唯一</p>
+<p>例子：取 $p=7, q = 11$</p>
+<ol>
+<li>若明文 $m = 16$，求加密后的密文 $c$</li>
+<li>若密文 $c = 23$，求对应的 $4$ 个明文</li>
+</ol>
+<p>一：<br>$$<br>c  = 16 ^ 2 \equiv  25 \quad (mod \; 77) \\<br>$$<br>二：<br>$$<br>\begin{cases}<br>x^2 \equiv 23 \equiv 2 \quad (mod \; 7) \\<br>x^2 \equiv 23 \equiv 1 \quad (mod \; 11)<br>\end{cases}<br>$$<br>故解为<br>$$<br>\begin{cases}<br>x \equiv \pm 2^{(7+1)/4} \quad (mod \; 7) \\<br>x \equiv \pm 1^{(11+1)/4} \quad (mod \; 11)<br>\end{cases}<br>$$<br>再有中国剩余定理可知四个解为<br>$$<br>x \equiv \pm 4 \times 22 + \pm 1 \times 56 \equiv 10、32、45、67<br>$$</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -593,7 +652,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/v2ray-configure/">https://beasuna.xyz/v2ray-configure/</a>
+                    <a href="https://beasuna.xyz/math-quadratic-residue/">https://beasuna.xyz/math-quadratic-residue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,8 +690,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/v2ray/">
-                                    <span class="chip bg-color">v2ray</span>
+                                <a href="/tags/math/">
+                                    <span class="chip bg-color">math</span>
+                                </a>
+                            
+                                <a href="/tags/infomation-security/">
+                                    <span class="chip bg-color">infomation security</span>
+                                </a>
+                            
+                                <a href="/tags/course/">
+                                    <span class="chip bg-color">course</span>
                                 </a>
                             
                         </div>
@@ -803,7 +870,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-07T19-59-11',
+        id: '2020-04-12T23-14-25',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -827,61 +894,57 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/fastapi-first-steps/">
+                <a href="/math-quadratic-residue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="First Steps">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="math Quadratic residue">
                         
-                        <span class="card-title">First Steps</span>
+                        <span class="card-title">math Quadratic residue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一个简单的例子main.pyfrom fastapi import FastAPI
-
-app = FastAPI()
-
-
-@app.get("/")
-async def root():
-    return {"message": "Hel
+                            二次剩余若同余式$$x^2 \equiv a \quad (mod \; m), \qquad (a, m) = 1$$有解，则 $a$ 叫做模 $m$ 的平方/二次剩余，否则称为平方/二次非剩余
+模为奇素数的平方剩余欧拉判别条件$a$ 是
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fastapi/">
-                        <span class="chip bg-color">fastapi</span>
+                    <a href="/tags/math/">
+                        <span class="chip bg-color">math</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/infomation-security/">
+                        <span class="chip bg-color">infomation security</span>
                     </a>
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
                     </a>
                     
                 </div>
@@ -895,40 +958,31 @@ async def root():
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/socket-jia-mi-tong-xin/">
+                <a href="/math-congruence-polynomial/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="socket加密通信">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="congruence polynomial">
                         
-                        <span class="card-title">socket加密通信</span>
+                        <span class="card-title">congruence polynomial</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程思路：
-客户端和服务器端建立连接
-客户端产生非对称密钥，将公钥传送给服务器端
-服务器端通过公钥将密钥进行加密并传送给客户端
-客户端接收到密钥并进行解密，双方开始通信
-
-
-背景资料：
-AES原理(图解密码技术第三章)
-RSA原理(图解密码
+                            同余式定义$m \in Z^+$，$f(x)=a_nx^n+ \cdots + a_0$，且 $a_i \in Z$，则$$f(x) \equiv 0 \quad (mod \; m)$$称为模 $m$ 同余式，若 $a_n \neq 0 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/cryptography/" class="post-category">
-                                    cryptography
+                            <a href="/categories/math/" class="post-category">
+                                    math
                                 </a>
                             
                             
@@ -938,12 +992,16 @@ RSA原理(图解密码
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/math/">
+                        <span class="chip bg-color">math</span>
                     </a>
                     
-                    <a href="/tags/socket/">
-                        <span class="chip bg-color">socket</span>
+                    <a href="/tags/infomation-security/">
+                        <span class="chip bg-color">infomation security</span>
+                    </a>
+                    
+                    <a href="/tags/course/">
+                        <span class="chip bg-color">course</span>
                     </a>
                     
                 </div>

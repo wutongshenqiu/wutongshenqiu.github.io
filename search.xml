@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>math Quadratic residue</title>
+      <link href="/math-quadratic-residue/"/>
+      <url>/math-quadratic-residue/</url>
+      
+        <content type="html"><![CDATA[<h3 id="二次剩余"><a href="#二次剩余" class="headerlink" title="二次剩余"></a>二次剩余</h3><p>若同余式<br>$$<br>x^2 \equiv a \quad (mod \; m), \qquad (a, m) = 1<br>$$<br>有解，则 $a$ 叫做模 $m$ 的<strong>平方/二次剩余</strong>，否则称为<strong>平方/二次非剩余</strong></p><h3 id="模为奇素数的平方剩余"><a href="#模为奇素数的平方剩余" class="headerlink" title="模为奇素数的平方剩余"></a>模为奇素数的平方剩余</h3><h4 id="欧拉判别条件"><a href="#欧拉判别条件" class="headerlink" title="欧拉判别条件"></a>欧拉判别条件</h4><p>$a$ 是模 $p$ 的平方剩余的充要条件是<br>$$<br>a^{(p-1)/2} \equiv 1 \quad (mod \; p)<br>$$<br>$a$ 是模 $p$ 的平方非剩余的充要条件是<br>$$<br>a^{(p-1)/2} \equiv -1 \quad (mod \; p)<br>$$<br>并且当 $a$ 是模 $p$ 的平方非剩余时，恰有两解</p><p>例子：判断 $137$ 是否是 $227$ 的平方剩余</p><p>由 $137^{(227-1)/2} \equiv -1 \quad (mod \; 227)$，知 $137$ 是 $227$ 的平方非剩余</p><h4 id="定理二"><a href="#定理二" class="headerlink" title="定理二"></a>定理二</h4><p>设 $p$ 是奇素数，则模 $p$ 的简化剩余系中平方剩余与平方非剩余的个数各为 $(p-1)/2$，且 $(p-1)/2$ 个平方非剩余与序列：<br>$$<br>1^2, 2^2, \dots , (\cfrac{p-1}{2})^2<br>$$<br>中一个数同余，且仅与一个数同余</p><h3 style="color: red;">     勒让德符号</h3><p>$$<br>(\cfrac{a}{p}) = \begin{cases}<br>1, \quad &amp; 若 a 是模 p 的平方剩余 \\<br>-1, &amp; 若 a 是模 p 的平方非剩余 \\<br>0, &amp; 若 p | a<br>\end{cases}<br>$$</p><h4 id="高斯引理"><a href="#高斯引理" class="headerlink" title="高斯引理"></a>高斯引理</h4><p>$p$ 是奇素数，$a$ 是整数，$(a, p) = 1$，如果整数<br>$$<br>a \cdot 1, a \cdot 2, \dots, a \cdot \frac{p-1}{2}<br>$$<br>中模 $p$ 的最小正剩余中大于 $\frac{p}{2}$ 的个数是 $m$ ，则<br>$$<br>(\cfrac{a}{p}) = (-1)^m<br>$$</p><h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul><li><p>$(\cfrac{a}{p}) \equiv a^{(p-1) / 2} \quad (mod \; p)$</p></li><li><p>$(\cfrac{a}{p}) = (\cfrac{a+kp}{p})$</p></li><li><p>$(\cfrac{a}{p})(\cfrac{b}{p}) = (\cfrac{ab}{p})$</p></li><li><p>若$(a, p) = 1$，则 $(\cfrac{a^2}{p}) = 1$</p></li><li><p>$(\cfrac{2}{p}) = (-1)^{\frac{p^2-1}{8}}$</p></li><li><p>若 $(a, 2p) = 1$， 则 $(\cfrac{a}{p}) = (-1)^{T(a,p)}$</p></li></ul><p>$$<br>T(a, p) = \sum_{k=1}^{(p-1)/2} [\cfrac{ak}{p}]<br>$$</p><h3 style="color: red;">    二次互反律</h3><p>$p, q$ 是互素的<strong>奇素数</strong>，则<br>$$<br>(\cfrac{p}{q}) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}} (\cfrac{q}{p})<br>$$<br><strong>注：</strong>二次互反律成立的条件必须是<strong>奇素数</strong></p><p>例子：判断同余式 $x^2 \equiv 137 \quad (mod \; 227)$ 是否有解<br>$$<br>\begin{align}<br>(\cfrac{137}{227}) = &amp; (-1)^{(\frac{137-1}{2}) \times (\frac{227-1}{2})} \times (\cfrac{90}{137}) \\<br>= &amp; (\cfrac{2}{137}) \times (\cfrac{5}{137}) \times (\cfrac{3^2}{137}) \\<br>= &amp; (-1)^{(137^2-1)/8} \times (-1)^{2 \times 68} \times (\cfrac{2}{5}) \\<br>= &amp; 1 \times (-1)^{(5^2-1)/8} \\<br>= &amp; -1<br>\end{align}<br>$$</p><h3 style="color: red;">     雅可比符号</h3><p>雅可比符号同勒让德符号的书写一样，且只要求 $m$ 是奇数，$a$ 可以为任意整数<br>$$<br>\frac{a}{m}<br>$$<br>但是要注意的是，雅可比符号只能用来判断是否是<strong>二次非剩余</strong>，而<strong>不能判断是否是二次剩余</strong></p><p><strong>雅可比符号</strong>具有和勒让德符号一样的性质，包括二次互反律</p><p><strong>注：</strong>二次互反律只在 $a,m$ 均是奇数的时候成立</p><p>例子：判断同余式<br>$$<br>x^2 \equiv 286 \quad (mod \; 563)<br>$$<br>是否有解<br>$$<br>\begin{align}<br>(\cfrac{286}{563}) = &amp; (\cfrac{2}{563}) \times (\cfrac{143}{563}) \\<br>= &amp; (-1)^{(563^2-1)/8} \times (-1)^{\frac{143-1}{2} \times \frac{563-1}{2}} \times (\cfrac{-9}{143}) \\<br>= &amp; (\cfrac{-1}{143}) \\<br>= &amp; -1<br>\end{align}<br>$$<br>故无解</p><h3 id="模-p-平方根"><a href="#模-p-平方根" class="headerlink" title="模 $p$ 平方根"></a>模 $p$ 平方根</h3><p>设 $p$ 是形如 $4k+3$ 型的素数，则同余式<br>$$<br>x^2 \equiv a \quad (mod \; p)<br>$$<br>的解为<br>$$<br>x \equiv \pm a^{\frac{p+1}{4}} \quad (mop \; p)<br>$$<br>更复杂的情况暂时略</p><h3 style="color: red;">    Rabin密码体制</h3><p>随机选择两个形如 $4k+3$ 的大素数 $p, q$，计算 $n = p \times q$，以 $n$ 作为公开密钥，$p, q$ 作为私有密钥，则密文 $c \equiv m^2 \quad (mod \; n)$，解密即为求方程组<br>$$<br>\begin{cases}<br>x^2 \equiv c \quad (mod \; q) \\<br>x^2 \equiv c \quad (mod \; p)<br>\end{cases}<br>$$<br>由中国剩余定理可知解共有 $4$ 个，于是需要在明文 $m$ 中添加某些信息来确保解密的结果唯一</p><p>例子：取 $p=7, q = 11$</p><ol><li>若明文 $m = 16$，求加密后的密文 $c$</li><li>若密文 $c = 23$，求对应的 $4$ 个明文</li></ol><p>一：<br>$$<br>c  = 16 ^ 2 \equiv  25 \quad (mod \; 77) \\<br>$$<br>二：<br>$$<br>\begin{cases}<br>x^2 \equiv 23 \equiv 2 \quad (mod \; 7) \\<br>x^2 \equiv 23 \equiv 1 \quad (mod \; 11)<br>\end{cases}<br>$$<br>故解为<br>$$<br>\begin{cases}<br>x \equiv \pm 2^{(7+1)/4} \quad (mod \; 7) \\<br>x \equiv \pm 1^{(11+1)/4} \quad (mod \; 11)<br>\end{cases}<br>$$<br>再有中国剩余定理可知四个解为<br>$$<br>x \equiv \pm 4 \times 22 + \pm 1 \times 56 \equiv 10、32、45、67<br>$$</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+            <tag> infomation security </tag>
+            
+            <tag> course </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>congruence polynomial</title>
       <link href="/math-congruence-polynomial/"/>
       <url>/math-congruence-polynomial/</url>
