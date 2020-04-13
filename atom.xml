@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-12T16:39:03.402Z</updated>
+  <updated>2020-04-13T05:01:37.950Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>semaphore</title>
+    <link href="https://beasuna.xyz/os-semaphore/"/>
+    <id>https://beasuna.xyz/os-semaphore/</id>
+    <published>2020-04-13T04:56:36.000Z</published>
+    <updated>2020-04-13T05:01:37.950Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;进程之间的制约关系：&quot;&gt;&lt;a href=&quot;#进程之间的制约关系：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
+    
+      <category term="semaphore" scheme="https://beasuna.xyz/tags/semaphore/"/>
+    
+      <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+  </entry>
   
   <entry>
     <title>Path Parameters and Numeric Validations</title>

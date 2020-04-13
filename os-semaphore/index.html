@@ -1,0 +1,1929 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="semaphore, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="description" content="喵喵喵">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162966841-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-162966841-1');
+</script>
+
+
+    <title>semaphore | qiufeng&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="qiufeng's blog" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">qiufeng's blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/python" class="waves-effect waves-light">
+      
+      <i class="fab fa-python" style="zoom: 0.6;"></i>
+      
+      <span>Python学习</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/courses" class="waves-effect waves-light">
+      
+      <i class="fas fa-school" style="zoom: 0.6;"></i>
+      
+      <span>courses</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">qiufeng's blog</div>
+        <div class="logo-desc">
+            
+            喵喵喵
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/python" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fab fa-python"></i>
+			
+			Python学习
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/courses" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-school"></i>
+			
+			courses
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/wutongshenqiu/wutongshenqiu.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/wutongshenqiu/wutongshenqiu.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">semaphore</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+        
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    .toc-fixed .toc-link::before{
+        position: fixed!important;/*当toc的位置改为fixed时，.toc-link::before也要改为fixed*/
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/computer-science/">
+                                <span class="chip bg-color">computer science</span>
+                            </a>
+                        
+                            <a href="/tags/semaphore/">
+                                <span class="chip bg-color">semaphore</span>
+                            </a>
+                        
+                            <a href="/tags/os/">
+                                <span class="chip bg-color">os</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/computer-science/" class="post-category">
+                                computer science
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.7k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    18 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="进程之间的制约关系："><a href="#进程之间的制约关系：" class="headerlink" title="进程之间的制约关系："></a>进程之间的制约关系：</h2><blockquote>
+<p>直接制约关系(协作关系，需要<strong>同步</strong>)：合作进程之间产生的制约关系</p>
+<p>间接制约关系(竞争关系、需要<strong>互斥</strong>)：共享资源产生的制约关系</p>
+</blockquote>
+<h2 id="关键词："><a href="#关键词：" class="headerlink" title="关键词："></a>关键词：</h2><ul>
+<li>互斥：即排它。互斥不足以反应访问的顺序<ul>
+<li>例如采用忙等的方式获得锁</li>
+</ul>
+</li>
+<li>同步：排它+协作。在等待的事件出现之前，即使获得锁也无法前进</li>
+<li>睡眠(Sleep)：引起调用进程阻塞的系统调用，直至被另一个进程唤醒</li>
+<li>唤醒(Wakeup)：唤醒相应的进程</li>
+</ul>
+<p><strong>注意</strong>：计算机系统的各类问题中，涉及到协作的，要么是等待方<strong>主动的去查询</strong>，即过一会就去主动的查询一下(忙等)；要么就<strong>被动的等待唤醒</strong>。忙等的方式有其局限性，因此引入了 <em>睡眠-唤醒</em> 机制</p>
+<h2 id="semaphore"><a href="#semaphore" class="headerlink" title="semaphore"></a>semaphore</h2><ul>
+<li><p>定义：信号量由两个成员(s, q)组成，其中s是一个具有<strong>非负初值的整形变量</strong>，q是一个初始状态为空的队列，又称为 <em>信号灯</em></p>
+</li>
+<li><p>s是被保护的整数变量，在初始化完成之后，<strong>只能进行P和V操作</strong>，不能参与如 <code>if</code> 判断等</p>
+</li>
+<li><p>PV原语：不可被中断(由OS保证)</p>
+<ul>
+<li><p>P(Prolaag)：P操作意味着请求一个资源，在一定条件下代表阻塞进程操作</p>
+<blockquote>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> s <span class="token operator">-</span> <span class="token number">1</span>
+<span class="token keyword">if</span> s <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+ 设置进程状态为等待
+ 将进程放入q
+ 转调度程序</code></pre>
+</blockquote>
+</li>
+<li><p>V(Verhoog)：V操作意味着释放一个资源，在一定条件下代表唤醒被阻塞进程的操作</p>
+<blockquote>
+<pre class=" language-python"><code class="language-python">s <span class="token operator">=</span> s <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">if</span> s <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    将q中的第一个进程p移出
+    设置p为就绪状态并插入就绪队列
+    返回原进程继续执行</code></pre>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>信号量的具体实现：由OS保证，可以采用禁用中断(单CPU)、自旋锁(忙等)等方式</p>
+</li>
+<li><p>分类：</p>
+<ul>
+<li>二元信号量(互斥量)：仅允许取值为0或者1，主要用于解决互斥问题</li>
+<li>一般信号量：允许取大于1的整数，主要用于解决同步问题</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意</strong>：</p>
+<blockquote>
+<ul>
+<li>对于信号量访问和修改<strong>只能够通过PV</strong></li>
+<li>PV操作必须<strong>成对出现</strong>：<ul>
+<li>用于互斥时，位于<strong>同一进程</strong>之内</li>
+<li>用于同步时，<strong>交错出现在两个合作进程</strong>之内</li>
+</ul>
+</li>
+<li>多个V操作次序可任意</li>
+<li>多个P操作次序<strong>不能颠倒</strong>，否则可能造成死锁：<ul>
+<li>如果将P(互斥量)理解为上锁，P(一般信号量)理解为等待某种资源，则一起出现时，通常是一般信号量在前(上锁意味着排它，不能够既排它又等待其他进程释放资源)</li>
+</ul>
+</li>
+<li>很多时候我们需要判断信号量所表示资源数目，通常的做法是<strong>设置一个与信号量同步变化的共享变量，用来标记资源数目，由于共享变量在并发进程中均可访问，所以需要在共享变量上增加一个互斥量</strong></li>
+</ul>
+</blockquote>
+<h3 id="信号量的理解"><a href="#信号量的理解" class="headerlink" title="信号量的理解"></a>信号量的理解</h3><h4 id="信号量的基本原理是利用信号灯实现进程协作"><a href="#信号量的基本原理是利用信号灯实现进程协作" class="headerlink" title="信号量的基本原理是利用信号灯实现进程协作"></a>信号量的基本原理是利用信号灯实现进程协作</h4><ul>
+<li><strong>互斥</strong>是指同一时刻仅允许一个访问者，具有<strong>唯一性</strong>和<strong>排他性</strong>，但互斥无法反应<strong>访问顺序</strong></li>
+<li><strong>同步</strong>是指通过有序的访问实现<strong>协同</strong></li>
+<li>在多数情况下同步已经实现了互斥，特别是在有写入资源的情况下必定是互斥的，少数情况是指可以允许访问者同时访问资源，如读者</li>
+</ul>
+<h3 id="信号量小结"><a href="#信号量小结" class="headerlink" title="信号量小结"></a>信号量小结</h3><ul>
+<li>一个信号量可用于 n 个进程的同步互斥，且<strong>只能由P、V操作修改</strong><ul>
+<li>用于互斥时，s 初值为 1，取值为 1 ~ -(n-1)<ul>
+<li>s = 1：临界区可用</li>
+<li>s = 0：已有一个进程进入临界区</li>
+<li>s &lt; 0：临界区已经被占用，|s| 个进程正等待进入</li>
+</ul>
+</li>
+<li>用于同步时，s 初值 &gt;= 0<ul>
+<li>s &gt;= 0：可用资源个数</li>
+<li>s &lt; 0：资源的等待队列长度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="P、V-操作小结"><a href="#P、V-操作小结" class="headerlink" title="P、V 操作小结"></a>P、V 操作小结</h3><ul>
+<li>P(s)：请求分配一个资源</li>
+<li>V(s)：释放一个资源</li>
+<li>P、V操作必须<strong>成对出现</strong><ul>
+<li>用于互斥时，位于同一进程内：<strong>(其实也不一定，如吃水果问题)</strong></li>
+<li>用于同步时，交错出现于两个合作进程内</li>
+</ul>
+</li>
+<li>多个 P 操作的次序不可颠倒，一般<strong>同步P</strong>优先于<strong>互斥P</strong></li>
+<li>多个 V 操作次序可任意</li>
+</ul>
+<h3 id="利用信号量解决同步问题的思路"><a href="#利用信号量解决同步问题的思路" class="headerlink" title="利用信号量解决同步问题的思路"></a>利用信号量解决同步问题的思路</h3><h4 id="明确同步和互斥进程"><a href="#明确同步和互斥进程" class="headerlink" title="明确同步和互斥进程"></a>明确同步和互斥进程</h4><ul>
+<li>分析题目，明确要同步和互斥的进程</li>
+<li>站在进程的角度来思考问题：<ul>
+<li>不要站在操作系统的角度来审视</li>
+<li>进程是被<strong>调度和管理</strong>的对象</li>
+</ul>
+</li>
+<li>状态的感知与判断<ul>
+<li>进程<strong>无法感知</strong>其他进程的状态</li>
+<li>进程对同步、互斥条件的判断，仅依赖<strong>信号量</strong>或共<strong>享变量</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="理清同步与互斥关系"><a href="#理清同步与互斥关系" class="headerlink" title="理清同步与互斥关系"></a>理清同步与互斥关系</h4><ul>
+<li><p>哪些资源和对象需要互斥访问</p>
+</li>
+<li><p>哪些资源的访问顺序对进程调度有制约关系</p>
+</li>
+<li><p>同步信号量要表示出资源的等待条件和数目</p>
+</li>
+<li><p>P 操作内包含等待；V 操作内包含唤醒</p>
+</li>
+<li><p>同类资源可设置多个信号量：</p>
+<ul>
+<li>例如生产者消费者问题中的 empty 和 full</li>
+</ul>
+</li>
+<li><p><strong>同步P</strong>优先于<strong>互斥P</strong></p>
+</li>
+<li><p>信号量的操作只能为P、V，不能取值和赋值：</p>
+<ul>
+<li>如果需要进行判断，可以通过设置共享变量副本</li>
+</ul>
+</li>
+</ul>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><h3 id="produce"> 生产者-消费者问题：</h3>
+
+<p>有大小为N的缓冲区，生产者生产产品放到缓冲区，消费者从缓冲区取出产品进行消费。生产者和消费者满足如下关系：</p>
+<ul>
+<li>互斥关系：对缓冲区的访问需要互斥，包括生产者与消费者之间，生产者与生产者之间，消费者与消费者之间</li>
+<li>同步关系：当缓冲区满时生产者需要等待，当缓冲区空时消费者需要等待</li>
+</ul>
+<p><strong>分析</strong>：对缓冲区的访问需要互斥，因此设置互斥信号量mutex，并设初值为1；生产者和消费者分别需要满足各自的同步关系，因此设置同步信号量empty(表示缓冲区剩余的产品数)，并设初值为0；以及同步信号量full(表示将缓冲区装满所需的产品数)，并设初值为n</p>
+<pre class=" language-python"><code class="language-python">生产者<span class="token punctuation">:</span>
+    生产产品
+    P<span class="token punctuation">(</span>full<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这里的两个P不能调换位置，否则可能造成死锁</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    将产品送入缓冲区
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 这里的两个V可以调换位置</span>
+    V<span class="token punctuation">(</span>empty<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 同步关系交错出现在两个进程中</span>
+
+消费者<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>empty<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    从缓冲区取出一个产品
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>full<span class="token punctuation">)</span>
+    消费一个产品</code></pre>
+<h3 id="读者-写者问题："><a href="#读者-写者问题：" class="headerlink" title="读者-写者问题："></a>读者-写者问题：</h3><p>一个数据对象可以被多个并发进程所共享，其中一些进程只要求读数据对象的内容，另一些进程要求修改或写数据对象的内容，允许多个进程同时读数据对象，一个写进程不能同时与其他进程(无论是写或者读)同时访问此数据对象</p>
+<p>读者-写着问题根据同步关系的不同可以分为以下几类：</p>
+<ul>
+<li>读者优先：写者提出请求后需要等待所有的读者读完之后才可以进行修改</li>
+<li>写着优先：<ul>
+<li>可插队</li>
+<li>不可插队</li>
+</ul>
+</li>
+<li>读写者公平：按照提出请求的顺序先来先服务</li>
+</ul>
+<h4 id="读者优先："><a href="#读者优先：" class="headerlink" title="读者优先："></a>读者优先：</h4><p><strong>分析</strong>：写者与读者需要互斥，因此引入互斥量mutex；涉及到对读者数目的判断，因此增加读者的共享变量readcount和互斥变量rmutex</p>
+<pre class=" language-python"><code class="language-python">读者：
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 对共享变量(读者数量)的修改需要互斥</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    读操作
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+
+写者：
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    写操作
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span></code></pre>
+<h4 id="写者优先-不可插队"><a href="#写者优先-不可插队" class="headerlink" title="写者优先-不可插队"></a>写者优先-不可插队</h4><p>与读者-写者公平算法的区别在于：<strong>只有第一个写者需要排队</strong></p>
+<p><strong>分析</strong>：写时需要互斥，因此引入互斥量mutex；涉及到对读者数目的判断，因此引入共享变量readcount和互斥量rmutex；涉及到对写者数目的判断，因此引入共享变量writecount和互斥量wmutex；涉及到读写者的排队，因此引入新的互斥信号量queue</p>
+<pre class=" language-python"><code class="language-python">读者：
+    P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 读者写者均在 queue 上排队</span>
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 因为读者可以同时进行读操作，所以到这里释放 queue</span>
+    读操作
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+
+写者：
+
+    P<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> writecount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 只有第一个写者需要排队</span>
+    writecount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    写操作
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    writecount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> writecount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="写者优先-可插队"><a href="#写者优先-可插队" class="headerlink" title="写者优先-可插队"></a>写者优先-可插队</h4><p><strong>分析</strong>：读者和写者排<strong>不同的队列</strong>，因此引入新的互斥信号量 priority</p>
+<pre class=" language-python"><code class="language-python">读者：
+    P<span class="token punctuation">(</span>priority<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 读者首先在 priority 上排队，故写者进入时，只需要等待 queue 上的一个</span>
+    P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>priority<span class="token punctuation">)</span>
+    读操作
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+
+写者：
+
+    P<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> writecount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 注意这里的操作</span>
+    writecount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    写操作
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+    writecount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> writecount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>wmutex<span class="token punctuation">)</span>
+</code></pre>
+<p><strong>一些典型的错误</strong>：</p>
+<ol>
+<li>在读者操作中，误以为queue可以代替rmutex：rmutex的作用是使得修改readcount互斥，如果去除，则某一个读者在下方进行关于 <code>readcount</code> 的操作时与上方的 <code>readcount</code> 操作并不互斥</li>
+<li>在读者操作中，用rmutex代替priority，误将读者等待再rmutex处。则若读者1读操作完成，持有mutex等待rmutex，写者1持有queue等待mutex，读者2持有rmutex等待queue，会造成死锁</li>
+</ol>
+<h4 id="读写者公平"><a href="#读写者公平" class="headerlink" title="读写者公平"></a>读写者公平</h4><p><strong>分析</strong>：涉及到读者和写者的互斥，引入互斥量mutex；涉及到对读者数目的判断，引入互斥量rmutex和共享变量readcount；引入队列信号量queue</p>
+<pre class=" language-python"><code class="language-python">读者：
+    P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">+=</span> <span class="token number">1</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    读操作
+    P<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+    readcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> readcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>rmutex<span class="token punctuation">)</span>
+
+写者：
+
+    P<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>queue<span class="token punctuation">)</span>
+    写操作
+    V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+</code></pre>
+<h3 id="哲学家进餐问题："><a href="#哲学家进餐问题：" class="headerlink" title="哲学家进餐问题："></a>哲学家进餐问题：</h3><p>有五个哲学家，他们的生活方式是交替地进行思考和进餐；哲学家们公用一张圆桌，分别坐在周围的五张椅子上，在圆桌上有五只筷子；平时哲学家进行思考，饥饿时便试图取左右最靠近他的筷子，只有在同时拿到两只筷子时才能进餐；进餐完毕，放下筷子又继续思考</p>
+<h4 id="服务生解法"><a href="#服务生解法" class="headerlink" title="服务生解法"></a>服务生解法</h4><p>引入一个餐厅服务生，服务生了解当前筷子的使用情况，哲学家必须经过服务生的允许才可以拿起筷子</p>
+<h4 id="破坏环路"><a href="#破坏环路" class="headerlink" title="破坏环路"></a>破坏环路</h4><p>？</p>
+<h4 id="资源分级"><a href="#资源分级" class="headerlink" title="资源分级"></a>资源分级</h4><p>为资源的分配设置一个编号，同时设置资源访问的偏序关系。</p>
+<p>例如约定哲学家总是先拿起左右两边<strong>编号较低</strong>的餐叉，用完餐后，总是先放下<strong>编号较高</strong>的餐叉。在这种情况下，若有四位哲学家都拿起手边编号较低的餐叉时，第五位哲学家无法拿起任何一个餐叉。注意到，<strong>只有一位哲学家能够使用最高编号的餐叉</strong>，所以它能够使用两只餐叉用餐。</p>
+<h3 id="睡眠的理发师问题"><a href="#睡眠的理发师问题" class="headerlink" title="睡眠的理发师问题"></a>睡眠的理发师问题</h3><p>理发店里有一位理发师，一把理发椅和N把供等候理发顾客坐的椅子；如果没有顾客，理发师睡眠，当一个顾客到来时叫醒理发师；若理发师正在理发时又有顾客来，有空椅子就坐下，没有则离开理发店</p>
+<p>互斥关系：访问的顾客数量需要互斥</p>
+<p>同步关系：没有顾客时，理发师休息；理发师工作时，顾客等待</p>
+<p><strong>分析</strong>：需要用两个信号量customers和barbers表示同步关系，一个互斥信号量mutex和count表示互斥关系(<strong>不用customers代替count的原因是信号量只能通过PV操作访问</strong>)</p>
+<pre class=" language-python"><code class="language-python">理发师：
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>customers<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 等待顾客</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># 等待中的顾客减1</span>
+        count <span class="token operator">-=</span> <span class="token number">1</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>     <span class="token comment" spellcheck="true"># mutex 在前可以看作顾客在理发店里面等待，即等在barbers上,若barbers在前则可以看作在理发店外面等待，即等在mutex上</span>
+        V<span class="token punctuation">(</span>barbers<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 理发师已经准备好开始剪头发</span>
+        cut_hair<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 非临界区</span>
+
+顾客：
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> count <span class="token operator">&lt;</span> N<span class="token punctuation">:</span>
+        count <span class="token operator">+=</span> <span class="token number">1</span>
+        V<span class="token punctuation">(</span>customers<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 唤醒理发师</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>barbers<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true"># 等待理发师准备好</span>
+        cut_hair<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true"># 椅子满了，顾客离开</span>
+</code></pre>
+<h3 id="吃水果问题"><a href="#吃水果问题" class="headerlink" title="吃水果问题"></a>吃水果问题</h3><p>桌子上有一个盘子，可以存放<strong>一个</strong>水果。父亲总是放苹果到盘子中，母亲总是放香蕉到盘子中，儿子专心等吃盘中的香蕉，女儿专心等吃盘中的苹果</p>
+<p><strong>分析：</strong>本题是 <a href="#produce">生产者-消费者</a> 的一种变形，生产者、消费者以及放入缓冲区的产品都有两类，但每类消费者只能够消费其中固定的一种产品，用 dish 表示盘子是否为空，初值为 1；apple 表示盘中是否有苹果，初值为 0；banana 表示盘中是否有香蕉，初值为 0</p>
+<pre class=" language-python"><code class="language-python">father<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        cut_apple<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>dish<span class="token punctuation">)</span>
+        将苹果放入盘中
+        V<span class="token punctuation">(</span>apple<span class="token punctuation">)</span>
+
+mother<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        peal_banana<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>dish<span class="token punctuation">)</span>
+        将香蕉放入盘中
+        V<span class="token punctuation">(</span>banana<span class="token punctuation">)</span>
+
+son<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>banana<span class="token punctuation">)</span>
+        从盘中取出香蕉
+        V<span class="token punctuation">(</span>dish<span class="token punctuation">)</span>
+        吃香蕉
+
+girl<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>apple<span class="token punctuation">)</span>
+        从盘中取出苹果
+        V<span class="token punctuation">(</span>dish<span class="token punctuation">)</span>
+        吃苹果
+</code></pre>
+<h3 id="独木桥问题"><a href="#独木桥问题" class="headerlink" title="独木桥问题"></a>独木桥问题</h3><h4 id="简单版本"><a href="#简单版本" class="headerlink" title="简单版本"></a>简单版本</h4><p>独木桥上只允许一个车子通过，当车子到达桥头上，若桥上无车则可上桥，否则等待，直到桥上没有汽车</p>
+<p><strong>分析：</strong>加锁即可</p>
+<pre class=" language-python"><code class="language-python">车<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+        过桥
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span></code></pre>
+<h4 id="扩展一"><a href="#扩展一" class="headerlink" title="扩展一"></a>扩展一</h4><p>独木桥允许同方向的多个车子同时上桥，即要么左道的多辆车都走，要么右道的多辆车都走</p>
+<p><strong>分析：</strong>类似于读者优先问题</p>
+<p>以左边为例</p>
+<pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    lmutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+Shared variable<span class="token punctuation">:</span>
+    lcount <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+left_car<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    过桥
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="扩展二"><a href="#扩展二" class="headerlink" title="扩展二"></a>扩展二</h4><p>限定桥上的车辆数最多为 N</p>
+<p><strong>分析：</strong>只需要加上桥数量的同步变量即可</p>
+<p>以左边为例：</p>
+<pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    lmutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    limit <span class="token punctuation">:</span><span class="token operator">=</span> N
+Shared variable<span class="token punctuation">:</span>
+    lcount <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+left_car<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>limit<span class="token punctuation">)</span>
+    过桥
+    V<span class="token punctuation">(</span>limit<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span></code></pre>
+<h4 id="扩展三"><a href="#扩展三" class="headerlink" title="扩展三"></a>扩展三</h4><p>限定桥上数量至多为 N，且后到达的车子按照顺序上桥，即若左边车在桥上，左边后继到达的车子只有在右边没有先到达等待的车子时才能够上桥</p>
+<p><strong>分析：</strong>类似于读写者公平</p>
+<pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    lmutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    limit <span class="token punctuation">:</span><span class="token operator">=</span> N
+Shared variable<span class="token punctuation">:</span>
+    lcount <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+left_car<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>limit<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>limit<span class="token punctuation">)</span>
+    过桥
+    P<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span>
+    lcount <span class="token operator">-=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> lcount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>lmutex<span class="token punctuation">)</span></code></pre>
+<h3 id="公园游玩问题"><a href="#公园游玩问题" class="headerlink" title="公园游玩问题"></a>公园游玩问题</h3><p>公园有 m 个旅客和 n 辆车，旅客需要乘车逛公园；每辆车仅能乘坐一个旅客；旅客排队乘坐旅行车，当一辆车可用时，载入一个旅客，在绕花园行驶任意长的时间；若 n 辆车都已经被旅客乘坐游玩，则旅客需要等待；如果一辆车已经空闲，但没有游玩的旅客，则车辆需要等待</p>
+<p><strong>注：</strong>这个题感觉可以有多种理解，过于玄学？</p>
+<h4 id="理解一"><a href="#理解一" class="headerlink" title="理解一"></a>理解一</h4><pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    emptyBus <span class="token punctuation">:</span><span class="token operator">=</span> n
+    readyCustomer <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+顾客<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>emptyBus<span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 检查是否有空车</span>
+    V<span class="token punctuation">(</span>readyCustomer<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true"># 游客上车，等待车辆出发</span>
+    游玩
+
+车<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>readyCustomer<span class="token punctuation">)</span>              <span class="token comment" spellcheck="true"># 检查是否有游客上车</span>
+    游玩
+    V<span class="token punctuation">(</span>emptyBus<span class="token punctuation">)</span></code></pre>
+<h4 id="理解二"><a href="#理解二" class="headerlink" title="理解二"></a>理解二</h4><pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    emptyBus <span class="token punctuation">:</span><span class="token operator">=</span> n
+    readyCustomer <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    readyCar <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+
+Shared variable<span class="token punctuation">:</span>
+    count <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+顾客<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> count <span class="token operator">&lt;</span> m<span class="token punctuation">:</span>              <span class="token comment" spellcheck="true"># 假定公园的最大载客量是 m</span>
+        登记顾客信息
+        count <span class="token operator">+=</span> <span class="token number">1</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>emptyBus<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 判断是否有空车</span>
+        V<span class="token punctuation">(</span>readyCustomer<span class="token punctuation">)</span>       <span class="token comment" spellcheck="true"># 顾客等待好，唤醒一辆车</span>
+        P<span class="token punctuation">(</span>readyCar<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># 等待车准备好</span>
+        游玩
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+
+车<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>readyCustomer<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true"># 等待顾客</span>
+    登记车信息
+    V<span class="token punctuation">(</span>readCar<span class="token punctuation">)</span>                 <span class="token comment" spellcheck="true"># 车准备好</span>
+    游玩
+    V<span class="token punctuation">(</span>emptyBus<span class="token punctuation">)</span>                <span class="token comment" spellcheck="true"># 释放车</span></code></pre>
+<h4 id="理解三-感觉有些奇怪"><a href="#理解三-感觉有些奇怪" class="headerlink" title="理解三(感觉有些奇怪)"></a>理解三(感觉有些奇怪)</h4><pre class=" language-c"><code class="language-c">Semaphore<span class="token punctuation">:</span>
+    car_available <span class="token punctuation">:</span><span class="token operator">=</span> n
+     passenger_wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    readyCar <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    car_busy<span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span> <span class="token punctuation">}</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+shared variable<span class="token punctuation">:</span>
+    car_number
+
+passenger<span class="token punctuation">:</span>
+    <span class="token function">wander_some_time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">// 在公园漫步</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>passenger_wait<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 乘客希望坐车</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>car_available<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 是否有空车</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>readyCar<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">// 等待车准备好</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>car_busy<span class="token punctuation">[</span>car_number<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 在编号为k的车上行驶</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">// 释放锁</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>car_available<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// 释放车</span>
+
+car<span class="token punctuation">:</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>passenger_wait<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">// 等待乘客</span>
+    <span class="token function">P</span><span class="token punctuation">(</span>mutex<span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment" spellcheck="true">// 加锁</span>
+    car_number <span class="token operator">=</span> k<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 设置共享变量为车的编号</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>readyCar<span class="token punctuation">)</span><span class="token punctuation">;</span>            <span class="token comment" spellcheck="true">// 车准备好了</span>
+    <span class="token function">travel_random_time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">// 行驶一段时间</span>
+    <span class="token function">V</span><span class="token punctuation">(</span>car_busy<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">// 到达目的地</span>
+</code></pre>
+<h3 style="color: red;">
+    红黑客问题(解答太妙了！！)
+</h3>
+
+<p>船每次坐满四个人才能够离开，三个红客+一个黑客或者一个红客+三个黑客不能同船</p>
+<p><strong>分析：</strong>等待的客人之间先排列组合出可以上船的客人</p>
+<p>以红客为例，只有两种情况，即4个红客，或者2个红客+2个或以上的黑客</p>
+<pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>                       <span class="token comment" spellcheck="true"># 用于排列组合的互斥</span>
+    read_wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                     <span class="token comment" spellcheck="true"># 被阻塞的红客</span>
+    black_wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                     <span class="token comment" spellcheck="true"># 被阻塞的黑客</span>
+    boat <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>                         <span class="token comment" spellcheck="true"># 互斥使用船</span>
+    mutex_wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>                     <span class="token comment" spellcheck="true"># 互斥修改等待上船人数</span>
+    full <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                         <span class="token comment" spellcheck="true"># 船是否满</span>
+shared variable<span class="token punctuation">:</span>
+    red_count <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                   <span class="token comment" spellcheck="true"># 等待的红客副本</span>
+    black_count <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                 <span class="token comment" spellcheck="true"># 等待的黑客副本</span>
+    wait_count <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>                     <span class="token comment" spellcheck="true"># 等待上船的人数</span>
+
+红客<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>                         <span class="token comment" spellcheck="true"># 加锁，进行排列组合</span>
+    red_count <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> red_count <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>                 <span class="token comment" spellcheck="true"># 第一种情况</span>
+        V<span class="token punctuation">(</span>red_wait<span class="token punctuation">)</span>
+        V<span class="token punctuation">(</span>red_wait<span class="token punctuation">)</span>
+        V<span class="token punctuation">(</span>red_wait<span class="token punctuation">)</span>                     <span class="token comment" spellcheck="true"># 释放三个人</span>
+        red_count <span class="token operator">=</span> <span class="token number">0</span>                 <span class="token comment" spellcheck="true"># 等待人数清零</span>
+        wait_count <span class="token operator">=</span> <span class="token number">4</span>                 <span class="token comment" spellcheck="true"># 四个人等待上船</span>
+    <span class="token keyword">elif</span> red_count <span class="token operator">==</span> <span class="token number">2</span> <span class="token operator">and</span> black_count <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>red_wait<span class="token punctuation">)</span>
+        V<span class="token punctuation">(</span>black_wait<span class="token punctuation">)</span>
+        V<span class="token punctuation">(</span>black_wait<span class="token punctuation">)</span>
+        red_count <span class="token operator">=</span> <span class="token number">0</span>
+        black_count <span class="token operator">-=</span> <span class="token number">2</span>
+        wait_count <span class="token operator">=</span> <span class="token number">4</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>red_wait<span class="token punctuation">)</span>                   <span class="token comment" spellcheck="true"># 加入等待队列</span>
+    P<span class="token punctuation">(</span>mutex_wait<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> wait_count <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        P<span class="token punctuation">(</span>boat<span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># 船是否回来</span>
+    wait_count <span class="token operator">-=</span> <span class="token number">1</span>                   <span class="token comment" spellcheck="true"># 如果没有符合条件排列，则 wait_count &lt; 0</span>
+    <span class="token keyword">if</span> wait_count <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>full<span class="token punctuation">)</span>                       <span class="token comment" spellcheck="true"># 船满了</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>                      <span class="token comment" spellcheck="true"># 如果没有符合条件排列，则不会到这里，nb</span>
+    V<span class="token punctuation">(</span>mutex_wait<span class="token punctuation">)</span>
+    过河
+
+船<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>full<span class="token punctuation">)</span>
+    过河
+    V<span class="token punctuation">(</span>boat<span class="token punctuation">)</span></code></pre>
+<h4 id="红黑客问题的变形"><a href="#红黑客问题的变形" class="headerlink" title="红黑客问题的变形"></a>红黑客问题的变形</h4><p>n 个学生 m 个网球场 k 个裁判，两个学生组成一组打网球，每组有一个裁判。需要满足：没有学生，裁判休息；没有裁判，学生等待；没有场地，学生等待</p>
+<pre class=" language-python"><code class="language-python">Semaphore<span class="token punctuation">:</span>
+    playground <span class="token punctuation">:</span><span class="token operator">=</span> m
+    referee <span class="token punctuation">:</span><span class="token operator">=</span> k
+    wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    readyStudeng <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    mutex <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+    mutex_wait <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">1</span>
+shared variable<span class="token punctuation">:</span>
+    s_num <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+    wait_num <span class="token punctuation">:</span><span class="token operator">=</span> <span class="token number">0</span>
+
+学生<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    s_num <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> s_num <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>wait<span class="token punctuation">)</span>
+        wait_num <span class="token operator">=</span> <span class="token number">2</span>
+        s_num <span class="token operator">=</span> <span class="token number">0</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+        P<span class="token punctuation">(</span>wait<span class="token punctuation">)</span>
+    P<span class="token punctuation">(</span>mutex_wait<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> wait_num <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+            P<span class="token punctuation">(</span>referee<span class="token punctuation">)</span>             <span class="token comment" spellcheck="true"># 等待教练</span>
+            P<span class="token punctuation">(</span>playground<span class="token punctuation">)</span>          <span class="token comment" spellcheck="true"># 等待球场</span>
+        wait_num <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">if</span> wait_num <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            V<span class="token punctuation">(</span>readyStudent<span class="token punctuation">)</span>        <span class="token comment" spellcheck="true"># 到场了，可以等裁判过来评分</span>
+            V<span class="token punctuation">(</span>mutex<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>mutex_wait<span class="token punctuation">)</span>
+
+裁判<span class="token punctuation">:</span>
+    P<span class="token punctuation">(</span>readStudent<span class="token punctuation">)</span>
+    评分
+    V<span class="token punctuation">(</span>referee<span class="token punctuation">)</span>
+    V<span class="token punctuation">(</span>playground<span class="token punctuation">)</span></code></pre>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://beasuna.xyz" rel="external nofollow noreferrer">qiufeng</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://beasuna.xyz/os-semaphore/">https://beasuna.xyz/os-semaphore/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://beasuna.xyz" target="_blank">qiufeng</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/computer-science/">
+                                    <span class="chip bg-color">computer science</span>
+                                </a>
+                            
+                                <a href="/tags/semaphore/">
+                                    <span class="chip bg-color">semaphore</span>
+                                </a>
+                            
+                                <a href="/tags/os/">
+                                    <span class="chip bg-color">os</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: 'f1c298b2c0d599369dc1',
+        clientSecret: '7b309ecd59d22a7586c53e89d31c2db5f312c4ef',
+        repo: 'wutongshenqiu.github.io',
+        owner: 'wutongshenqiu',
+        admin: ["wutongshenqiu"],
+        id: '2020-04-13T12-56-36',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+	
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/os-semaphore/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="semaphore">
+                        
+                        <span class="card-title">semaphore</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            进程之间的制约关系：
+直接制约关系(协作关系，需要同步)：合作进程之间产生的制约关系
+间接制约关系(竞争关系、需要互斥)：共享资源产生的制约关系
+
+关键词：
+互斥：即排它。互斥不足以反应访问的顺序
+例如采用忙等的方式获得锁
+
+
+同步：排它+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/computer-science/" class="post-category">
+                                    computer science
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/computer-science/">
+                        <span class="chip bg-color">computer science</span>
+                    </a>
+                    
+                    <a href="/tags/semaphore/">
+                        <span class="chip bg-color">semaphore</span>
+                    </a>
+                    
+                    <a href="/tags/os/">
+                        <span class="chip bg-color">os</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/fastapi-path-parameters-and-numeric-validations/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Path Parameters and Numeric Validations">
+                        
+                        <span class="card-title">Path Parameters and Numeric Validations</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Path Parameters and Numeric Validations和用 Query 为查询参数声明更多的验证规则和元信息相同，可以用 Path 为路径参数声明同样的验证规则和元信息
+from fastapi import Fas
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category">
+                                    python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/fastapi/">
+                        <span class="chip bg-color">fastapi</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="2382951848"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://beasuna.xyz" target="_blank">qiufeng</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">26.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "4";
+                    var startDate = "7";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wutongshenqiu" class="tooltipped" target="https://github.com/wutongshenqiu" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:690364065@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=690364065" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 690364065" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?00c6cdf4cf1359b2546fbe708495f8f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
