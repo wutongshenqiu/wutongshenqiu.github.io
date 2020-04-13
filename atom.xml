@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-13T12:22:45.371Z</updated>
+  <updated>2020-04-13T13:53:02.690Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Body - Multiple Parameters</title>
+    <link href="https://beasuna.xyz/fastapi-body-multiple-parameters/"/>
+    <id>https://beasuna.xyz/fastapi-body-multiple-parameters/</id>
+    <published>2020-04-13T13:52:38.000Z</published>
+    <updated>2020-04-13T13:53:02.690Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Mix-Path-Query-and-body-parameters&quot;&gt;&lt;a href=&quot;#Mix-Path-Query-and-body-parameters&quot; class=&quot;headerlink&quot; title=&quot;Mix Path, Query and
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Body - Fields</title>
+    <link href="https://beasuna.xyz/fastapi-body-fields/"/>
+    <id>https://beasuna.xyz/fastapi-body-fields/</id>
+    <published>2020-04-13T13:51:43.000Z</published>
+    <updated>2020-04-13T13:52:23.239Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Body-Fields&quot;&gt;&lt;a href=&quot;#Body-Fields&quot; class=&quot;headerlink&quot; title=&quot;Body - Fields&quot;&gt;&lt;/a&gt;Body - Fields&lt;/h3&gt;&lt;p&gt;和路径操作函数
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>algorithm compressive</title>
@@ -544,64 +606,6 @@
       <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
     
       <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>First Steps</title>
-    <link href="https://beasuna.xyz/fastapi-first-steps/"/>
-    <id>https://beasuna.xyz/fastapi-first-steps/</id>
-    <published>2020-04-09T15:14:00.000Z</published>
-    <updated>2020-04-09T17:05:08.072Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;一个简单的例子&quot;&gt;&lt;a href=&quot;#一个简单的例子&quot; class=&quot;headerlink&quot; title=&quot;一个简单的例子&quot;&gt;&lt;/a&gt;一个简单的例子&lt;/h4&gt;&lt;h5 id=&quot;main-py&quot;&gt;&lt;a href=&quot;#main-py&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>v2ray-configure</title>
-    <link href="https://beasuna.xyz/v2ray-configure/"/>
-    <id>https://beasuna.xyz/v2ray-configure/</id>
-    <published>2020-04-07T11:59:11.000Z</published>
-    <updated>2020-04-07T11:59:45.433Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;记录一下怕自己忘记了&quot;&gt;&lt;a href=&quot;#记录一下怕自己忘记了&quot; class=&quot;headerlink&quot; title=&quot;记录一下怕自己忘记了&quot;&gt;&lt;/a&gt;记录一下怕自己忘记了&lt;/h4&gt;&lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="tools" scheme="https://beasuna.xyz/categories/tools/"/>
-    
-    
-      <category term="v2ray" scheme="https://beasuna.xyz/tags/v2ray/"/>
     
   </entry>
   
