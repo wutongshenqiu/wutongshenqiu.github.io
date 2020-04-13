@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-13T05:01:37.950Z</updated>
+  <updated>2020-04-13T09:09:44.691Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>math 原根与指标</title>
+    <link href="https://beasuna.xyz/math-yuan-gen-yu-zhi-biao/"/>
+    <id>https://beasuna.xyz/math-yuan-gen-yu-zhi-biao/</id>
+    <published>2020-04-13T09:08:48.000Z</published>
+    <updated>2020-04-13T09:09:44.691Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;指数&quot;&gt;&lt;a href=&quot;#指数&quot; class=&quot;headerlink&quot; title=&quot;指数&quot;&gt;&lt;/a&gt;指数&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h4&gt;&lt;p&gt;$m
+        
+      
+    
+    </summary>
+    
+    
+      <category term="math" scheme="https://beasuna.xyz/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://beasuna.xyz/tags/math/"/>
+    
+      <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
+    
+      <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
+    
+  </entry>
   
   <entry>
     <title>semaphore</title>
