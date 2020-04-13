@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-13T09:12:30.636Z</updated>
+  <updated>2020-04-13T12:22:45.371Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>algorithm compressive</title>
+    <link href="https://beasuna.xyz/algorithm-compressive/"/>
+    <id>https://beasuna.xyz/algorithm-compressive/</id>
+    <published>2020-04-13T12:07:53.000Z</published>
+    <updated>2020-04-13T12:22:45.371Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;二分法最好情形比较 $1$ 次，最坏 $\lfloor \log n \rfloor
+        
+      
+    
+    </summary>
+    
+    
+      <category term="algorithm" scheme="https://beasuna.xyz/categories/algorithm/"/>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
+    
+      <category term="algorithm" scheme="https://beasuna.xyz/tags/algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>math 原根与指标</title>
@@ -572,35 +602,6 @@
     
     
       <category term="v2ray" scheme="https://beasuna.xyz/tags/v2ray/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>socket加密通信</title>
-    <link href="https://beasuna.xyz/socket-jia-mi-tong-xin/"/>
-    <id>https://beasuna.xyz/socket-jia-mi-tong-xin/</id>
-    <published>2020-04-07T11:45:40.000Z</published>
-    <updated>2020-04-07T11:49:25.754Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;编程思路：&quot;&gt;&lt;a href=&quot;#编程思路：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="cryptography" scheme="https://beasuna.xyz/categories/cryptography/"/>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="socket" scheme="https://beasuna.xyz/tags/socket/"/>
     
   </entry>
   
