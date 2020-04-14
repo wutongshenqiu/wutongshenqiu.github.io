@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-14T05:22:56.842Z</updated>
+  <updated>2020-04-14T11:06:51.464Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -17,11 +17,172 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>fastapi Body - Nested Models</title>
+    <title>Response Model</title>
+    <link href="https://beasuna.xyz/fastapi-response-model/"/>
+    <id>https://beasuna.xyz/fastapi-response-model/</id>
+    <published>2020-04-14T10:59:55.000Z</published>
+    <updated>2020-04-14T11:06:51.464Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Response-Model&quot;&gt;&lt;a href=&quot;#Response-Model&quot; class=&quot;headerlink&quot; title=&quot;Response Model&quot;&gt;&lt;/a&gt;Response Model&lt;/h3&gt;&lt;p&gt;可以在路径操作中通过
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Header Parameters</title>
+    <link href="https://beasuna.xyz/fastapi-header-parameters/"/>
+    <id>https://beasuna.xyz/fastapi-header-parameters/</id>
+    <published>2020-04-14T09:59:58.000Z</published>
+    <updated>2020-04-14T10:00:39.767Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Header-Parameters&quot;&gt;&lt;a href=&quot;#Header-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Header Parameters&quot;&gt;&lt;/a&gt;Header Parameters&lt;/h3&gt;&lt;p&gt;定义 Header
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cookie Parameters</title>
+    <link href="https://beasuna.xyz/fastapi-cookie-parameters/"/>
+    <id>https://beasuna.xyz/fastapi-cookie-parameters/</id>
+    <published>2020-04-14T09:32:37.000Z</published>
+    <updated>2020-04-14T09:33:25.927Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Cookie-Parameters&quot;&gt;&lt;a href=&quot;#Cookie-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Cookie Parameters&quot;&gt;&lt;/a&gt;Cookie Parameters&lt;/h3&gt;&lt;p&gt;cooke
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Extra Data Types</title>
+    <link href="https://beasuna.xyz/fastapi-extra-data-types/"/>
+    <id>https://beasuna.xyz/fastapi-extra-data-types/</id>
+    <published>2020-04-14T09:25:51.000Z</published>
+    <updated>2020-04-14T09:26:30.605Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;见&lt;a href=&quot;https://fastapi.tiangolo.com/tutorial/extra-data-types/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;script&gt;
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Schema Extra - Example</title>
+    <link href="https://beasuna.xyz/fastapi-schema-extra-example/"/>
+    <id>https://beasuna.xyz/fastapi-schema-extra-example/</id>
+    <published>2020-04-14T09:17:24.000Z</published>
+    <updated>2020-04-14T09:26:14.999Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 style=&quot;text-align: center;&quot;&gt;
+    Schema Extra - Example
+&lt;/h1&gt;
+
+&lt;h3 id=&quot;Schema-Extra-Example&quot;&gt;&lt;a href=&quot;#Schema-Extra-Example&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Body - Nested Models</title>
     <link href="https://beasuna.xyz/fastapi-body-nested-models/"/>
     <id>https://beasuna.xyz/fastapi-body-nested-models/</id>
     <published>2020-04-14T05:22:32.000Z</published>
-    <updated>2020-04-14T05:22:56.842Z</updated>
+    <updated>2020-04-14T09:33:11.425Z</updated>
     
     <summary type="html">
     
@@ -440,157 +601,6 @@
         
         
           &lt;h3 id=&quot;同余&quot;&gt;&lt;a href=&quot;#同余&quot; class=&quot;headerlink&quot; title=&quot;同余&quot;&gt;&lt;/a&gt;同余&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/categories/math/"/>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/tags/math/"/>
-    
-      <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
-    
-      <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Query Parameters and String Validations</title>
-    <link href="https://beasuna.xyz/fastapi-query-parameters-and-string-validations/"/>
-    <id>https://beasuna.xyz/fastapi-query-parameters-and-string-validations/</id>
-    <published>2020-04-11T15:59:35.000Z</published>
-    <updated>2020-04-12T16:38:54.530Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Query-Parameters-and-String-Validations&quot;&gt;&lt;a href=&quot;#Query-Parameters-and-String-Validations&quot; class=&quot;headerlink&quot; title=&quot;Query
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 函数参数</title>
-    <link href="https://beasuna.xyz/python-han-shu-can-shu/"/>
-    <id>https://beasuna.xyz/python-han-shu-can-shu/</id>
-    <published>2020-04-11T15:18:52.000Z</published>
-    <updated>2020-04-12T16:29:19.368Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;可接受任意数量参数的函数&quot;&gt;&lt;a href=&quot;#可接受任意数量参数的函数&quot; class=&quot;headerlink&quot; title=&quot;可接受任意数量参数的函数&quot;&gt;&lt;/a&gt;可接受任意数量参数的函数&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;使用 &lt;code&gt;*&lt;/code&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Request Body</title>
-    <link href="https://beasuna.xyz/fastapi-request-body/"/>
-    <id>https://beasuna.xyz/fastapi-request-body/</id>
-    <published>2020-04-11T11:27:11.000Z</published>
-    <updated>2020-04-11T11:29:56.355Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Request-Body&quot;&gt;&lt;a href=&quot;#Request-Body&quot; class=&quot;headerlink&quot; title=&quot;Request Body&quot;&gt;&lt;/a&gt;Request Body&lt;/h3&gt;&lt;p&gt;当需要从客户端(如浏览器)发送数据到 API 时，可以借助
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Query Parameters</title>
-    <link href="https://beasuna.xyz/fastapi-query-parameters/"/>
-    <id>https://beasuna.xyz/fastapi-query-parameters/</id>
-    <published>2020-04-11T10:06:05.000Z</published>
-    <updated>2020-04-11T10:06:47.675Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Query-Parameters&quot;&gt;&lt;a href=&quot;#Query-Parameters&quot; class=&quot;headerlink&quot; title=&quot;Query Parameters&quot;&gt;&lt;/a&gt;Query
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>integer divisibility</title>
-    <link href="https://beasuna.xyz/math-zheng-shu-de-ke-chu-xing/"/>
-    <id>https://beasuna.xyz/math-zheng-shu-de-ke-chu-xing/</id>
-    <published>2020-04-11T05:32:29.000Z</published>
-    <updated>2020-04-13T23:36:16.304Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;整除&quot;&gt;&lt;a href=&quot;#整除&quot; class=&quot;headerlink&quot; title=&quot;整除&quot;&gt;&lt;/a&gt;整除&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
         
       
     
