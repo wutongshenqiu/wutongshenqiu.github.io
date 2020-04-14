@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-13T13:53:02.690Z</updated>
+  <updated>2020-04-14T05:22:56.842Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>fastapi Body - Nested Models</title>
+    <link href="https://beasuna.xyz/fastapi-body-nested-models/"/>
+    <id>https://beasuna.xyz/fastapi-body-nested-models/</id>
+    <published>2020-04-14T05:22:32.000Z</published>
+    <updated>2020-04-14T05:22:56.842Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Body-Nested-Models&quot;&gt;&lt;a href=&quot;#Body-Nested-Models&quot; class=&quot;headerlink&quot; title=&quot;Body - Nested Models&quot;&gt;&lt;/a&gt;Body - Nested
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>Body - Multiple Parameters</title>
@@ -574,38 +605,6 @@
       <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
     
       <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Path Parameters</title>
-    <link href="https://beasuna.xyz/fastapi-path-parameters/"/>
-    <id>https://beasuna.xyz/fastapi-path-parameters/</id>
-    <published>2020-04-09T17:04:40.000Z</published>
-    <updated>2020-04-09T17:08:11.825Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;path&lt;/strong&gt; 中可以用 &lt;strong&gt;python&lt;/strong&gt; 格式字符串的形式来声明变量，例如&lt;/p&gt;
-&lt;pre class=&quot; language-python&quot;&gt;&lt;code
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
     
   </entry>
   
