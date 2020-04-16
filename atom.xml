@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-14T11:06:51.464Z</updated>
+  <updated>2020-04-16T16:26:28.312Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,99 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Form Data</title>
+    <link href="https://beasuna.xyz/fastapi-form-data/"/>
+    <id>https://beasuna.xyz/fastapi-form-data/</id>
+    <published>2020-04-16T16:25:56.000Z</published>
+    <updated>2020-04-16T16:26:28.312Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Form-Data&quot;&gt;&lt;a href=&quot;#Form-Data&quot; class=&quot;headerlink&quot; title=&quot;Form Data&quot;&gt;&lt;/a&gt;Form Data&lt;/h3&gt;&lt;p&gt;当需要接受表单字段而不是 JSON 时，可以使用
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Response Status Code</title>
+    <link href="https://beasuna.xyz/fastapi-response-status-code/"/>
+    <id>https://beasuna.xyz/fastapi-response-status-code/</id>
+    <published>2020-04-16T16:01:17.000Z</published>
+    <updated>2020-04-16T16:02:30.280Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Response-Status-Code&quot;&gt;&lt;a href=&quot;#Response-Status-Code&quot; class=&quot;headerlink&quot; title=&quot;Response Status Code&quot;&gt;&lt;/a&gt;Response Status
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Extra Models</title>
+    <link href="https://beasuna.xyz/fastapi-extra-models/"/>
+    <id>https://beasuna.xyz/fastapi-extra-models/</id>
+    <published>2020-04-16T12:15:43.000Z</published>
+    <updated>2020-04-16T16:02:07.950Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Extra-Models&quot;&gt;&lt;a href=&quot;#Extra-Models&quot; class=&quot;headerlink&quot; title=&quot;Extra Models&quot;&gt;&lt;/a&gt;Extra
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>Response Model</title>
@@ -533,88 +626,6 @@
     
     
       <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机的语言</title>
-    <link href="https://beasuna.xyz/cod-ji-suan-ji-de-yu-yan/"/>
-    <id>https://beasuna.xyz/cod-ji-suan-ji-de-yu-yan/</id>
-    <published>2020-04-12T08:10:07.000Z</published>
-    <updated>2020-04-12T09:08:40.150Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;常用的寄存器（32个）：&quot;&gt;&lt;a href=&quot;#常用的寄存器（32个）：&quot; class=&quot;headerlink&quot; title=&quot;常用的寄存器（32个）：&quot;&gt;&lt;/a&gt;常用的寄存器（32个）：&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;$\$0(\$zero)$：零寄存器，值恒为
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>计算机概要与技术</title>
-    <link href="https://beasuna.xyz/cod-ji-suan-ji-gai-yao-yu-ji-zhu/"/>
-    <id>https://beasuna.xyz/cod-ji-suan-ji-gai-yao-yu-ji-zhu/</id>
-    <published>2020-04-12T08:05:51.000Z</published>
-    <updated>2020-04-12T09:08:56.198Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;计算机的应用的分类及其特性：&quot;&gt;&lt;a href=&quot;#计算机的应用的分类及其特性：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>math同余</title>
-    <link href="https://beasuna.xyz/math-tong-yu/"/>
-    <id>https://beasuna.xyz/math-tong-yu/</id>
-    <published>2020-04-12T03:57:04.000Z</published>
-    <updated>2020-04-12T04:01:13.357Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;同余&quot;&gt;&lt;a href=&quot;#同余&quot; class=&quot;headerlink&quot; title=&quot;同余&quot;&gt;&lt;/a&gt;同余&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/categories/math/"/>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/tags/math/"/>
-    
-      <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
-    
-      <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
     
   </entry>
   

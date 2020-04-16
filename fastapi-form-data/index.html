@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="开发存储器层次结构, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="Form Data, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>开发存储器层次结构 | qiufeng&#39;s blog</title>
+    <title>Form Data | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">开发存储器层次结构</h1>
+                    <h1 class="description center-align post-title">Form Data</h1>
                 </div>
             </div>
         </div>
@@ -492,8 +492,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/computer-science/">
-                                <span class="chip bg-color">computer science</span>
+                            <a href="/tags/fastapi/">
+                                <span class="chip bg-color">fastapi</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
+                            </a>
+                        
+                            <a href="/tags/web/">
+                                <span class="chip bg-color">web</span>
                             </a>
                         
                     </div>
@@ -504,8 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/computer-science/" class="post-category">
-                                computer science
+                            <a href="/categories/python/" class="post-category">
+                                python
                             </a>
                         
                     </div>
@@ -517,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-12
+                    2020-04-17
                 </div>
                 
 
@@ -526,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    444
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    1 分
                 </div>
                 
 
@@ -549,122 +557,39 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="局部性原理："><a href="#局部性原理：" class="headerlink" title="局部性原理："></a>局部性原理：</h3><ul>
-<li>时间局部性：如果某个数据项被访问，那么在不久的将来他可能再次被访问</li>
-<li>空间局部性：如果某个数据项被访问，那么与地址相邻的数据项可能很快也将被访问</li>
-<li>例子：循环结构体现了指令和数据的时间局部性；顺序执行和对数组或者记录中的元素进行顺序访问则体现了指令和数据的空间局部性</li>
-</ul>
-<h3 id="层次结构："><a href="#层次结构：" class="headerlink" title="层次结构："></a>层次结构：</h3><ul>
-<li><p>存储器层次结构：一种由多存储器层次组成的结构，存储器的容量和访问时间随着离处理器距离的增加而增加</p>
-</li>
-<li><p>数据层次结构：靠近处理器那一层的数据是那些较远层次中的子集，<font color="lightblue">所有的数据</font>被存储在最缓慢的层</p>
-</li>
-<li><p>存储器的层次结构可以由多层构成，但是数据每次只能在相邻的两个层次之间进行复制，高层次的存储器靠近处理器，比低层存储器容量小但是访问速度更快。</p>
-</li>
-<li><p>两级层次结构中存储信息交换的最小单元称为块或行</p>
-</li>
-</ul>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li>块或行：两级层次结构中存储信息交换的最小单元</li>
-<li>命中率：在高层存储器中找到目标数据的存储访问比例</li>
-<li>缺失率：1-命中率</li>
-<li>命中时间：访问某存储器层次结构所需要的时间，包括了判断当前访问是命中还是缺失所需的时间</li>
-<li>缺失代价：将相应的块或行从低层存储器替换到高层存储器以及将该信息快传送给处理器的时间之和</li>
-</ul>
-<h3 id="存储器技术："><a href="#存储器技术：" class="headerlink" title="存储器技术："></a>存储器技术：</h3><ul>
-<li>一些典型的存储器：<img src="/img/cod/14.png" alt="喵喵喵"></li>
-<li>闪存：一种电可擦除的可编程只读存储器</li>
-<li>磁盘存储器：<ul>
-<li>磁道：位于磁盘表面的数万个同心圆环中的任意一个圆环称为一个磁道</li>
-<li>扇区：构成磁盘上磁道的基本单位，是磁盘上数据读写的最小单位</li>
-<li>每个扇区的容量通常是512-4096字节，信息在磁介质上保存的顺序为扇区号、一个间隙、包含该扇区的纠错码、一个间隙、下一个扇区的扇区号</li>
-<li>为了访问数据，操作系统必须对磁盘进行三步操作：<ul>
-<li>寻道：把读写磁头移动到磁盘上适当的磁道上面</li>
-<li>扇区旋转：磁头到了正确的磁道后，必须等待要访问的扇区转动到读写头下面。等待的时间称为<strong>旋转延时</strong>，<strong>平均延时</strong>通常指磁盘转动一周时间的一半</li>
-<li>？？？（读写数据？）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="cache-基本原理："><a href="#cache-基本原理：" class="headerlink" title="cache 基本原理："></a>cache 基本原理：</h3><ul>
-<li>直接映射：每个存储器中的数据项都放在cache中的确定位置</li>
-</ul>
-<p>较大的 cache 块能够更好的利用空间局部性以降低缺失率</p>
-<h3 id="指令-cache-缺失时的处理步骤（指令存储器的-cache）："><a href="#指令-cache-缺失时的处理步骤（指令存储器的-cache）：" class="headerlink" title="指令 cache 缺失时的处理步骤（指令存储器的 cache）："></a>指令 cache 缺失时的处理步骤（指令存储器的 cache）：</h3><ol>
-<li>把程序计数器 PC 和 原始值 PC-4 送到存储器中</li>
-<li>通知主存执行一次读操作，并等待主存访问完成</li>
-<li>写 cache 项，将从主存取回的数据写入 cache 中存放数据的部分，并设置 cache 中对应的（有效位，标记为和索引）</li>
-<li>重启指令执行第一步，此时指令在 cache 中</li>
-</ol>
-<p><font color="lightblue">数据 cache 缺失</font>与指令 cache 缺失时的处理步骤基本相同，发生缺失时，处理器发生阻塞，直到从存储器中取回数据后才响应</p>
-<p>写操作和读操作的不同之处在于：如果只将数据写入数据 cache（而不改变主存的内容），那么，再写入 cache 之后，主存与 cache 相应位置的值将<font color="red">不同</font>，此时 cache 和主存被认为<font color="red">不一致</font></p>
-<h3 id="写操作："><a href="#写操作：" class="headerlink" title="写操作："></a>写操作：</h3><ul>
-<li>写命中（处理器 sw 指令的地址在数据 cache 中）时保持 cache 和主存一致性的方法：<ul>
-<li>写直达（写通过、写穿）：更新 cache 的同时更新下一存储器层次，保持二者的一致性<ul>
-<li>写缓冲：一中解决写直达缓慢的解决方法。在一个数据等待被写入主存时，先将它放入写缓冲（保存等待写入主存数据的缓冲队列）中。如果写缓冲已经满了，则处理器必须阻塞直到写缓冲中有一个位置。（写缓冲写入内存主要存储器的写操作速度，数据写入写缓冲主要看处理器的写操作速度）当存储器完成写操作的速度慢于处理器产生写操作的速度，那么就必须产生上述阻塞，再多的缓冲器也没有用，当存储器的写操作速度快于处理器时，也有可能由于写冲突而发生阻塞</li>
-</ul>
-</li>
-<li>写回：新值仅被写入 cache 中，直到修改过的块需要被替换（不论是读或者写，只要有内容替换）的时候才将该块写入下一存储器层次</li>
-</ul>
-</li>
-<li>写缺失时的处理：<ul>
-<li>写分配：将数据写入下一存储器层次，并将该块数据放回 cache</li>
-<li>写不分配：将数据写入下一存储器层次，不放回 cache</li>
-</ul>
-</li>
-<li>因为采用写回操作时，如果出现写缺失，更新操作可能造成 cache 中更新但是没有写入下一存储器层次的数据丢失（可以采用脏位），因此写回一般和写不分配搭配（并不绝对）</li>
-</ul>
-<p>在<font color="red">组相联</font>中，cache 的组成为</p>
-<table>
-<thead>
-<tr>
-<th>标记</th>
-<th>索引</th>
-<th>块偏移</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>选择块</td>
-<td>选择组</td>
-<td>选择被请求的数据地址</td>
-</tr>
-</tbody></table>
+                <h3 id="Form-Data"><a href="#Form-Data" class="headerlink" title="Form Data"></a>Form Data</h3><p>当需要接受表单字段而不是 JSON 时，可以使用 <code>Form</code></p>
+<p><strong>注：</strong>需要借助 <code>python-multipart</code> 来使用表单</p>
+<h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> Form
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/login/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">,</span> username<span class="token punctuation">:</span> str <span class="token operator">=</span> Form<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">,</span> password<span class="token punctuation">:</span> str <span class="token operator">=</span> Form<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"username"</span><span class="token punctuation">:</span> username<span class="token punctuation">}</span></code></pre>
 <ul>
-<li>全相联不需要索引位</li>
+<li>导入 <code>Form</code></li>
+<li>定义表单参数：和使用 <code>Body</code> 以及 <code>Query</code> 等的方法一样<ul>
+<li>例如在一种 OAuth2 规范(“password flow”)中，需要使用 <code>username</code> 和 <code>password</code> 作为表单字段，规范要求字段必须准确命名为 <code>username</code> 和 <code>password</code>，并且以表单的形式发送，而不是 JSON</li>
+<li><code>Form</code> 可以和 <code>Body</code>，<code>Query</code> 等一样声明元信息和验证参数</li>
 </ul>
-<p>汉明码达到 DED 只需要加一位奇偶校验位校验所有的数据</p>
-<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><ul>
-<li><p>一种将主存用作辅助存储器高速缓存的技术。主存可以看作硬盘的 cache（<font color="red">主存既有虚拟页号也有物理页号？？</font>）</p>
 </li>
-<li><p>虚拟存储器实现了程序地址空间（虚拟地址）到物理地址的转换，这种地址转换处理加强了各个程序地址空间之间的保护</p>
+</ul>
+<p><strong>注：</strong> <code>Form</code> 是继承于 <code>Body</code> 的类</p>
+<p><strong>提示：</strong>必须用 <code>Form</code> 显示声明表单正文，如果没有显示声明，则会被解释为查询参数或者 <code>body</code> 参数</p>
+<h3 id="About-“Form-Fields”"><a href="#About-“Form-Fields”" class="headerlink" title="About “Form Fields”"></a>About “Form Fields”</h3><p>与 JSON 不同，HTML 表单(<code>&lt;form&gt;&lt;/form&gt;</code>)发送通常采用特殊的编码方式发送数据到服务器 </p>
+<p><strong>FastAPI</strong> 将确保从正确的位置读取数据</p>
+<p><strong>技术细节：</strong></p>
 <ul>
-<li>物理地址：主存储器的地址</li>
-<li>保护：一组确保共享处理器、主存、I/O 设备的多个进程之间没有故意地、无意地读写其他进程地数据机制，这些保护机制可以将操作系统和用户的进程隔离开来</li>
+<li>来自表单的数据通常使用  “media type” <code>application/x-www-form-urlencoded</code> 的方式进行编码</li>
+<li>但是当表单包含文件的时候，则会以 <code>multipart/form-data</code> 的方式进行编码</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST" target="_blank" rel="noopener">MDN</a></li>
 </ul>
-</li>
-<li><p>虚拟存储器允许单用户使用超过主要存储器的容量</p>
-</li>
-<li><p>虚拟存储器和 cache 的工作原理是一样的，但是在虚拟存储器中，块被称之为页，访问缺失被称为缺页，在虚拟存储器中，处理器产生一个虚拟地址，再结合软硬件转换成一个物理地址</p>
+<p><strong>警告：</strong></p>
 <ul>
-<li>缺页：访问的页不在主存储器中</li>
-<li>虚拟地址：虚拟空间的地址，当需要访问主存时需要通过地址映射转换为物理地址</li>
-<li>地址转换（地址映射）：在访问内存时将虚拟地址映射为物理地址</li>
+<li>可以在路径操作中定义多个 <code>Form</code> 参数，但是不能以接受 JSON 的方式去接受表单数据，例如声明 <code>Body</code> 字段，因为请求的正文将会以 <code>application/x-www-form-urlencoded</code> 方式而不是 <code>application/json</code> 方式进行编码</li>
+<li>这不是 <strong>FastAPI</strong> 的限制，而是 HTTP 协议的一部分</li>
 </ul>
-</li>
-<li><p>虚拟存储器中通常采用写回机制，因为写直达的开销太大</p>
-</li>
-<li><p>页表：保存着虚拟地址和物理地址之间转换关系的表。包含有效位、虚页号和物理页号</p>
-<ul>
-<li>若有效位为 1，则表明该页在主存中，可以直接通过访问物理页号获取数据</li>
-<li>若有效位为 0，表明该页不在主存中，即缺页，需要去磁盘访问</li>
-<li>页表包含了每一个可能的虚拟页的映射</li>
-</ul>
-</li>
-<li><p>因为虚拟存储器采用全相连映射，所以物理页号和虚拟页号其实没有什么关系</p>
-</li>
-</ul>
-<p><strong>段式管理</strong>：一种可变长度的地址映射策略。其中每个地址由两部分组成：映射到物理地址的段号和段内偏移</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -708,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/">https://beasuna.xyz/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/</a>
+                    <a href="https://beasuna.xyz/fastapi-form-data/">https://beasuna.xyz/fastapi-form-data/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -746,8 +671,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/computer-science/">
-                                    <span class="chip bg-color">computer science</span>
+                                <a href="/tags/fastapi/">
+                                    <span class="chip bg-color">fastapi</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
+                                </a>
+                            
+                                <a href="/tags/web/">
+                                    <span class="chip bg-color">web</span>
                                 </a>
                             
                         </div>
@@ -918,7 +851,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-12T16-52-29',
+        id: '2020-04-17T00-25-56',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -942,54 +875,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/math-congruence-polynomial/">
+                <a href="/fastapi-form-data/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="congruence polynomial">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Form Data">
                         
-                        <span class="card-title">congruence polynomial</span>
+                        <span class="card-title">Form Data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            同余式定义$m \in Z^+$，$f(x)=a_nx^n+ \cdots + a_0$，且 $a_i \in Z$，则$$f(x) \equiv 0 \quad (mod \; m)$$称为模 $m$ 同余式，若 $a_n \neq 0 
+                            Form Data当需要接受表单字段而不是 JSON 时，可以使用 Form
+注：需要借助 python-multipart 来使用表单
+使用步骤from fastapi import FastAPI, Form
+
+app = FastAP
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/math/" class="post-category">
-                                    math
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/math/">
-                        <span class="chip bg-color">math</span>
+                    <a href="/tags/fastapi/">
+                        <span class="chip bg-color">fastapi</span>
                     </a>
                     
-                    <a href="/tags/infomation-security/">
-                        <span class="chip bg-color">infomation security</span>
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
                     </a>
                     
-                    <a href="/tags/course/">
-                        <span class="chip bg-color">course</span>
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1003,35 +942,37 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/cod-chu-li-qi/">
+                <a href="/fastapi-response-status-code/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="处理器">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Response Status Code">
                         
-                        <span class="card-title">处理器</span>
+                        <span class="card-title">Response Status Code</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            逻辑单元：
-组合单元：处理数据值的单元，其输出只取决于当前的输入。例如：alu、门
-状态单元：存储状态的单元。例如：指令存储器、数据存储器、寄存器。一个状态单元至少有两个输入（时钟信号和写入单元的值）和一个输出
+                            Response Status Code和声明返回模型一样，可以在装饰器函数中用 status_code 参数声明 HTTP 状态码，例如
+from fastapi import FastAPI
 
-时钟方法：规定了信号可以读
+app = FastAPI()
+
+
+@ap
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/computer-science/" class="post-category">
-                                    computer science
+                            <a href="/categories/python/" class="post-category">
+                                    python
                                 </a>
                             
                             
@@ -1041,8 +982,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/computer-science/">
-                        <span class="chip bg-color">computer science</span>
+                    <a href="/tags/fastapi/">
+                        <span class="chip bg-color">fastapi</span>
+                    </a>
+                    
+                    <a href="/tags/python/">
+                        <span class="chip bg-color">python</span>
+                    </a>
+                    
+                    <a href="/tags/web/">
+                        <span class="chip bg-color">web</span>
                     </a>
                     
                 </div>
@@ -1180,13 +1129,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
     <footer class="page-footer bg-color">
