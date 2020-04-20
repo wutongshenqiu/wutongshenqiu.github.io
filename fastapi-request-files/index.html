@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Extra Data Types, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="Request Files, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Extra Data Types | qiufeng&#39;s blog</title>
+    <title>Request Files | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Extra Data Types</h1>
+                    <h1 class="description center-align post-title">Request Files</h1>
                 </div>
             </div>
         </div>
@@ -525,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-14
+                    2020-04-18
                 </div>
                 
 
@@ -534,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    824
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -557,7 +557,102 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>见<a href="https://fastapi.tiangolo.com/tutorial/extra-data-types/" target="_blank" rel="noopener">官方文档</a></p>
+                <h3 id="Request-Files"><a href="#Request-Files" class="headerlink" title="Request Files"></a>Request Files</h3><p>可以使用 <code>File</code> 定义从客户端上传的文件</p>
+<p><strong>注：</strong>为了接受上传的文件，需要借助 <code>python-multipart</code>，这是由于文件是以<strong>表单数据</strong>的形式上传的</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> File<span class="token punctuation">,</span> UploadFile
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/files/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_file</span><span class="token punctuation">(</span>file<span class="token punctuation">:</span> bytes <span class="token operator">=</span> File<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"file_size"</span><span class="token punctuation">:</span> len<span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">}</span>
+
+
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/uploadfile/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_upload_file</span><span class="token punctuation">(</span>file<span class="token punctuation">:</span> UploadFile <span class="token operator">=</span> File<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"filename"</span><span class="token punctuation">:</span> file<span class="token punctuation">.</span>filename<span class="token punctuation">}</span></code></pre>
+<p><strong>步骤</strong>：</p>
+<ol>
+<li>从 <code>fastapi</code> 导入 <code>File</code> 和 <code>UploadFile</code></li>
+<li>定义文件参数<ul>
+<li><code>File</code> 是直接继承于 <code>Form</code> 的类</li>
+<li>需要记住的是，从 <code>fastapi</code> 导入的 <code>Query</code>，<code>Path</code>，<code>File</code> 其实是返回同名类的函数</li>
+<li>为声明文件正文，必须显示使用 <code>File</code>，某则会被识别为查询参数或者 <strong>body</strong> 参数</li>
+</ul>
+</li>
+</ol>
+<p>文件将会以 <strong>表单数据</strong> 的形式上传，如果在文件参数中声明了 <code>bytes</code> 类型，<strong>FastApi</strong> 将会以二进制字节的方式读取文件</p>
+<p>这意味着整个二进制文件将会存储在内存中，当上传的文件较小时是ok的</p>
+<p>但在一些情况中，使用 <code>UploadFile</code> 将会受益</p>
+<h3 id="File-parameters-with-UploadFile"><a href="#File-parameters-with-UploadFile" class="headerlink" title="File parameters with UploadFile"></a><code>File</code> parameters with <code>UploadFile</code></h3><p>声明文件参数的类型为 <code>UploadFile</code></p>
+<p><code>UploadFile</code> 相较于 <code>bytes</code> 有以下好处：</p>
+<ul>
+<li>它使用 <code>spooled file</code><ul>
+<li>超过内存存储文件的上限时，文件将会存储在硬盘中</li>
+</ul>
+</li>
+<li>这意味着对于类似图片，视频，较大的二进制文件，它可以在不消耗全部内存的情况下工作的很好</li>
+<li>可以从上传的文件中获得元信息</li>
+<li>他有<a href="https://docs.python.org/3/glossary.html#term-file-like-object" target="_blank" rel="noopener">file-like</a> 的异步接口</li>
+<li>他暴露了一个 python  <a href="https://docs.python.org/3/library/tempfile.html#tempfile.SpooledTemporaryFile" target="_blank" rel="noopener"><code>SpooledTemporaryFile</code></a> 对象，可以将其直接传递给其他接受 <code>file-like</code> 对象的库</li>
+</ul>
+<h4 id="UploadFile"><a href="#UploadFile" class="headerlink" title="UploadFile"></a>UploadFile</h4><p><code>UploadFile</code> 有以下<a href="https://fastapi.tiangolo.com/tutorial/request-files/#uploadfile" target="_blank" rel="noopener">属性</a></p>
+<p><strong>技术细节：</strong></p>
+<p>当使用 <code>async</code> 方法时，<strong>FastApi</strong> 将会在线程池中运行文件方法并且等待他们</p>
+<p><code>UploadFile</code> 直接继承自 <strong>Starlette</strong> 的 <code>UploadFile</code>，并且添加了一些必要的组件使其和 <strong>Pydantic</strong> 以及 <strong>FastApi</strong> 兼容</p>
+<h3 id="What-is-“Form-Data”"><a href="#What-is-“Form-Data”" class="headerlink" title="What is “Form Data”"></a>What is “Form Data”</h3><p>HTML 表单(<code>&lt;form&gt;&lt;/form&gt;</code>)通常使用不同于 JSON 的 “特殊编码” 发送数据至服务器，</p>
+<p><strong>FastAPI</strong> 会确保从正确的位置读取数据</p>
+<p><strong>技术细节：</strong>和之前一节相同</p>
+<h3 id="Multiple-file-uploads"><a href="#Multiple-file-uploads" class="headerlink" title="Multiple file uploads"></a>Multiple file uploads</h3><p>可以同时上传多个文件</p>
+<p>它们将与<strong>表单数据</strong>发送的同一<strong>表单字段</strong>相关联</p>
+<p>使用 <code>List</code> + <code>bytes</code>/<code>UploadFile</code></p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> typing <span class="token keyword">import</span> List
+
+<span class="token keyword">from</span> fastapi <span class="token keyword">import</span> FastAPI<span class="token punctuation">,</span> File<span class="token punctuation">,</span> UploadFile
+<span class="token keyword">from</span> fastapi<span class="token punctuation">.</span>responses <span class="token keyword">import</span> HTMLResponse
+
+app <span class="token operator">=</span> FastAPI<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/files/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_files</span><span class="token punctuation">(</span>files<span class="token punctuation">:</span> List<span class="token punctuation">[</span>bytes<span class="token punctuation">]</span> <span class="token operator">=</span> File<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"file_sizes"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>len<span class="token punctuation">(</span>file<span class="token punctuation">)</span> <span class="token keyword">for</span> file <span class="token keyword">in</span> files<span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+
+@app<span class="token punctuation">.</span>post<span class="token punctuation">(</span><span class="token string">"/uploadfiles/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">create_upload_files</span><span class="token punctuation">(</span>files<span class="token punctuation">:</span> List<span class="token punctuation">[</span>UploadFile<span class="token punctuation">]</span> <span class="token operator">=</span> File<span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">"filenames"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>file<span class="token punctuation">.</span>filename <span class="token keyword">for</span> file <span class="token keyword">in</span> files<span class="token punctuation">]</span><span class="token punctuation">}</span>
+
+
+@app<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    content <span class="token operator">=</span> <span class="token triple-quoted-string string">"""
+&lt;body>
+&lt;form action="/files/" enctype="multipart/form-data" method="post">
+&lt;input name="files" type="file" multiple>
+&lt;input type="submit">
+&lt;/form>
+&lt;form action="/uploadfiles/" enctype="multipart/form-data" method="post">
+&lt;input name="files" type="file" multiple>
+&lt;input type="submit">
+&lt;/form>
+&lt;/body>
+    """</span>
+    <span class="token keyword">return</span> HTMLResponse<span class="token punctuation">(</span>content<span class="token operator">=</span>content<span class="token punctuation">)</span></code></pre>
+<p><strong>注：</strong> </p>
+<ul>
+<li><p>Swagger UI 不支持在同一个表单字段上传多文件</p>
+</li>
+<li><p>但是，<strong>FastAPI</strong> 已经和它兼容，通过使用标准 <strong>OpenAPI</strong></p>
+</li>
+<li><p>只要 Swagger UI 支持多文件上传，或者使用其他支持 <strong>OpenAPI</strong> 的工具，它们将会和 <strong>FastAPI</strong> 兼容</p>
+</li>
+</ul>
+<p><strong>技术细节：</strong></p>
+<ul>
+<li><code>from fastapi.responses import HTMLResponse</code> 与 <code>from starlette.responses import HTMLResponse</code> 相同，前者只是后者的简便形式</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -601,7 +696,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/fastapi-extra-data-types/">https://beasuna.xyz/fastapi-extra-data-types/</a>
+                    <a href="https://beasuna.xyz/fastapi-request-files/">https://beasuna.xyz/fastapi-request-files/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -819,7 +914,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-14T17-25-51',
+        id: '2020-04-18T22-49-48',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -847,37 +942,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/fastapi-cookie-parameters/">
+                <a href="/os-yin-xing-jia-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Cookie Parameters">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="银行家算法">
                         
-                        <span class="card-title">Cookie Parameters</span>
+                        <span class="card-title">银行家算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Cookie Parameterscooke 变量的声明与之前定义 Query 和 Path 变量相同
-使用例子from fastapi import Cookie, FastAPI
-
-app = FastAPI()
-
-
-@app.get(
+                            基本概念
+安全状态：系统能够按照某种顺序，来为进程分配其所需的资源，如 $&lt;p_1,p_2, \dots , p_n&gt;$，直至每一个进程都可以顺利完成，此时系统为安全状态
+安全序列：上述 $&lt;p_1, p_2, \dots
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/computer-science/" class="post-category">
+                                    computer science
                                 </a>
                             
                             
@@ -887,16 +978,16 @@ app = FastAPI()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fastapi/">
-                        <span class="chip bg-color">fastapi</span>
+                    <a href="/tags/computer-science/">
+                        <span class="chip bg-color">computer science</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/deadlock/">
+                        <span class="chip bg-color">deadlock</span>
                     </a>
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/os/">
+                        <span class="chip bg-color">os</span>
                     </a>
                     
                 </div>
@@ -910,31 +1001,28 @@ app = FastAPI()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/fastapi-schema-extra-example/">
+                <a href="/fastapi-form-data/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Schema Extra - Example">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Form Data">
                         
-                        <span class="card-title">Schema Extra - Example</span>
+                        <span class="card-title">Form Data</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-    Schema Extra - Example
+                            Form Data当需要接受表单字段而不是 JSON 时，可以使用 Form
+注：需要借助 python-multipart 来使用表单
+使用步骤from fastapi import FastAPI, Form
 
-
-Schema Extra - Example可以为 JSON 模式定义额外的信息
-一个常见的用法是为 api 文档添加一个例子
-有如下的几种方式来定义额外的 JSON 模式信息
-P
+app = FastAP
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
                             </span>
                         <span class="publish-author">
                             

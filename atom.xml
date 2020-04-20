@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-16T16:26:28.312Z</updated>
+  <updated>2020-04-20T02:52:32.148Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,69 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>银行家算法</title>
+    <link href="https://beasuna.xyz/os-yin-xing-jia-suan-fa/"/>
+    <id>https://beasuna.xyz/os-yin-xing-jia-suan-fa/</id>
+    <published>2020-04-20T02:47:15.000Z</published>
+    <updated>2020-04-20T02:52:32.148Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;安全状态：系统能够按照某种顺序，来为进程分配其所需的资源，如 $&amp;lt;p_1,p_2, \dots ,
+        
+      
+    
+    </summary>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
+    
+      <category term="deadlock" scheme="https://beasuna.xyz/tags/deadlock/"/>
+    
+      <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Request Files</title>
+    <link href="https://beasuna.xyz/fastapi-request-files/"/>
+    <id>https://beasuna.xyz/fastapi-request-files/</id>
+    <published>2020-04-18T14:49:48.000Z</published>
+    <updated>2020-04-18T14:50:35.476Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Request-Files&quot;&gt;&lt;a href=&quot;#Request-Files&quot; class=&quot;headerlink&quot; title=&quot;Request Files&quot;&gt;&lt;/a&gt;Request Files&lt;/h3&gt;&lt;p&gt;可以使用 &lt;code&gt;File&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
+    
+    
+      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
+    
+      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
+    
+      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>Form Data</title>
@@ -449,9 +512,9 @@
     
       <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
     
-      <category term="semaphore" scheme="https://beasuna.xyz/tags/semaphore/"/>
-    
       <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+      <category term="semaphore" scheme="https://beasuna.xyz/tags/semaphore/"/>
     
   </entry>
   
@@ -562,60 +625,6 @@
         
         
           &lt;h3 id=&quot;局部性原理：&quot;&gt;&lt;a href=&quot;#局部性原理：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>处理器</title>
-    <link href="https://beasuna.xyz/cod-chu-li-qi/"/>
-    <id>https://beasuna.xyz/cod-chu-li-qi/</id>
-    <published>2020-04-12T08:47:59.000Z</published>
-    <updated>2020-04-12T09:07:22.843Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;逻辑单元：&quot;&gt;&lt;a href=&quot;#逻辑单元：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机的算术运算</title>
-    <link href="https://beasuna.xyz/cod-ji-suan-ji-de-suan-zhu-yun-suan/"/>
-    <id>https://beasuna.xyz/cod-ji-suan-ji-de-suan-zhu-yun-suan/</id>
-    <published>2020-04-12T08:35:23.000Z</published>
-    <updated>2020-04-12T09:08:15.359Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;溢出发生的条件：&quot;&gt;&lt;a href=&quot;#溢出发生的条件：&quot; class=&quot;headerlink&quot;
         
       
     

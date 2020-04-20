@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Extra Data Types, WHU University, ML, deeplearning, spider, cryptography">
+    <meta name="keywords" content="银行家算法, WHU University, ML, deeplearning, spider, cryptography">
     <meta name="description" content="喵喵喵">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 </script>
 
 
-    <title>Extra Data Types | qiufeng&#39;s blog</title>
+    <title>银行家算法 | qiufeng&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -362,12 +362,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Extra Data Types</h1>
+                    <h1 class="description center-align post-title">银行家算法</h1>
                 </div>
             </div>
         </div>
@@ -492,16 +492,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/fastapi/">
-                                <span class="chip bg-color">fastapi</span>
+                            <a href="/tags/computer-science/">
+                                <span class="chip bg-color">computer science</span>
                             </a>
                         
-                            <a href="/tags/python/">
-                                <span class="chip bg-color">python</span>
+                            <a href="/tags/deadlock/">
+                                <span class="chip bg-color">deadlock</span>
                             </a>
                         
-                            <a href="/tags/web/">
-                                <span class="chip bg-color">web</span>
+                            <a href="/tags/os/">
+                                <span class="chip bg-color">os</span>
                             </a>
                         
                     </div>
@@ -512,8 +512,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/python/" class="post-category">
-                                python
+                            <a href="/categories/computer-science/" class="post-category">
+                                computer science
                             </a>
                         
                     </div>
@@ -525,7 +525,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-14
+                    2020-04-20
                 </div>
                 
 
@@ -534,14 +534,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    57
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -557,7 +557,103 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>见<a href="https://fastapi.tiangolo.com/tutorial/extra-data-types/" target="_blank" rel="noopener">官方文档</a></p>
+                <h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>安全状态：系统能够按照某种顺序，来为进程分配其所需的资源，如 $&lt;p_1,p_2, \dots , p_n&gt;$，直至每一个进程都可以顺利完成，此时系统为<strong>安全状态</strong></li>
+<li>安全序列：上述 $&lt;p_1, p_2, \dots, p_n&gt;$ 称为安全序列</li>
+<li>不安全状态：若某一时刻系统中不存在一个安全序列，则称此时的系统状态为<strong>不安全状态</strong></li>
+</ul>
+<p><strong>进入不安全状态之后，系统便有可能进入死锁状态</strong></p>
+<p><strong>因此，避免死锁的本质是使系统不进入不安全的状态</strong></p>
+<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>若 $T_0$ 时刻系统的资源状态如图所示</p>
+<img src="/img/os/1.png" alt="喵喵喵">
+
+<p>则存在一个安全状态 $&lt;p_2, p_1, p_3&gt;$</p>
+<p>若 $T_0$ 时刻系统的资源状态如图所示</p>
+<img src="/img/os/2.png" alt="喵喵喵">
+
+<p>则系统处于不安全状态</p>
+<h3 style="color: red;">
+    银行家算法
+</h3>
+
+<h4 id="算法的核心思想"><a href="#算法的核心思想" class="headerlink" title="算法的核心思想"></a>算法的核心思想</h4><p>资源分配后是否会导致系统处于不安全状态</p>
+<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><p>假定系统有 $n$ 个进程 $P_1, P_2, \dots , P_n$，共有 $m$ 类资源 $R_1, R_2, \dots , R_m$</p>
+<ul>
+<li>可用资源向量 $Available[1 \dots m]$ ：$Available[j] = k$ 表示系统中<strong>现有</strong>空闲的 $R_j$ 类资源 $k$ 个</li>
+<li>最大需求矩阵 $Max[1 \dots n][1 \dots m]$ ：$Max[i][j] = k$ 表示进程 $P_i$ 最多需要 $R_j$ 类资源 $k$ 个</li>
+<li>分配矩阵 $Allocation[1 \dots n][1 \dots m]$ ： $Allocation[i][j] = k$ 表示进程 $P_i$ 已被分配 $R_j$ 类资源 $k$ 个</li>
+<li>需求矩阵 $Need[1 \dots n][1 \dots m]$：$Need[i][j] = k$ 表示进程 $P_i$ 还需要 $R_j$ 类资源 $k$ 个</li>
+<li>请求向量 $Request_i[1 \dots m]$ ：$Request_i[j] = k$ 表示进程 $P_i$ 请求分配 $R_j$ 类资源 $k$ 个</li>
+</ul>
+<p><strong>参与安全性算法的临时数据结构：</strong></p>
+<ul>
+<li><p>可用资源向量 $Work[1 \dots m]$，初值为 $Available$，含义相同，用于安全性算法</p>
+</li>
+<li><p>可分配向量 $Finish[1 \dots n]$，$Finish[i] = ture$ 表示有足够资源分配给进程 $P_i$</p>
+</li>
+</ul>
+<h4 id="银行家算法的主要步骤"><a href="#银行家算法的主要步骤" class="headerlink" title="银行家算法的主要步骤"></a>银行家算法的主要步骤</h4><p>当进程 $P_i$ 发出请求向量 $Request_i$ 后，执行以下步骤</p>
+<ol>
+<li><p>$assert \quad Request_i \le Need_i$</p>
+</li>
+<li><p>$assert \quad Request_i \le Available$</p>
+</li>
+<li><p>预分配数据结构<br>$$<br>\begin{align}<br>&amp; Available = Available - Request_i \\<br>&amp; Allocation_i = Allocation_i + Request_i \\<br>&amp; Need_i = Need_i - Request_i<br>\end{align}<br>$$</p>
+</li>
+<li><p>执行安全性算法，检查此次资源分配是否安全</p>
+</li>
+</ol>
+<h4 id="安全性算法的主要步骤"><a href="#安全性算法的主要步骤" class="headerlink" title="安全性算法的主要步骤"></a>安全性算法的主要步骤</h4><ol>
+<li><p>从进程集合中找到一个能满足下述条件的进程，找到则执行步骤2，否则执行3</p>
+<ul>
+<li>$Finish[i] = false$</li>
+<li>$Need_i \le Work$</li>
+</ul>
+</li>
+<li><p>当进程 $P_i$ 获得资源后，可顺利执行到完成，并释放出分配的资源，应执行<br>$$<br>\begin{align}<br>&amp; Work = Work + Allocation_i \\<br>&amp; Finish[i] = true \\<br>&amp; goto \; step1<br>\end{align}<br>$$</p>
+</li>
+<li><p>若所有进程的 $Finish[i]$ 都为 $true$，则表示系统处于安全状态，否则系统处于不安全状态</p>
+</li>
+</ol>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><img src="/img/os/3.png" alt="喵喵喵" style="zoom:80%;">
+
+<p>在 $T_0$ 时刻使用安全性算法，可知</p>
+<img src="/img/os/4.png" alt="喵喵喵" style="zoom:80%;">
+
+<p>即存在一个安全序列 $&lt;P_1, P_3, P_4, P_2, P_0&gt;$ 因此系统是安全的</p>
+<p>此时 $P_1$ 发出请求向量 $Request_i = \lbrace 1, 2, 0 \rbrace$，根据银行家算法，系统执行如下检查</p>
+<ol>
+<li><p>$assert \quad Request_i \le Need_i$</p>
+</li>
+<li><p>$assert \quad Request_i \le Available$</p>
+</li>
+<li><p>为 $P_1$ 预分配资源<br>$$<br>\begin{align}<br>&amp; Available = Available - Request_i \\<br>&amp; Allocation_i = Allocation_i + Request_i \\<br>&amp; Need_i = Need_i - Request_i<br>\end{align}<br>$$</p>
+</li>
+<li><p>进行安全性分析</p>
+</li>
+</ol>
+<img src="/img/os/5.png" alt="喵喵喵" style="zoom:80%;">
+
+<p>由此可知存在一个安全序列 $&lt;P_1, P_3, P_4, P_2, P_0&gt;$，因此系统是安全的</p>
+<p>此时 $P_4$ 发出请求向量 $Request_4 = \lbrace 3, 3, 0 \rbrace$，可知不满足 $assert \quad Request_i \le Available$，于是进程 $P_4$ 等待</p>
+<p>此时 $P_0$ 发出请求向量 $Request_0 = \lbrace 0, 2, 0 \rbrace$ ，可知不满足安全性检测，因此 $P_0$ 等待</p>
+<h3 id="银行家算法的变种——死锁检测算法"><a href="#银行家算法的变种——死锁检测算法" class="headerlink" title="银行家算法的变种——死锁检测算法"></a>银行家算法的变种——死锁检测算法</h3><p>类似银行家算法中安全性测试</p>
+<h4 id="数据结构-1"><a href="#数据结构-1" class="headerlink" title="数据结构"></a>数据结构</h4><ul>
+<li><p>可用资源向量 $Available$</p>
+</li>
+<li><p>请求矩阵 $Request$</p>
+</li>
+<li><p>分配矩阵 $Allocation$</p>
+</li>
+<li><p>工作向量 $Work$</p>
+</li>
+<li><p>进程集合 $L$ ：记录当前已经不占用资源的进程</p>
+</li>
+</ul>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ul>
+<li>将不占用资源的进程 $L_i$ 加入 $L$</li>
+<li>如果对于不在 $L_i$ 中的进程，存在一个序列，能够将所有的进程都加入 $L$，则不存在死锁，否则存在死锁</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -601,7 +697,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://beasuna.xyz/fastapi-extra-data-types/">https://beasuna.xyz/fastapi-extra-data-types/</a>
+                    <a href="https://beasuna.xyz/os-yin-xing-jia-suan-fa/">https://beasuna.xyz/os-yin-xing-jia-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,16 +735,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/fastapi/">
-                                    <span class="chip bg-color">fastapi</span>
+                                <a href="/tags/computer-science/">
+                                    <span class="chip bg-color">computer science</span>
                                 </a>
                             
-                                <a href="/tags/python/">
-                                    <span class="chip bg-color">python</span>
+                                <a href="/tags/deadlock/">
+                                    <span class="chip bg-color">deadlock</span>
                                 </a>
                             
-                                <a href="/tags/web/">
-                                    <span class="chip bg-color">web</span>
+                                <a href="/tags/os/">
+                                    <span class="chip bg-color">os</span>
                                 </a>
                             
                         </div>
@@ -819,7 +915,7 @@
         repo: 'wutongshenqiu.github.io',
         owner: 'wutongshenqiu',
         admin: ["wutongshenqiu"],
-        id: '2020-04-14T17-25-51',
+        id: '2020-04-20T10-47-15',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -843,60 +939,58 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/fastapi-cookie-parameters/">
+                <a href="/os-yin-xing-jia-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Cookie Parameters">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="银行家算法">
                         
-                        <span class="card-title">Cookie Parameters</span>
+                        <span class="card-title">银行家算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Cookie Parameterscooke 变量的声明与之前定义 Query 和 Path 变量相同
-使用例子from fastapi import Cookie, FastAPI
-
-app = FastAPI()
-
-
-@app.get(
+                            基本概念
+安全状态：系统能够按照某种顺序，来为进程分配其所需的资源，如 $&lt;p_1,p_2, \dots , p_n&gt;$，直至每一个进程都可以顺利完成，此时系统为安全状态
+安全序列：上述 $&lt;p_1, p_2, \dots
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/python/" class="post-category">
-                                    python
+                            <a href="/categories/computer-science/" class="post-category">
+                                    computer science
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/fastapi/">
-                        <span class="chip bg-color">fastapi</span>
+                    <a href="/tags/computer-science/">
+                        <span class="chip bg-color">computer science</span>
                     </a>
                     
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
+                    <a href="/tags/deadlock/">
+                        <span class="chip bg-color">deadlock</span>
                     </a>
                     
-                    <a href="/tags/web/">
-                        <span class="chip bg-color">web</span>
+                    <a href="/tags/os/">
+                        <span class="chip bg-color">os</span>
                     </a>
                     
                 </div>
@@ -910,31 +1004,26 @@ app = FastAPI()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/fastapi-schema-extra-example/">
+                <a href="/fastapi-request-files/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Schema Extra - Example">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Request Files">
                         
-                        <span class="card-title">Schema Extra - Example</span>
+                        <span class="card-title">Request Files</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-    Schema Extra - Example
-
-
-Schema Extra - Example可以为 JSON 模式定义额外的信息
-一个常见的用法是为 api 文档添加一个例子
-有如下的几种方式来定义额外的 JSON 模式信息
-P
+                            Request Files可以使用 File 定义从客户端上传的文件
+注：为了接受上传的文件，需要借助 python-multipart，这是由于文件是以表单数据的形式上传的
+例子from fastapi import FastAPI, F
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-18
                             </span>
                         <span class="publish-author">
                             
@@ -1098,6 +1187,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
