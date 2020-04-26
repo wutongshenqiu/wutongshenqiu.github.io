@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-20T02:52:32.148Z</updated>
+  <updated>2020-04-26T02:54:26.417Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>伙伴系统</title>
+    <link href="https://beasuna.xyz/os-huo-ban-xi-tong/"/>
+    <id>https://beasuna.xyz/os-huo-ban-xi-tong/</id>
+    <published>2020-04-26T02:51:12.000Z</published>
+    <updated>2020-04-26T02:54:26.417Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;出现的起因：&quot;&gt;&lt;a href=&quot;#出现的起因：&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
+    
+    
+      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
+    
+      <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+  </entry>
   
   <entry>
     <title>银行家算法</title>
@@ -42,9 +71,9 @@
     
       <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
     
-      <category term="deadlock" scheme="https://beasuna.xyz/tags/deadlock/"/>
-    
       <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+      <category term="deadlock" scheme="https://beasuna.xyz/tags/deadlock/"/>
     
   </entry>
   
@@ -608,33 +637,6 @@
       <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
     
       <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开发存储器层次结构</title>
-    <link href="https://beasuna.xyz/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/"/>
-    <id>https://beasuna.xyz/cod-kai-fa-cun-chu-qi-ceng-ci-jie-gou/</id>
-    <published>2020-04-12T08:52:29.000Z</published>
-    <updated>2020-04-12T09:09:15.037Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;局部性原理：&quot;&gt;&lt;a href=&quot;#局部性原理：&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/categories/computer-science/"/>
-    
-    
-      <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
     
   </entry>
   

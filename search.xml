@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>伙伴系统</title>
+      <link href="/os-huo-ban-xi-tong/"/>
+      <url>/os-huo-ban-xi-tong/</url>
+      
+        <content type="html"><![CDATA[<h3 id="出现的起因："><a href="#出现的起因：" class="headerlink" title="出现的起因："></a>出现的起因：</h3><ul><li>固定分区存储管理限制了内存中的进程数</li><li>动态分区的拼接需要大量时间</li></ul><h3 id="伙伴系统的主要思想"><a href="#伙伴系统的主要思想" class="headerlink" title="伙伴系统的主要思想"></a>伙伴系统的主要思想</h3><ul><li>采用伙伴算法对空闲内存进行管理</li><li>该方法通过不断以 $\frac{1}{2}$ 的形式来分割大的空闲存储块，从而获得小的空闲存储块</li><li>当内存块释放时，应尽可能合并空闲块</li></ul><h3 id="伙伴系统的内存分配"><a href="#伙伴系统的内存分配" class="headerlink" title="伙伴系统的内存分配"></a>伙伴系统的内存分配</h3><ul><li>设进程申请大小为 $n$<ul><li>系统初始时可供分配的空间为 $2^m$</li><li>若 $2^{m-1} &lt; n \le 2^m$，则为进程分配整个空间</li><li>若 $2^{i-1} &lt; n \le 2^i$，则为进程分配大小为 $2^i$ 的空间</li><li>若系统不存在大小为 $2^i$ 的空闲块，则查找系统中是否存在大于 $2^i$ 的空闲块 $2^{i+1}, 2^{i+2} \dots$，若找到则对其进行<strong>对半划分</strong>，直到产生大小为 $2^i$ 的进程块为止</li></ul></li></ul><h3 id="伙伴系统的内存回收"><a href="#伙伴系统的内存回收" class="headerlink" title="伙伴系统的内存回收"></a>伙伴系统的内存回收</h3><ul><li>当一块被分成两个大小相等的块时，这两块称为伙伴</li><li>当进程释放存储空间时，应检查释放块的伙伴是否空闲，若空闲则合并<ul><li>当较大的空闲块也可能存在空闲伙伴，此时也应该合并</li><li>重复上述过程，直至没有可以合并的伙伴</li></ul></li></ul><h3 id="伙伴系统的二叉树表示"><a href="#伙伴系统的二叉树表示" class="headerlink" title="伙伴系统的二叉树表示"></a>伙伴系统的二叉树表示</h3><p><img src="/img/os/6.png" alt="喵喵喵"></p><p><strong>伙伴系统也会产生碎片</strong></p><h3 id="伙伴地址公式"><a href="#伙伴地址公式" class="headerlink" title="伙伴地址公式"></a>伙伴地址公式</h3><ul><li><p>设某空闲块的开始地址为 $d$，长度为 $2^k$，其伙伴的开始地址为(可看成已知二叉树的一个节点开始地址，求其<strong>兄弟节点开始地址(相距一个节点的长度)</strong>)：<br>$$<br>Buddy(k, d) =<br>\begin{cases}<br>d + 2^k, &amp; d \equiv 0 \quad (mod \; 2^{k+1}) \\<br>d - 2^k, &amp; d \equiv 2^k \quad (mod \; 2^{k+1})<br>\end{cases}<br>$$</p></li><li><p>如果参与分配的 $2^m$ 个单元从 $a$ 开始，则对于长度为 $2^k$，开始地址为 $d$ 的块，其伙伴的开始地址为：<br>$$<br>Buddy(k, d) = \begin{cases}d + 2^k, &amp; d-a \equiv 0 \quad (mod \; 2^{k+1}) \\d - 2^k, &amp; d-a \equiv 2^k \quad (mod \; 2^{k+1})\end{cases}<br>$$</p></li></ul><p>例子：若块地址为 $011011110000b$，块的大小分别为 $4$ 和 $16$，则块的伙伴地址为：</p><p>加4和减16</p><p><strong>深入理解</strong>：</p><ul><li>对于两个伙伴而言，其中左节点的开始地址即为<strong>父节点</strong>开始地址，因此必能被 $2^{k+1}$ 整除，反之则为右节点</li></ul><h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>设系统中初始内存空间为 1 MB，进程请求和释放空间的操作序列为：</p><ol><li>进程 A 申请 200 KB；B 申请 120 KB；C 申请 240 KB；D 申请 100 KB</li><li>进程 B 释放，E 申请 60 KB</li><li>进程 A、C 释放；</li><li>进程 D 释放；进程 E 释放</li></ol><p><img src="/img/os/7.png" alt="喵喵喵"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> computer science </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> computer science </tag>
+            
+            <tag> os </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>银行家算法</title>
       <link href="/os-yin-xing-jia-suan-fa/"/>
       <url>/os-yin-xing-jia-suan-fa/</url>
@@ -22,9 +49,9 @@
             
             <tag> computer science </tag>
             
-            <tag> deadlock </tag>
-            
             <tag> os </tag>
+            
+            <tag> deadlock </tag>
             
         </tags>
       
