@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>group</title>
+      <link href="/math-group/"/>
+      <url>/math-group/</url>
+      
+        <content type="html"><![CDATA[<h3 id="群"><a href="#群" class="headerlink" title="群"></a>群</h3><ul><li><p>群由一个<strong>非空集合</strong>和在该集合上的二元运算构成，并且具有<strong>封闭性</strong>、<strong>结合律</strong>、<strong>单位元</strong>、<strong>可逆元</strong></p></li><li><p>满足交换律的群称为<strong>交换群</strong>或<strong>Abel群</strong></p></li></ul><h3 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h3><ul><li>假设 $(G, *)$ 是一个群，$H$ 是 $G$ 的一个非空子集，则当 $H$ 对于二元运算 $*$ 亦构成一个群时，称 $(H, *)$ 为 $(G, *)$ 的一个子群</li><li>$H={e}$ 和 $H={G}$ 称为 $G$ 的平凡子群，其余的子群 $H$ 称为 $G$ 的真子群</li></ul><h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul><li><p>若 $H$ 是 $Z$ 的真子群，则 $\exists n \in Z^+$，使得 $H=nZ=\lbrace k \cdot n | k \in Z \rbrace$</p></li><li><p>非空集合 $H$ 是群 $G$ 的子群 $\iff$ $\forall a, b \in H, a \cdot b^{-1} \in H$</p></li><li><p>设 $\lbrace H_i \rbrace$ 是群 $G$ 的一组子群，则 $\bigcap H_i$ 也是 $G$ 的子群</p><ul><li>由上一条定理可知</li></ul></li></ul><h4 style="color: red;">子群的生成理解</h4><p>详细可以查看<a href="https://zh.wikipedia.org/wiki/%E7%BE%A4%E7%9A%84%E7%94%9F%E6%88%90%E9%9B%86%E5%90%88](https://zh.wikipedia.org/wiki/群的生成集合)" target="_blank" rel="noopener">维基百科</a></p><p>如果 $S$ 是群 $G$ 的子集，<font color="red">$S$ 不一定构成群</font>，则由 $S$ 所生成的子群 $&lt;S&gt;$ 是 $G$ 中包含所有 $S$ 元素的最小子群，即包含 $S$ 元素的所有子群的交集。如果 $G=&lt;S&gt;$，则我们称 $S$ 生成 $G$，$S$ 中的元素叫做<strong>生成元</strong>，当 $S$ 中只有一个单一元素 $x$ 的时候，$&lt;S&gt;$ 称为循环群</p><p>例子：</p><p>模7的简化剩余系构成一个乘法交换群，其所有的子群为 {1}, {1, 6}, {1, 2, 4}, {1, 2, 3, 4, 5, 6}</p><p>假如 $S=\lbrace {2, 4} \rbrace$，则 $&lt;S&gt;=\lbrace {1, 2, 4} \rbrace \ne G$ ，因此 $S$ 中的元素不是生成元</p><p>如果 $S=\lbrace {3} \rbrace$，则 $&lt;S&gt;=\lbrace {1, 2, 3, 4, 5, 6} \rbrace = G$，因此 $3$ 是生成元，$&lt;S&gt;$ 是循环群  </p><p>若 $G$ 为交换群，$X=&lt;a_1, a_2, \dots, a_t&gt;$ 是 $G$ 的子集，则</p><ul><li>$G$ 为乘法群时，$&lt;X&gt;=\lbrace a_1^{n_1} \cdots a_t^{n_t} | a_i \in X, n_i \in Z \rbrace$</li><li>$G$ 为乘法群时，$&lt;X&gt;=\lbrace n_1a_1 + \cdots + n_ta_t | a_i \in X, n_i \in Z \rbrace$</li></ul><p><strong>俺的一些理解：</strong>为了满足封闭性，则若 $a_i \in H_i$，必有 $a_i^t \in H_i$</p><h3 id="陪集"><a href="#陪集" class="headerlink" title="陪集"></a>陪集</h3><ul><li>$aH$ 称为 $H$ 在群 $G$ 中的左陪集，如果：<ul><li>$a$ 是 $G$ 中的任意元</li><li>$H$ 是 $G$ 的子群</li></ul></li><li>右陪集同理</li><li>若 $H$ 是正规子群，则其左右陪集相等</li></ul><h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><ul><li><p>$aH = bH \iff b^{-1}a \in H$</p></li><li><p>$H$ 为群 $G$ 的子群，则 $H$ 中不相等的左陪集(右陪集)构成 $G$ 的一个划分，即<br>$$<br>G = \bigcup a_iH<br>$$</p></li></ul><h3 id="商集"><a href="#商集" class="headerlink" title="商集"></a>商集</h3><ul><li>群 $G$ 的子群 $H$ 的不同左陪集(右陪集)组成的新集合称为 $H$ 在 $G$ 中的商集，记作 $G/H$</li><li><strong>注：</strong>商集是等价类的集合，即商集中的每一个元素都对应一个 $H$ 的陪集<ul><li><a href="https://www.zhihu.com/question/63046350/answer/204840915" target="_blank" rel="noopener">一个例子</a></li></ul></li><li>$G/H$ 中不同左陪集(右陪集)的个数叫做 $H$ 在 $G$ 中的指标，记为 $[G:H]$</li></ul><h4 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h4><ul><li>群 $G$ 有子群 $H$，则<ul><li>$|G|=[G:H]|H|$<ul><li>由陪集的性质2即得</li></ul></li><li>若 $K$ 是 $H$ 的子群，则 $[G:K]=[G:H][H:K]$</li></ul></li><li>$Lagrange$ ：$H$ 是有限群 $G$ 的子群，则 $|H| \; | \; |G|$</li><li>设 $H$、$K$ 是交换群 $G$ 的两个子群，则：<ul><li>$HK$ 是 $G$ 的子群</li><li>$|HK|=|H||K|/|H \bigcap K|$</li><li>$[H:H \bigcap K] \le [G:K]$</li></ul></li></ul><h3 id="正规子群和商群"><a href="#正规子群和商群" class="headerlink" title="正规子群和商群"></a>正规子群和商群</h3><ul><li>群 $G$ 的子群 $N$ 称为正规子群，如果：<ul><li>$\forall a \in G$， $aN=Na$</li></ul></li><li>$G/H$ 称为群 $G$ 对于子群 $H$ 的商群，如果：<ul><li>$H$ 是正规子群</li><li>$G/H$ 具有结合法 $(aH)(bH)=(ab)H$</li></ul></li></ul><h3 id="同态和同构"><a href="#同态和同构" class="headerlink" title="同态和同构"></a>同态和同构</h3><ul><li><p>$f$ 称为 $G$ 到 $G’$ 的一个同态，如果：</p><ul><li>$G$，$G’$ 都是群</li><li>$f$ 是 $G$ 到 $G’$ 的一个<a href="[https://zh.wikipedia.org/wiki/%E6%98%A0%E5%B0%84](https://zh.wikipedia.org/wiki/映射)">映射</a><ul><li>$\forall x \in G$，存在唯一的 $y=f(x) \in G’$ </li><li>$\forall x_1=x_2$，有 $f(x_1) = f(x_2)$</li></ul></li><li>$\forall a, b \in G$，有 $f(ab)=f(a)f(b)$</li></ul></li><li><p>同态可以理解为<strong>保持运算的映射</strong></p><ul><li>$f(ab)$ 是先在 $G$ 中的运算，再对应到 $G’$</li><li>$f(a)f(b)$ 是先对应到 $G’$，再进行 $G’$ 中的运算</li></ul></li><li><p>$f$ 是单射则称为<strong>单同态</strong>，$f$ 为满射则称为<strong>满同态</strong>，$f$ 为双射则称为<strong>同构</strong></p><ul><li><a href="https://zh.wikipedia.org/wiki/单射、双射与满射" target="_blank" rel="noopener">解释</a></li><li>$G$ 与 $G’$ 同构，记为 $G \cong G’$</li></ul></li><li><p><a href="https://www.zhihu.com/question/293890350/answer/487914082" target="_blank" rel="noopener">例子</a></p></li></ul><h4 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h4><ul><li><p>$f(e) = e’$</p><ul><li>即同态将单位元映射到单位元</li></ul></li><li><p>$f(a^{-1}) = f(a)^{-1}$</p><ul><li>即同态将逆元映射到逆元</li></ul></li><li><p>$ker \; f = \lbrace a | a \in G, f(a) = e’ \rbrace$ 是 $G$ 的子群</p><ul><li>$e’$ 是 $G’$ 中的单位元</li><li>$f$ 是单同态 $\iff$ $ker \; f = \lbrace e \rbrace$</li></ul></li><li><p>$f(G) = \lbrace f(a) | a \in G \rbrace$ 是 $G’$ 子群</p><ul><li>$f$ 是满同态的充要条件是 $f(G) = G’$</li></ul></li></ul><h4 id="同态基本定理"><a href="#同态基本定理" class="headerlink" title="同态基本定理"></a>同态基本定理</h4><ul><li>$ker \; f$ 是 $G$ 的正规子群</li><li>存在唯一的 $G/ker \; f$ 到 $f(G)$ 的同构</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> math </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> math </tag>
+            
+            <tag> infomation security </tag>
+            
+            <tag> course </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>伙伴系统</title>
       <link href="/os-huo-ban-xi-tong/"/>
       <url>/os-huo-ban-xi-tong/</url>
@@ -435,7 +464,7 @@
     
     
     <entry>
-      <title>math 原根与指标</title>
+      <title>原根与指标</title>
       <link href="/math-yuan-gen-yu-zhi-biao/"/>
       <url>/math-yuan-gen-yu-zhi-biao/</url>
       
@@ -522,7 +551,7 @@
     
     
     <entry>
-      <title>math Quadratic residue</title>
+      <title>Quadratic residue</title>
       <link href="/math-quadratic-residue/"/>
       <url>/math-quadratic-residue/</url>
       
@@ -693,7 +722,7 @@
     
     
     <entry>
-      <title>math同余</title>
+      <title>同余</title>
       <link href="/math-tong-yu/"/>
       <url>/math-tong-yu/</url>
       

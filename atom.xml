@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-04-26T02:54:26.417Z</updated>
+  <updated>2020-05-02T02:39:24.844Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>group</title>
+    <link href="https://beasuna.xyz/math-group/"/>
+    <id>https://beasuna.xyz/math-group/</id>
+    <published>2020-05-02T02:28:48.000Z</published>
+    <updated>2020-05-02T02:39:24.844Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;群&quot;&gt;&lt;a href=&quot;#群&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="math" scheme="https://beasuna.xyz/categories/math/"/>
+    
+    
+      <category term="math" scheme="https://beasuna.xyz/tags/math/"/>
+    
+      <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
+    
+      <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
+    
+  </entry>
   
   <entry>
     <title>伙伴系统</title>
@@ -486,11 +517,11 @@
   </entry>
   
   <entry>
-    <title>math 原根与指标</title>
+    <title>原根与指标</title>
     <link href="https://beasuna.xyz/math-yuan-gen-yu-zhi-biao/"/>
     <id>https://beasuna.xyz/math-yuan-gen-yu-zhi-biao/</id>
     <published>2020-04-13T09:08:48.000Z</published>
-    <updated>2020-04-13T09:12:30.636Z</updated>
+    <updated>2020-05-02T02:29:31.589Z</updated>
     
     <summary type="html">
     
@@ -579,11 +610,11 @@
   </entry>
   
   <entry>
-    <title>math Quadratic residue</title>
+    <title>Quadratic residue</title>
     <link href="https://beasuna.xyz/math-quadratic-residue/"/>
     <id>https://beasuna.xyz/math-quadratic-residue/</id>
     <published>2020-04-12T15:14:25.000Z</published>
-    <updated>2020-04-12T15:15:24.116Z</updated>
+    <updated>2020-05-02T02:29:23.375Z</updated>
     
     <summary type="html">
     
@@ -592,37 +623,6 @@
         
         
           &lt;h3 id=&quot;二次剩余&quot;&gt;&lt;a href=&quot;#二次剩余&quot; class=&quot;headerlink&quot; title=&quot;二次剩余&quot;&gt;&lt;/a&gt;二次剩余&lt;/h3&gt;&lt;p&gt;若同余式&lt;br&gt;$$&lt;br&gt;x^2 \equiv a \quad (mod \; m), \qquad (a, m) =
-        
-      
-    
-    </summary>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/categories/math/"/>
-    
-    
-      <category term="math" scheme="https://beasuna.xyz/tags/math/"/>
-    
-      <category term="infomation security" scheme="https://beasuna.xyz/tags/infomation-security/"/>
-    
-      <category term="course" scheme="https://beasuna.xyz/tags/course/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>congruence polynomial</title>
-    <link href="https://beasuna.xyz/math-congruence-polynomial/"/>
-    <id>https://beasuna.xyz/math-congruence-polynomial/</id>
-    <published>2020-04-12T13:24:08.000Z</published>
-    <updated>2020-04-12T13:24:43.550Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;同余式&quot;&gt;&lt;a href=&quot;#同余式&quot; class=&quot;headerlink&quot; title=&quot;同余式&quot;&gt;&lt;/a&gt;同余式&lt;/h3&gt;&lt;h4 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot;
         
       
     
