@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://beasuna.xyz/"/>
-  <updated>2020-05-03T03:31:04.766Z</updated>
+  <updated>2020-05-04T09:01:05.077Z</updated>
   <id>https://beasuna.xyz/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>eval</title>
+    <link href="https://beasuna.xyz/pytorch-eval/"/>
+    <id>https://beasuna.xyz/pytorch-eval/</id>
+    <published>2020-05-04T08:52:50.000Z</published>
+    <updated>2020-05-04T09:01:05.077Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;对于一些含有 &lt;a href=&quot;https://www.youtube.com/watch?v=BZh1ltr5Rkg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;BN&lt;/a&gt; 层和 &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="pytorch" scheme="https://beasuna.xyz/categories/pytorch/"/>
+    
+    
+      <category term="pytorch" scheme="https://beasuna.xyz/tags/pytorch/"/>
+    
+      <category term="tip" scheme="https://beasuna.xyz/tags/tip/"/>
+    
+      <category term="machine learning" scheme="https://beasuna.xyz/tags/machine-learning/"/>
+    
+  </entry>
   
   <entry>
     <title>normal form</title>
@@ -131,9 +162,9 @@
     
       <category term="computer science" scheme="https://beasuna.xyz/tags/computer-science/"/>
     
-      <category term="deadlock" scheme="https://beasuna.xyz/tags/deadlock/"/>
-    
       <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
+    
+      <category term="deadlock" scheme="https://beasuna.xyz/tags/deadlock/"/>
     
   </entry>
   
@@ -604,37 +635,6 @@
       <category term="os" scheme="https://beasuna.xyz/tags/os/"/>
     
       <category term="semaphore" scheme="https://beasuna.xyz/tags/semaphore/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Path Parameters and Numeric Validations</title>
-    <link href="https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/"/>
-    <id>https://beasuna.xyz/fastapi-path-parameters-and-numeric-validations/</id>
-    <published>2020-04-12T16:29:42.000Z</published>
-    <updated>2020-04-12T16:39:03.402Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;Path-Parameters-and-Numeric-Validations&quot;&gt;&lt;a href=&quot;#Path-Parameters-and-Numeric-Validations&quot; class=&quot;headerlink&quot; title=&quot;Path
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://beasuna.xyz/categories/python/"/>
-    
-    
-      <category term="fastapi" scheme="https://beasuna.xyz/tags/fastapi/"/>
-    
-      <category term="python" scheme="https://beasuna.xyz/tags/python/"/>
-    
-      <category term="web" scheme="https://beasuna.xyz/tags/web/"/>
     
   </entry>
   

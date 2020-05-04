@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>eval</title>
+      <link href="/pytorch-eval/"/>
+      <url>/pytorch-eval/</url>
+      
+        <content type="html"><![CDATA[<p>对于一些含有 <a href="https://www.youtube.com/watch?v=BZh1ltr5Rkg" target="_blank" rel="noopener">BN</a> 层和 <a href="https://www.youtube.com/watch?v=xki61j7z-30&amp;list=PLJV_el3uVTsPy9oCRY30oBPNLCo89yu49&amp;index=16" target="_blank" rel="noopener">Dropout</a> 层的模型来说，训练时的 forward 和测试时的 forward 是不同的，因此在前向传播的过程中需要指定是在训练还是在测试</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> pytorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pytorch </tag>
+            
+            <tag> tip </tag>
+            
+            <tag> machine learning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>normal form</title>
       <link href="/db-normal-form/"/>
       <url>/db-normal-form/</url>
@@ -105,9 +134,9 @@
             
             <tag> computer science </tag>
             
-            <tag> deadlock </tag>
-            
             <tag> os </tag>
+            
+            <tag> deadlock </tag>
             
         </tags>
       
